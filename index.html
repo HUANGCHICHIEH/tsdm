@@ -6,10 +6,13 @@
     <title>台灣災難醫學會 TSDM</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <style>
-        .roster-table th { @apply bg-blue-100 text-blue-900 px-4 py-2 text-left border; }
+        .roster-table th { @apply bg-blue-100 text-blue-900 px-4 py-2 text-left border w-1/4; }
         .roster-table td { @apply px-4 py-2 border border-gray-200; }
-        .roster-title { @apply text-xl font-bold mt-8 mb-4 text-blue-800 border-l-4 border-blue-800 pl-3; }
-        html { scroll-behavior: smooth; } /* 讓點選連結時的捲動更平滑 */
+        .tab-btn { @apply px-6 py-2 font-bold transition-all border-b-4 border-transparent cursor-pointer text-gray-500; }
+        .tab-btn.active { @apply border-blue-900 text-blue-900 bg-blue-50; }
+        .tab-content { display: none; }
+        .tab-content.active { display: block; }
+        html { scroll-behavior: smooth; }
     </style>
 </head>
 <body class="bg-slate-50 text-gray-800">
@@ -53,35 +56,62 @@
         <section id="roster-section" class="mb-16">
             <h3 class="text-3xl font-bold mb-8 border-b-2 border-blue-900 pb-2 text-blue-900">理監事名冊</h3>
 
-            <div class="bg-white p-6 rounded-lg shadow-md mb-8 border-t-4 border-blue-900">
-                <h4 class="roster-title">第九屆 (114.01 - 117.01)</h4>
-                <div class="overflow-x-auto">
-                    <table class="w-full roster-table border-collapse">
-                        <tr><th width="20%">理事長</th><td>洪世文</td></tr>
-                        <tr><th>常務理事</th><td>王宗倫、馬漢平、鄭銘泰、符凌斌</td></tr>
-                        <tr><th>理事</th><td>李宜恭、張志華、蔡易廷、林志豪、陳國智、侯鐘閎、陳厚全、黃錦源、侯勝文、翁健瑞</td></tr>
-                        <tr><th>常務監事</th><td>林秋梅</td></tr>
-                        <tr><th>監事</th><td>李芳年、連楚明、蔡光超、白永嘉</td></tr>
-                        <tr><th>秘書處</th><td>陳玉龍秘書長、陳暉翰副秘書長</td></tr>
-                    </table>
-                </div>
+            <div class="flex flex-wrap border-b border-gray-200 mb-6 bg-white rounded-t-lg">
+                <div class="tab-btn active" onclick="openTab(event, 'term9')">第九屆</div>
+                <div class="tab-btn" onclick="openTab(event, 'term8')">第八屆</div>
+                <div class="tab-btn" onclick="openTab(event, 'term7')">第七屆</div>
+                <div class="tab-btn" onclick="openTab(event, 'term6')">第六屆</div>
             </div>
 
-            <div class="bg-white p-6 rounded-lg shadow-md mb-8">
-                <h4 class="roster-title text-gray-600 border-gray-400">第八屆 (110.12 - 113.12)</h4>
-                <div class="overflow-x-auto text-gray-600">
-                    <table class="w-full roster-table border-collapse opacity-80">
-                        <tr><th width="20%">理事長</th><td>王宗倫</td></tr>
-                        <tr><th>常務理事</th><td>李宜恭、洪世文、馬漢平、張志華</td></tr>
-                        <tr><th>理事</th><td>張志華、鄭銘泰、蔡易廷、洪世文、林志豪、陳國智、侯鐘閎、符凌斌、陳厚全、黃錦源</td></tr>
-                        <tr><th>常務監事</th><td>林秋梅</td></tr>
-                        <tr><th>監事</th><td>李芳年、連楚明、蔡光超、白永嘉</td></tr>
-                        <tr><th>秘書處</th><td>侯勝文秘書長、陳玉龍副秘書長、鄭伯良副秘書長</td></tr>
-                    </table>
-                </div>
+            <div id="term9" class="tab-content active bg-white p-6 rounded-b-lg shadow-md border-t-4 border-blue-900">
+                <h4 class="text-xl font-bold mb-4 text-blue-800">第九屆理監事名冊 <span class="text-sm font-normal text-gray-500 ml-2">(民國114年01月至117年01月)</span></h4>
+                <table class="w-full roster-table border-collapse">
+                    <tr><th>【理事長】</th><td>洪世文</td></tr>
+                    <tr><th>【常務理事】</th><td>王宗倫、馬漢平、鄭銘泰、符凌斌</td></tr>
+                    <tr><th>【理事】</th><td>李宜恭、張志華、蔡易廷、林志豪、陳國智、侯鐘閎、陳厚全、黃錦源、侯勝文、翁健瑞</td></tr>
+                    <tr><th>【常務監事】</th><td>林秋梅</td></tr>
+                    <tr><th>【監事】</th><td>李芳年、連楚明、蔡光超、白永嘉</td></tr>
+                    <tr><th>【秘書處】</th><td>陳玉龍秘書長、陳暉翰副秘書長</td></tr>
+                </table>
+            </div>
+
+            <div id="term8" class="tab-content bg-white p-6 rounded-b-lg shadow-md">
+                <h4 class="text-xl font-bold mb-4 text-blue-800">第八屆理監事名冊 <span class="text-sm font-normal text-gray-500 ml-2">(民國110年12月至113年12月)</span></h4>
+                <table class="w-full roster-table border-collapse">
+                    <tr><th>【理事長】</th><td>王宗倫</td></tr>
+                    <tr><th>【常務理事】</th><td>李宜恭、洪世文、馬漢平、張志華</td></tr>
+                    <tr><th>【理事】</th><td>張志華、鄭銘泰、蔡易廷、洪世文、林志豪、陳國智、侯鐘閎、符凌斌、陳厚全、黃錦源</td></tr>
+                    <tr><th>【常務監事】</th><td>林秋梅</td></tr>
+                    <tr><th>【監事】</th><td>李芳年、連楚明、蔡光超、白永嘉</td></tr>
+                    <tr><th>【秘書處】</th><td>侯勝文秘書長、陳玉龍副秘書長、鄭伯良副秘書長</td></tr>
+                </table>
+            </div>
+
+            <div id="term7" class="tab-content bg-white p-6 rounded-b-lg shadow-md">
+                <h4 class="text-xl font-bold mb-4 text-blue-800">第七屆理監事名冊 <span class="text-sm font-normal text-gray-500 ml-2">(民國107年12月至110年12月)</span></h4>
+                <table class="w-full roster-table border-collapse">
+                    <tr><th>【理事長】</th><td>王宗倫</td></tr>
+                    <tr><th>【常務理事】</th><td>李宜恭、洪世文、馬漢平、張志華</td></tr>
+                    <tr><th>【理事】</th><td>林志豪、侯鐘閎、符凌斌、陳國智、黃炳文、廖耕望、蔡卓城、蔡易廷、蔡維謀、鄭銘泰</td></tr>
+                    <tr><th>【常務監事】</th><td>蔡光超</td></tr>
+                    <tr><th>【監事】</th><td>白永嘉、李芳年、林秋梅、連楚明</td></tr>
+                    <tr><th>【秘書處】</th><td>侯勝文秘長、陳玉龍副秘書長、鄭伯良副秘書長</td></tr>
+                </table>
+            </div>
+
+            <div id="term6" class="tab-content bg-white p-6 rounded-b-lg shadow-md">
+                <h4 class="text-xl font-bold mb-4 text-blue-800">第六屆理監事名冊 <span class="text-sm font-normal text-gray-500 ml-2">(民國104年11月至107年11月)</span></h4>
+                <table class="w-full roster-table border-collapse">
+                    <tr><th>【理事長】</th><td>張 珩</td></tr>
+                    <tr><th>【常務理事】</th><td>李宜恭、馬漢平、蔡卓城、蔡維謀</td></tr>
+                    <tr><th>【理事】</th><td>王宗倫、白永嘉、李賢發、邱豐祥、洪世文、莊佳璋、陳國智、黃炳文、蔡明哲、蔡易廷</td></tr>
+                    <tr><th>【常務監事】</th><td>林秋梅</td></tr>
+                    <tr><th>【監事】</th><td>李芳年、連楚明、蔡光超、藍章杰</td></tr>
+                    <tr><th>【秘書處】</th><td>李宜恭</td></tr>
+                </table>
             </div>
             
-            <p class="text-center text-gray-400 text-sm italic">（更早屆數名冊請聯繫秘書處查詢）</p>
+            <p class="text-center text-gray-400 text-sm mt-6 italic">（更早屆數名冊請聯繫秘書處查詢）</p>
         </section>
 
         <section id="donation-section">
@@ -100,9 +130,7 @@
                 <ul class="space-y-3 opacity-90">
                     <li class="flex items-start">
                         <span class="mr-2">📍</span>
-                        <a href="https://www.google.com/maps/search/?api=1&query=台北市士林區文昌路95號" target="_blank" class="hover:underline">
-                            111台北市士林區文昌路95號
-                        </a>
+                        <a href="#" class="hover:underline">111台北市士林區文昌路95號</a>
                     </li>
                     <li class="flex items-center">
                         <span class="mr-2">📞</span>
@@ -120,6 +148,28 @@
             </div>
         </div>
     </footer>
+
+    <script>
+        function openTab(evt, termName) {
+            var i, tabcontent, tablinks;
+            
+            // 隱藏所有內容
+            tabcontent = document.getElementsByClassName("tab-content");
+            for (i = 0; i < tabcontent.length; i++) {
+                tabcontent[i].classList.remove("active");
+            }
+
+            // 移除所有按鈕的 active 狀態
+            tablinks = document.getElementsByClassName("tab-btn");
+            for (i = 0; i < tablinks.length; i++) {
+                tablinks[i].classList.remove("active");
+            }
+
+            // 顯示當前點選的內容，並增加 active 類別
+            document.getElementById(termName).classList.add("active");
+            evt.currentTarget.classList.add("active");
+        }
+    </script>
 
 </body>
 </html>
