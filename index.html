@@ -5,13 +5,19 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>台灣災難醫學會 TSDM</title>
     <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        .roster-table th { @apply bg-blue-100 text-blue-900 px-4 py-2 text-left border; }
+        .roster-table td { @apply px-4 py-2 border border-gray-200; }
+        .roster-title { @apply text-xl font-bold mt-8 mb-4 text-blue-800 border-l-4 border-blue-800 pl-3; }
+        html { scroll-behavior: smooth; } /* 讓點選連結時的捲動更平滑 */
+    </style>
 </head>
 <body class="bg-slate-50 text-gray-800">
 
-    <nav class="bg-blue-900 text-white p-4 shadow-lg">
+    <nav class="bg-blue-900 text-white p-4 shadow-lg sticky top-0 z-50">
         <div class="container mx-auto flex flex-col lg:flex-row justify-between items-center">
             <div class="flex items-center mb-4 lg:mb-0">
-                <img src="logo.png" alt="台灣災難醫學會 Logo" class="h-20 w-auto mr-3"> 
+                <img src="logo.png" alt="台灣災難醫學會 Logo" class="h-16 w-auto mr-3"> 
                 <h1 class="text-xl font-bold tracking-tight">台灣災難醫學會</h1>
             </div>
             
@@ -19,10 +25,9 @@
                 <a href="#" class="hover:text-blue-200 transition">最新消息</a>
                 <a href="#" class="hover:text-blue-200 transition">活動訊息</a>
                 <a href="#" class="hover:text-blue-200 transition">加入會員</a>
-                <a href="#" class="hover:text-blue-200 transition">理監事名冊</a>
+                <a href="#roster-section" class="hover:text-blue-200 transition">理監事名冊</a>
                 <a href="#" class="hover:text-blue-200 transition">災難醫學通訊</a>
-                <a href="#" class="hover:text-blue-200 transition">Annals of Disaster Medicine</a>
-                
+                <a href="#" class="hover:text-blue-200 transition">Annals</a>
                 <a href="https://reurl.cc/oVMapq" class="bg-orange-500 hover:bg-orange-600 px-3 py-1 rounded font-bold transition flex items-center shadow-sm">
                     <span class="mr-1">❤️</span>支持捐款
                 </a>
@@ -31,32 +36,89 @@
     </nav>
 
     <header class="bg-blue-800 text-white py-16 text-center">
-        <h2 class="text-4xl font-bold">專業 ‧ 迅速 ‧ 守護生命</h2>
+        <h2 class="text-4xl font-bold italic">專業 ‧ 迅速 ‧ 守護生命</h2>
         <p class="mt-4 text-lg opacity-80">Taiwan Society for Disaster Medicine</p>
     </header>
 
     <main class="container mx-auto py-10 px-4">
         
-        <div class="bg-white p-8 rounded-lg shadow mb-10">
-            <h3 class="text-2xl font-bold mb-4 border-b-2 border-blue-900 pb-2">網站搬遷公告</h3>
-            <p class="leading-relaxed">本會網站目前正在進行系統升級與內容遷移，若有緊急事務請聯繫秘書處。</p>
-            <div class="mt-6 p-4 bg-yellow-50 border-l-4 border-yellow-400 text-yellow-700">
+        <div class="bg-white p-8 rounded-lg shadow mb-12">
+            <h3 class="text-2xl font-bold mb-4 border-b-2 border-blue-900 pb-2 text-blue-900">網站搬遷公告</h3>
+            <p class="leading-relaxed text-lg text-gray-700">本會網站目前正在進行系統升級與內容遷移，若有緊急事務請聯繫秘書處。</p>
+            <div class="mt-6 p-4 bg-yellow-50 border-l-4 border-yellow-400 text-yellow-700 font-medium">
                 預計於近期恢復完整功能，造成不便敬請見諒。
             </div>
         </div>
 
+        <section id="roster-section" class="mb-16">
+            <h3 class="text-3xl font-bold mb-8 border-b-2 border-blue-900 pb-2 text-blue-900">理監事名冊</h3>
+
+            <div class="bg-white p-6 rounded-lg shadow-md mb-8 border-t-4 border-blue-900">
+                <h4 class="roster-title">第九屆 (114.01 - 117.01)</h4>
+                <div class="overflow-x-auto">
+                    <table class="w-full roster-table border-collapse">
+                        <tr><th width="20%">理事長</th><td>洪世文</td></tr>
+                        <tr><th>常務理事</th><td>王宗倫、馬漢平、鄭銘泰、符凌斌</td></tr>
+                        <tr><th>理事</th><td>李宜恭、張志華、蔡易廷、林志豪、陳國智、侯鐘閎、陳厚全、黃錦源、侯勝文、翁健瑞</td></tr>
+                        <tr><th>常務監事</th><td>林秋梅</td></tr>
+                        <tr><th>監事</th><td>李芳年、連楚明、蔡光超、白永嘉</td></tr>
+                        <tr><th>秘書處</th><td>陳玉龍秘書長、陳暉翰副秘書長</td></tr>
+                    </table>
+                </div>
+            </div>
+
+            <div class="bg-white p-6 rounded-lg shadow-md mb-8">
+                <h4 class="roster-title text-gray-600 border-gray-400">第八屆 (110.12 - 113.12)</h4>
+                <div class="overflow-x-auto text-gray-600">
+                    <table class="w-full roster-table border-collapse opacity-80">
+                        <tr><th width="20%">理事長</th><td>王宗倫</td></tr>
+                        <tr><th>常務理事</th><td>李宜恭、洪世文、馬漢平、張志華</td></tr>
+                        <tr><th>理事</th><td>張志華、鄭銘泰、蔡易廷、洪世文、林志豪、陳國智、侯鐘閎、符凌斌、陳厚全、黃錦源</td></tr>
+                        <tr><th>常務監事</th><td>林秋梅</td></tr>
+                        <tr><th>監事</th><td>李芳年、連楚明、蔡光超、白永嘉</td></tr>
+                        <tr><th>秘書處</th><td>侯勝文秘書長、陳玉龍副秘書長、鄭伯良副秘書長</td></tr>
+                    </table>
+                </div>
+            </div>
+            
+            <p class="text-center text-gray-400 text-sm italic">（更早屆數名冊請聯繫秘書處查詢）</p>
+        </section>
+
         <section id="donation-section">
             <h3 class="text-2xl font-bold mb-6 border-b-2 border-orange-500 pb-2 text-blue-900 text-center">支持推動災難醫學發展</h3>
             <div class="bg-white rounded-lg shadow-lg overflow-hidden border border-gray-200">
-                <iframe src="https://docs.google.com/forms/d/e/1FAIpQLSeM0GhLYrRMvbBH58Wiy2wrt-1QiRzlMVhnK523nE_uXDa_8g/viewform?embedded=true" width="100%" height="2214" frameborder="0" marginheight="0" marginwidth="0" class="mx-auto">載入中…</iframe>
+                <iframe src="https://docs.google.com/forms/d/e/1FAIpQLSeM0GhLYrRMvbBH58Wiy2wrt-1QiRzlMVhnK523nE_uXDa_8g/viewform?embedded=true" width="100%" height="800" frameborder="0" marginheight="0" marginwidth="0" class="mx-auto">載入中…</iframe>
             </div>
         </section>
 
     </main>
 
-    <footer class="bg-gray-100 text-center py-8 text-gray-500 text-sm border-t border-gray-200">
-        <p class="mb-2">© 2026 台灣災難醫學會 Taiwan Society for Disaster Medicine</p>
-        <p>聯繫信箱：service@disaster.org.tw</p>
+    <footer class="bg-blue-900 text-white py-12 px-4 border-t-8 border-orange-500">
+        <div class="container mx-auto grid grid-cols-1 md:grid-cols-2 gap-8">
+            <div>
+                <h4 class="text-xl font-bold mb-4 border-b border-blue-700 pb-2">台灣災難醫學會</h4>
+                <ul class="space-y-3 opacity-90">
+                    <li class="flex items-start">
+                        <span class="mr-2">📍</span>
+                        <a href="https://www.google.com/maps/search/?api=1&query=台北市士林區文昌路95號" target="_blank" class="hover:underline">
+                            111台北市士林區文昌路95號
+                        </a>
+                    </li>
+                    <li class="flex items-center">
+                        <span class="mr-2">📞</span>
+                        TEL: (02) 2833-2211 分機 2082
+                    </li>
+                    <li class="flex items-center">
+                        <span class="mr-2">✉️</span>
+                        Email: <a href="mailto:ndmstw@gmail.com" class="hover:underline">ndmstw@gmail.com</a>
+                    </li>
+                </ul>
+            </div>
+            <div class="flex flex-col justify-center items-center md:items-end">
+                <p class="text-sm opacity-60">© 2026 Taiwan Society for Disaster Medicine</p>
+                <p class="text-xs opacity-40 mt-2 italic">專業 ‧ 迅速 ‧ 守護生命</p>
+            </div>
+        </div>
     </footer>
 
 </body>
