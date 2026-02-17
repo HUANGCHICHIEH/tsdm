@@ -6,27 +6,14 @@
     <title>台灣災難醫學會 TSDM</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <style>
-        /* 表格樣式 */
+        /* 表格與分頁樣式 */
         .roster-table th { @apply bg-blue-50 text-blue-900 px-4 py-3 text-left border w-32 md:w-48 align-top font-bold; }
         .roster-table td { @apply px-4 py-3 border border-gray-200 leading-relaxed; }
-        
-        /* 頁籤樣式 */
-        .tab-btn { 
-            @apply px-6 py-3 font-bold transition-all border-b-2 border-transparent cursor-pointer text-gray-500 hover:text-blue-700 hover:bg-blue-50;
-        }
-        .tab-btn.active { 
-            @apply border-blue-900 text-blue-900 bg-white shadow-[0_-2px_10px_rgba(0,0,0,0.05)];
-        }
-        
-        /* 內容隱藏/顯示控制 */
+        .tab-btn { @apply px-6 py-3 font-bold transition-all border-b-2 border-transparent cursor-pointer text-gray-500 hover:text-blue-700 hover:bg-blue-50; }
+        .tab-btn.active { @apply border-blue-900 text-blue-900 bg-white; }
         .tab-content { display: none; }
         .tab-content.active { display: block; animation: fadeIn 0.3s ease-in-out; }
-
-        @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(5px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
-
+        @keyframes fadeIn { from { opacity: 0; transform: translateY(5px); } to { opacity: 1; transform: translateY(0); } }
         html { scroll-behavior: smooth; }
     </style>
 </head>
@@ -35,35 +22,22 @@
     <nav class="bg-blue-900 text-white p-4 shadow-lg sticky top-0 z-50">
         <div class="container mx-auto flex flex-col lg:flex-row justify-between items-center">
             <div class="flex items-center mb-4 lg:mb-0">
-                <img src="logo.png" alt="Logo" class="h-12 w-auto mr-3"> 
                 <h1 class="text-xl font-bold tracking-tight">台灣災難醫學會</h1>
             </div>
-            
             <div class="flex flex-wrap justify-center items-center gap-4 text-sm md:text-base">
-                <a href="#" class="hover:text-blue-200 transition">最新消息</a>
-                <a href="#" class="hover:text-blue-200 transition">活動訊息</a>
-                <a href="#" class="hover:text-blue-200 transition">加入會員</a>
                 <a href="#roster-section" class="hover:text-blue-200 transition">理監事名冊</a>
-                <a href="#" class="hover:text-blue-200 transition">災難醫學通訊</a>
-                <a href="#" class="hover:text-blue-200 transition">Annals</a>
-                <a href="https://reurl.cc/oVMapq" class="bg-orange-500 hover:bg-orange-600 px-3 py-1 rounded font-bold transition flex items-center shadow-sm">
+                <a href="#donation-section" class="bg-orange-500 hover:bg-orange-600 px-3 py-1 rounded font-bold transition flex items-center shadow-sm">
                     <span class="mr-1">❤️</span>支持捐款
                 </a>
             </div>
         </div>
     </nav>
 
-    <header class="bg-blue-800 text-white py-12 text-center">
-        <h2 class="text-3xl font-bold italic">專業 ‧ 迅速 ‧ 守護生命</h2>
-        <p class="mt-2 text-md opacity-80">Taiwan Society for Disaster Medicine</p>
-    </header>
-
     <main class="container mx-auto py-10 px-4 max-w-5xl">
         
-        <section id="roster-section" class="mb-16">
+        <section id="roster-section" class="mb-20">
             <h3 class="text-3xl font-bold mb-6 border-b-2 border-blue-900 pb-2 text-blue-900">理監事名冊</h3>
-
-            <div class="flex flex-wrap border-b border-gray-300 mb-0 bg-gray-100 rounded-t-lg overflow-hidden">
+            <div class="flex flex-wrap border-b border-gray-300 bg-gray-100 rounded-t-lg overflow-hidden">
                 <button class="tab-btn active" onclick="openTab(event, 'term9')">第九屆</button>
                 <button class="tab-btn" onclick="openTab(event, 'term8')">第八屆</button>
                 <button class="tab-btn" onclick="openTab(event, 'term7')">第七屆</button>
@@ -71,13 +45,9 @@
             </div>
 
             <div class="bg-white p-6 md:p-10 rounded-b-lg shadow-lg border border-gray-200">
-                
                 <div id="term9" class="tab-content active">
-                    <div class="mb-6">
-                        <h4 class="text-2xl font-bold text-blue-800">第九屆理監事名冊</h4>
-                        <p class="text-gray-500 font-medium mt-1">任職期間：民國114年01月至117年01月</p>
-                    </div>
-                    <table class="w-full roster-table border-collapse">
+                    <h4 class="text-2xl font-bold text-blue-800 mb-4">第九屆理監事名冊</h4>
+                    <table class="w-full roster-table">
                         <tr><th>【理事長】</th><td>洪世文</td></tr>
                         <tr><th>【常務理事】</th><td>王宗倫、馬漢平、鄭銘泰、符凌斌</td></tr>
                         <tr><th>【理事】</th><td>李宜恭、張志華、蔡易廷、林志豪、陳國智、侯鐘閎、陳厚全、黃錦源、侯勝文、翁健瑞</td></tr>
@@ -86,87 +56,33 @@
                         <tr><th>【秘書處】</th><td>陳玉龍秘書長、陳暉翰副秘書長</td></tr>
                     </table>
                 </div>
-
-                <div id="term8" class="tab-content">
-                    <div class="mb-6">
-                        <h4 class="text-2xl font-bold text-blue-800">第八屆理監事名冊</h4>
-                        <p class="text-gray-500 font-medium mt-1">任職期間：民國110年12月至113年12月</p>
-                    </div>
-                    <table class="w-full roster-table border-collapse">
-                        <tr><th>【理事長】</th><td>王宗倫</td></tr>
-                        <tr><th>【常務理事】</th><td>李宜恭、洪世文、馬漢平、張志華</td></tr>
-                        <tr><th>【理事】</th><td>張志華、鄭銘泰、蔡易廷、洪世文、林志豪、陳國智、侯鐘閎、符凌斌、陳厚全、黃錦源</td></tr>
-                        <tr><th>【常務監事】</th><td>林秋梅</td></tr>
-                        <tr><th>【監事】</th><td>李芳年、連楚明、蔡光超、白永嘉</td></tr>
-                        <tr><th>【秘書處】</th><td>侯勝文秘書長、陳玉龍副秘書長、鄭伯良副秘書長</td></tr>
-                    </table>
                 </div>
+        </section>
 
-                <div id="term7" class="tab-content">
-                    <div class="mb-6">
-                        <h4 class="text-2xl font-bold text-blue-800">第七屆理監事名冊</h4>
-                        <p class="text-gray-500 font-medium mt-1">任職期間：民國107年12月至110年12月</p>
-                    </div>
-                    <table class="w-full roster-table border-collapse">
-                        <tr><th>【理事長】</th><td>王宗倫</td></tr>
-                        <tr><th>【常務理事】</th><td>李宜恭、洪世文、馬漢平、張志華</td></tr>
-                        <tr><th>【理事】</th><td>林志豪、侯鐘閎、符凌斌、陳國智、黃炳文、廖耕望、蔡卓城、蔡易廷、蔡維謀、鄭銘泰</td></tr>
-                        <tr><th>【常務監事】</th><td>蔡光超</td></tr>
-                        <tr><th>【監事】</th><td>白永嘉、李芳年、林秋梅、連楚明</td></tr>
-                        <tr><th>【秘書處】</th><td>侯勝文秘長 、陳玉龍副秘書長、鄭伯良副秘書長</td></tr>
-                    </table>
+        <section id="donation-section" class="mb-20">
+            <h3 class="text-3xl font-bold mb-6 border-b-2 border-orange-500 pb-2 text-blue-900">支持捐款</h3>
+            <div class="bg-white rounded-xl shadow-2xl overflow-hidden border border-gray-200">
+                <iframe 
+                    src="https://docs.google.com/forms/d/e/1FAIpQLSeM0GhLYrRMvbBH58Wiy2wrt-1QiRzlMVhnK523nE_uXDa_8g/viewform?embedded=true" 
+                    width="100%" 
+                    height="2214" 
+                    frameborder="0" 
+                    marginheight="0" 
+                    marginwidth="0"
+                    class="mx-auto">
+                    載入中…
+                </iframe>
                 </div>
-
-                <div id="term6" class="tab-content">
-                    <div class="mb-6">
-                        <h4 class="text-2xl font-bold text-blue-800">第六屆理監事名冊</h4>
-                        <p class="text-gray-500 font-medium mt-1">任職期間：民國104年11月至107年11月</p>
-                    </div>
-                    <table class="w-full roster-table border-collapse">
-                        <tr><th>【理事長】</th><td>張 珩</td></tr>
-                        <tr><th>【常務理事】</th><td>李宜恭、馬漢平、蔡卓城、蔡維謀</td></tr>
-                        <tr><th>【理事】</th><td>王宗倫、白永嘉、李賢發、邱豐祥、洪世文、莊佳璋、陳國智、黃炳文、蔡明哲、蔡易廷</td></tr>
-                        <tr><th>【常務監事】</th><td>林秋梅</td></tr>
-                        <tr><th>【監事】</th><td>李芳年、連楚明、蔡光超、藍章杰</td></tr>
-                        <tr><th>【秘書處】</th><td>李宜恭</td></tr>
-                    </table>
-                </div>
-
-            </div>
-            <p class="text-center text-gray-400 text-sm mt-8 italic">（如需更早屆數名冊，請聯繫秘書處查詢）</p>
         </section>
 
     </main>
 
-    <footer class="bg-blue-900 text-white py-10 px-4 border-t-8 border-orange-500 text-center md:text-left">
-        <div class="container mx-auto grid grid-cols-1 md:grid-cols-2 gap-8">
-            <div>
-                <h4 class="text-xl font-bold mb-4">台灣災難醫學會</h4>
-                <p class="opacity-80 mb-2">📍 111台北市士林區文昌路95號</p>
-                <p class="opacity-80 mb-2">📞 TEL: (02) 2833-2211 分機 2082</p>
-                <p class="opacity-80">✉️ Email: ndmstw@gmail.com</p>
-            </div>
-            <div class="flex flex-col justify-center items-center md:items-end">
-                <p class="text-sm opacity-60">© 2026 Taiwan Society for Disaster Medicine</p>
-            </div>
-        </div>
-    </footer>
-
     <script>
         function openTab(evt, termId) {
-            // 1. 隱藏所有內容
             const contents = document.getElementsByClassName("tab-content");
-            for (let i = 0; i < contents.length; i++) {
-                contents[i].classList.remove("active");
-            }
-
-            // 2. 取消所有按鈕的啟用樣式
+            for (let i = 0; i < contents.length; i++) contents[i].classList.remove("active");
             const buttons = document.getElementsByClassName("tab-btn");
-            for (let i = 0; i < buttons.length; i++) {
-                buttons[i].classList.remove("active");
-            }
-
-            // 3. 顯示點選的內容並啟用該按鈕樣式
+            for (let i = 0; i < buttons.length; i++) buttons[i].classList.remove("active");
             document.getElementById(termId).classList.add("active");
             evt.currentTarget.classList.add("active");
         }
