@@ -26,21 +26,21 @@
         html { scroll-behavior: smooth; }
     </style>
 </head>
-<body class="bg-slate-50 text-gray-800">
+<body class="bg-slate-50 text-gray-800 flex flex-col min-h-screen">
 
     <nav class="bg-blue-900 text-white p-4 shadow-lg sticky top-0 z-50">
         <div class="container mx-auto flex flex-col lg:flex-row justify-between items-center">
-            <div class="flex items-center mb-4 lg:mb-0">
-                <h1 class="text-xl font-bold tracking-tight cursor-pointer" onclick="showSection('roster-area')">台灣災難醫學會</h1>
+            <div class="flex items-center mb-4 lg:mb-0 cursor-pointer" onclick="showSection('roster-area')">
+                <h1 class="text-xl font-bold tracking-tight">台灣災難醫學會</h1>
             </div>
             
             <div class="flex flex-wrap justify-center items-center gap-4 text-sm md:text-base">
-                <a href="#" class="hover:text-blue-200 transition">最新消息</a>
-                <a href="#" class="hover:text-blue-200 transition">活動訊息</a>
-                <a href="#" class="hover:text-blue-200 transition">加入會員</a>
-                <button onclick="showSection('roster-area')" class="hover:text-blue-200 transition font-bold">理監事名冊</button>
-                <a href="#" class="hover:text-blue-200 transition">災難醫學通訊</a>
-                <a href="#" class="hover:text-blue-200 transition">Annals</a>
+                <button onclick="showSection('coming-soon')" class="hover:text-blue-200 transition">最新消息</button>
+                <button onclick="showSection('coming-soon')" class="hover:text-blue-200 transition">活動訊息</button>
+                <button onclick="showSection('coming-soon')" class="hover:text-blue-200 transition">加入會員</button>
+                <button onclick="showSection('roster-area')" class="hover:text-blue-200 transition font-bold border-b-2 border-orange-400">理監事名冊</button>
+                <button onclick="showSection('coming-soon')" class="hover:text-blue-200 transition">災難醫學通訊</button>
+                <button onclick="showSection('coming-soon')" class="hover:text-blue-200 transition">Annals</button>
                 <button onclick="showSection('donation-area')" class="bg-orange-500 hover:bg-orange-600 px-4 py-1 rounded font-bold transition flex items-center shadow-sm text-white">
                     <span class="mr-1">❤️</span>支持捐款
                 </button>
@@ -48,7 +48,7 @@
         </div>
     </nav>
 
-    <main class="container mx-auto py-10 px-4 max-w-5xl">
+    <main class="container mx-auto py-10 px-4 max-w-5xl flex-grow">
         
         <section id="roster-area" class="content-section active">
             <h3 class="text-3xl font-bold mb-6 border-b-2 border-blue-900 pb-2 text-blue-900">理監事名冊</h3>
@@ -61,10 +61,8 @@
             </div>
 
             <div class="bg-white p-6 md:p-10 rounded-b-lg shadow-lg border border-gray-200">
-                
                 <div id="term9" class="term-content active">
-                    <h4 class="text-2xl font-bold text-blue-800 mb-4">第九屆理監事名冊</h4>
-                    <p class="mb-4 text-gray-500">任職期間：民國114年01月至117年01月</p>
+                    <h4 class="text-2xl font-bold text-blue-800 mb-4">第九屆理監事名冊 (114.01-117.01)</h4>
                     <table class="w-full roster-table">
                         <tr><th>【理事長】</th><td>洪世文</td></tr>
                         <tr><th>【常務理事】</th><td>王宗倫、馬漢平、鄭銘泰、符凌斌</td></tr>
@@ -74,10 +72,8 @@
                         <tr><th>【秘書處】</th><td>陳玉龍秘書長、陳暉翰副秘書長</td></tr>
                     </table>
                 </div>
-
                 <div id="term8" class="term-content">
-                    <h4 class="text-2xl font-bold text-blue-800 mb-4">第八屆理監事名冊</h4>
-                    <p class="mb-4 text-gray-500">任職期間：民國110年12月至113年12月</p>
+                    <h4 class="text-2xl font-bold text-blue-800 mb-4">第八屆理監事名冊 (110.12-113.12)</h4>
                     <table class="w-full roster-table">
                         <tr><th>【理事長】</th><td>王宗倫</td></tr>
                         <tr><th>【常務理事】</th><td>李宜恭、洪世文、馬漢平、張志華</td></tr>
@@ -87,23 +83,19 @@
                         <tr><th>【秘書處】</th><td>侯勝文秘書長、陳玉龍副秘書長、鄭伯良副秘書長</td></tr>
                     </table>
                 </div>
-
                 <div id="term7" class="term-content">
-                    <h4 class="text-2xl font-bold text-blue-800 mb-4">第七屆理監事名冊</h4>
-                    <p class="mb-4 text-gray-500">任職期間：民國107年12月至110年12月</p>
+                    <h4 class="text-2xl font-bold text-blue-800 mb-4">第七屆理監事名冊 (107.12-110.12)</h4>
                     <table class="w-full roster-table">
                         <tr><th>【理事長】</th><td>王宗倫</td></tr>
                         <tr><th>【常務理事】</th><td>李宜恭、洪世文、馬漢平、張志華</td></tr>
                         <tr><th>【理事】</th><td>林志豪、侯鐘閎、符凌斌、陳國智、黃炳文、廖耕望、蔡卓城、蔡易廷、蔡維謀、鄭銘泰</td></tr>
                         <tr><th>【常務監事】</th><td>蔡光超</td></tr>
                         <tr><th>【監事】</th><td>白永嘉、李芳年、林秋梅、連楚明</td></tr>
-                        <tr><th>【秘書處】</th><td>侯勝文秘長 、陳玉龍副秘書長、鄭伯良副秘書長</td></tr>
+                        <tr><th>【秘書處】</th><td>侯勝文秘長、陳玉龍副秘書長、鄭伯良副秘書長</td></tr>
                     </table>
                 </div>
-
                 <div id="term6" class="term-content">
-                    <h4 class="text-2xl font-bold text-blue-800 mb-4">第六屆理監事名冊</h4>
-                    <p class="mb-4 text-gray-500">任職期間：民國104年11月至107年11月</p>
+                    <h4 class="text-2xl font-bold text-blue-800 mb-4">第六屆理監事名冊 (104.11-107.11)</h4>
                     <table class="w-full roster-table">
                         <tr><th>【理事長】</th><td>張 珩</td></tr>
                         <tr><th>【常務理事】</th><td>李宜恭、馬漢平、蔡卓城、蔡維謀</td></tr>
@@ -113,47 +105,50 @@
                         <tr><th>【秘書處】</th><td>李宜恭</td></tr>
                     </table>
                 </div>
-
             </div>
         </section>
 
         <section id="donation-area" class="content-section">
             <h3 class="text-3xl font-bold mb-6 border-b-2 border-orange-500 pb-2 text-blue-900">支持捐款</h3>
-            <div class="bg-white rounded-xl shadow-2xl overflow-hidden border border-gray-200">
-                <iframe 
-                    src="https://docs.google.com/forms/d/e/1FAIpQLSeM0GhLYrRMvbBH58Wiy2wrt-1QiRzlMVhnK523nE_uXDa_8g/viewform?embedded=true" 
-                    width="100%" 
-                    height="1800" 
-                    frameborder="0" 
-                    marginheight="0" 
-                    marginwidth="0"
-                    class="mx-auto">
-                    載入中…
-                </iframe>
+            <div class="bg-white rounded-xl shadow-lg overflow-hidden border border-gray-200">
+                <iframe src="https://docs.google.com/forms/d/e/1FAIpQLSeM0GhLYrRMvbBH58Wiy2wrt-1QiRzlMVhnK523nE_uXDa_8g/viewform?embedded=true" width="100%" height="1500" frameborder="0">載入中…</iframe>
+            </div>
+        </section>
+
+        <section id="coming-soon" class="content-section">
+            <div class="flex flex-col items-center justify-center py-32 bg-white rounded-xl shadow border border-dashed border-gray-300">
+                <span class="text-6xl mb-4">🚧</span>
+                <h3 class="text-4xl font-black text-gray-300 tracking-widest uppercase">Coming Soon!</h3>
+                <p class="mt-4 text-gray-400">該頁面功能正在更新中，敬請期待。</p>
             </div>
         </section>
 
     </main>
 
+    <footer class="bg-blue-950 text-gray-300 py-8 px-4 mt-auto border-t-4 border-orange-500">
+        <div class="container mx-auto text-center">
+            <h4 class="text-white font-bold mb-4 text-lg">台灣災難醫學會 Taiwan Society for Disaster Medicine</h4>
+            <div class="flex flex-col md:flex-row justify-center items-center gap-2 md:gap-6 text-sm">
+                <span>📍 台北市士林區文昌路95號</span>
+                <span class="hidden md:inline">│</span>
+                <span>📞 TEL: (02)2833-2211 ext. 2087</span>
+                <span class="hidden md:inline">│</span>
+                <span>✉️ Email: <a href="mailto:ndmstw@gmail.com" class="hover:text-white underline">ndmstw@gmail.com</a></span>
+            </div>
+            <p class="mt-6 text-xs opacity-50">© 2026 Taiwan Society for Disaster Medicine. All Rights Reserved.</p>
+        </div>
+    </footer>
+
     <script>
-        // 切換主區塊 (名冊 vs 捐款)
-        function showSection(sectionId) {
-            document.querySelectorAll('.content-section').forEach(section => {
-                section.classList.remove('active');
-            });
-            document.getElementById(sectionId).classList.add('active');
+        function showSection(id) {
+            document.querySelectorAll('.content-section').forEach(s => s.classList.remove('active'));
+            document.getElementById(id).classList.add('active');
             window.scrollTo({ top: 0, behavior: 'smooth' });
         }
-
-        // 切換名冊內的屆期
-        function switchTerm(evt, termId) {
-            document.querySelectorAll('.term-content').forEach(content => {
-                content.classList.remove('active');
-            });
-            document.querySelectorAll('.tab-btn').forEach(btn => {
-                btn.classList.remove('active');
-            });
-            document.getElementById(termId).classList.add('active');
+        function switchTerm(evt, id) {
+            document.querySelectorAll('.term-content').forEach(c => c.classList.remove('active'));
+            document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+            document.getElementById(id).classList.add('active');
             evt.currentTarget.classList.add('active');
         }
     </script>
