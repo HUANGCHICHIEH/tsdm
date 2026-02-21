@@ -6,212 +6,233 @@
     <title>台灣災難醫學會 TSDM</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <style>
-        /* 導覽列按鈕與動態橫條 (圖二需求) */
-        .nav-btn { @apply relative px-2 py-1 transition-all hover:text-blue-200; }
+        /* 導覽列按鈕與動態橘色橫條優化 (圖二、圖五需求) */
+        .nav-btn { @apply relative px-3 py-1 transition-all hover:text-orange-300; }
         .nav-btn::after {
             content: '';
-            @apply absolute left-0 bottom-[-4px] w-full h-[3px] bg-orange-400 scale-x-0 transition-transform duration-300;
+            @apply absolute left-1/2 bottom-[-8px] w-0 h-[4px] bg-orange-500 transition-all duration-300 transform -translate-x-1/2;
         }
-        .nav-btn.active::after { @apply scale-x-100; }
-        .nav-btn.active { @apply text-orange-400 font-bold; }
+        .nav-btn.active::after { @apply w-full; }
+        .nav-btn.active { @apply text-orange-400 font-black; }
 
-        /* 標題區塊設計 (圖一需求) */
+        /* 區塊標題美化設計 (圖一、標題美化需求) */
         .section-header {
-            @apply text-3xl font-bold mb-8 py-3 px-6 bg-gray-100 border-l-8 border-blue-900 text-blue-900 rounded-r-lg shadow-sm;
+            @apply text-3xl font-bold mb-8 py-4 px-8 bg-gradient-to-r from-gray-100 to-transparent border-l-[12px] border-blue-900 text-blue-900 rounded-r-xl shadow-md;
         }
 
-        /* 表格與分頁樣式 */
-        .roster-table th { @apply bg-blue-50 text-blue-900 px-4 py-3 text-left border w-32 md:w-48 align-top font-bold; }
-        .roster-table td { @apply px-4 py-3 border border-gray-200 leading-relaxed; }
+        /* 頁籤按鈕樣式 (修正圖三、圖四擠在一起的問題) */
+        .tab-btn { @apply px-8 py-3 font-bold transition-all border border-gray-300 rounded-t-xl mr-3 bg-gray-100 text-gray-500 hover:bg-white; }
+        .tab-btn.active { @apply border-blue-900 border-b-white text-blue-900 bg-white z-10 shadow-sm transform translate-y-[1px]; }
         
-        /* 頁籤按鈕樣式 (修正圖三擠在一起的問題) */
-        .tab-btn { @apply px-6 py-2 font-bold transition-all border border-gray-300 rounded-t-lg mr-2 bg-gray-50 text-gray-500; }
-        .tab-btn.active { @apply border-blue-900 border-b-white text-blue-900 bg-white z-10; }
-        
-        /* 內容顯示控制 */
+        /* 內容區塊顯示控制 */
         .content-section { display: none; }
-        .content-section.active { display: block; animation: fadeIn 0.3s ease-in-out; }
+        .content-section.active { display: block; animation: fadeIn 0.4s ease-out; }
         .sub-content { display: none; }
         .sub-content.active { display: block; }
-        .roster-content { display: none; }
-        .roster-content.active { display: block; }
 
-        @keyframes fadeIn { from { opacity: 0; transform: translateY(5px); } to { opacity: 1; transform: translateY(0); } }
+        @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
         html { scroll-behavior: smooth; }
     </style>
 </head>
 <body class="bg-slate-50 text-gray-800 flex flex-col min-h-screen">
 
-    <nav class="bg-blue-900 text-white p-4 shadow-lg sticky top-0 z-50">
+    <nav class="bg-blue-900 text-white p-5 shadow-2xl sticky top-0 z-50">
         <div class="container mx-auto flex flex-col lg:flex-row justify-between items-center">
-            <div class="flex items-center mb-4 lg:mb-0 cursor-pointer" onclick="showSection('activity-area', document.querySelector('.nav-btn'))">
-                <img src="logo.png" alt="Logo" class="h-16 w-auto mr-3">
-                <h1 class="text-xl font-bold tracking-tight">台灣災難醫學會</h1>
+            <div class="flex items-center mb-4 lg:mb-0 cursor-pointer group" onclick="showSection('activity-area', document.querySelector('.nav-btn'))">
+                <img src="logo.png" alt="Logo" class="h-16 w-auto mr-4 transition-transform group-hover:scale-110">
+                <h1 class="text-2xl font-black tracking-widest">台灣災難醫學會</h1>
             </div>
             
-            <div class="flex flex-wrap justify-center items-center gap-6 text-sm md:text-base">
+            <div class="flex flex-wrap justify-center items-center gap-8 text-sm md:text-base">
                 <button onclick="showSection('activity-area', this)" class="nav-btn active">活動訊息</button>
                 <button onclick="showSection('bylaws-area', this)" class="nav-btn">學會章程</button>
                 <button onclick="showSection('membership-area', this)" class="nav-btn">加入會員</button>
                 <button onclick="showSection('roster-area', this)" class="nav-btn">理監事名冊</button>
                 <button onclick="showSection('newsletter-area', this)" class="nav-btn">災難醫學通訊</button>
                 <button onclick="showSection('coming-soon', this)" class="nav-btn">Annals</button>
-                <button onclick="showSection('donation-area', this)" class="bg-orange-500 hover:bg-orange-600 px-4 py-2 rounded-lg font-bold transition flex items-center shadow-md text-white">
-                    <span class="mr-1">❤️</span>支持捐款
+                <button onclick="showSection('donation-area', this)" class="bg-orange-500 hover:bg-orange-600 px-5 py-2 rounded-full font-black transition transform hover:scale-105 shadow-lg text-white">
+                    ❤️ 支持捐款
                 </button>
             </div>
         </div>
     </nav>
 
-    <main class="container mx-auto py-12 px-4 max-w-5xl flex-grow">
+    <main class="container mx-auto py-16 px-6 max-w-6xl flex-grow">
         
         <section id="activity-area" class="content-section active">
-            <div class="section-header">活動訊息</div>
-            <div class="bg-white p-10 rounded-xl shadow-lg border border-gray-200 text-center">
-                <h4 class="text-2xl font-bold text-gray-800 mb-6">本會最新學術活動或教育訓練</h4>
-                <p class="text-gray-600 mb-8 text-lg leading-relaxed">最新的活動公告與報名資訊，請前往我們的官方粉絲專頁查詢。</p>
-                <a href="https://www.facebook.com/TSDM2000" target="_blank" class="inline-flex items-center bg-[#1877F2] hover:bg-blue-700 text-white font-bold py-4 px-12 rounded-full shadow-lg transition transform hover:-translate-y-1">
-                    🌐 前往 FB 官方粉絲專頁
+            <div class="section-header">最新動態</div>
+            <div class="bg-white p-12 rounded-3xl shadow-2xl border border-gray-100 text-center">
+                <h4 class="text-3xl font-black text-blue-900 mb-8 tracking-wide">本會最新學術活動或教育訓練</h4>
+                <p class="text-gray-600 mb-10 text-xl leading-loose max-w-2xl mx-auto">最新的活動公告與報名資訊，請前往我們的官方粉絲專頁查詢。</p>
+                <a href="https://www.facebook.com/TSDM2000" target="_blank" class="inline-flex items-center bg-[#1877F2] hover:bg-blue-700 text-white font-black py-5 px-16 rounded-full shadow-2xl transition transform hover:-translate-y-2 text-lg">
+                    🌐 連結本會 FB 官方粉絲專頁
                 </a>
             </div>
         </section>
 
-        <section id="newsletter-area" class="content-section">
-            <div class="section-header">災難醫學通訊</div>
-            <div class="flex flex-wrap mb-[-1px] relative z-10">
-                <button class="tab-btn active" onclick="switchSubTab(event, 'submission-info')">投稿規則/同意書</button>
-                <button class="tab-btn" onclick="switchSubTab(event, 'vol1-issue1')">第一卷第一期</button>
-            </div>
-            <div class="bg-white p-8 rounded-b-xl rounded-tr-xl shadow-xl border border-gray-200">
-                <div id="submission-info" class="sub-content active text-center py-10">
-                    <div class="flex flex-col md:flex-row justify-center gap-8">
-                        <a href="https://drive.google.com/file/d/1ID-AnX2V0rNAbQrTVApb04cHmh-3N21m/view?usp=sharing" target="_blank" class="bg-blue-50 hover:bg-blue-100 text-blue-900 font-bold py-8 px-12 rounded-2xl border-2 border-blue-200 transition shadow-sm">
-                            <span class="text-4xl block mb-2">📜</span> 投稿規則
-                        </a>
-                        <a href="https://drive.google.com/file/d/1om0kLtZvkabFpZADVZRtN39wk3_Chcw6/view?usp=sharing" target="_blank" class="bg-green-50 hover:bg-green-100 text-green-900 font-bold py-8 px-12 rounded-2xl border-2 border-green-200 transition shadow-sm">
-                            <span class="text-4xl block mb-2">✍️</span> 同意書
+        <section id="membership-area" class="content-section">
+            <div class="section-header">加入會員</div>
+            <div class="bg-white p-10 md:p-16 rounded-3xl shadow-2xl border border-gray-200">
+                <div class="max-w-4xl mx-auto">
+                    <h4 class="text-3xl font-black text-blue-900 mb-8 text-center">各位有志於災難醫學的伙伴們：</h4>
+                    <p class="text-xl text-center text-gray-700 mb-12 leading-relaxed">歡迎加入台灣災難醫學會。本學會致力於推動災難醫學教育與專業發展，誠摯邀請對災難醫學有興趣之醫療、救災與相關專業人員申請入會。</p>
+                    
+                    <div class="grid md:grid-cols-2 gap-8 mb-12">
+                        <div class="bg-blue-50 p-8 rounded-2xl border-l-8 border-blue-900">
+                            <h5 class="text-2xl font-black text-blue-900 mb-6 flex items-center">👥 會員申請資格</h5>
+                            <ul class="space-y-4 text-gray-700">
+                                <li class="flex items-start">🪪 <span class="ml-2"><strong>個人會員：</strong>具醫療或救護資格之專業人員。</span></li>
+                                <li class="flex items-start">🪪 <span class="ml-2"><strong>相關會員：</strong>從事災難救護相關工作者。</span></li>
+                                <li class="flex items-start">🪪 <span class="ml-2"><strong>團體會員：</strong>認同宗旨之機構團體。</span></li>
+                            </ul>
+                        </div>
+                        <div class="bg-amber-50 p-8 rounded-2xl border-l-8 border-amber-600">
+                            <h5 class="text-2xl font-black text-amber-900 mb-6 flex items-center">💰 會費說明</h5>
+                            <ul class="space-y-4 text-gray-700">
+                                <li class="font-bold border-b pb-2">個人會員：入會 1,000 / 常年 1,000 元</li>
+                                <li class="font-bold border-b pb-2">相關會員：入會 500 / 常年 300 元</li>
+                                <li class="font-bold">團體會員：入會 10,000 / 常年 3,000 元</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="text-center bg-gray-50 p-8 rounded-2xl border border-dashed border-gray-400">
+                        <p class="mb-8 font-bold text-lg">📋 請填寫申請表單並上傳證明文件（請先拍照備用）。</p>
+                        <a href="https://docs.google.com/forms/d/e/1FAIpQLSenUsdvhUgWqfw-dbfFOaCsOE6EaBwoUzzLDF7ytmuQ-znRTQ/viewform?usp=header" target="_blank" class="inline-block bg-blue-900 hover:bg-blue-800 text-white font-black py-5 px-16 rounded-full shadow-xl transition transform hover:scale-105 text-lg">
+                            立即申請入會表單
                         </a>
                     </div>
-                </div>
-                <div id="vol1-issue1" class="sub-content">
-                    <iframe src="https://docs.google.com/document/d/e/2PACX-1vTUaigObimdT9FJF4wiRn0bF7SFga4g_mP8YgFKIe8VnMyD3kMhxkcRWrXQeTKyRt8XeLeMVtvfFUyi/pub" width="100%" height="800" frameborder="0"></iframe>
                 </div>
             </div>
         </section>
 
         <section id="roster-area" class="content-section">
             <div class="section-header">理監事名冊</div>
-            <div class="flex flex-wrap mb-[-1px]">
+            <div class="flex flex-wrap mb-[-1px] relative z-10 px-2">
                 <button class="tab-btn active" onclick="switchRoster(event, 'term9')">第九屆</button>
                 <button class="tab-btn" onclick="switchRoster(event, 'term8')">第八屆</button>
                 <button class="tab-btn" onclick="switchRoster(event, 'term7')">第七屆</button>
                 <button class="tab-btn" onclick="switchRoster(event, 'term6')">第六屆</button>
             </div>
-            <div class="bg-white p-10 rounded-b-xl rounded-tr-xl shadow-xl border border-gray-200">
-                <div id="term9" class="roster-content active">
-                    <h4 class="text-2xl font-bold text-blue-800 mb-6">第九屆理監事名冊</h4>
-                    <p class="mb-4 text-gray-600">任職期間：民國114年01月至117年01月</p>
-                    <table class="w-full roster-table">
-                        <tr><th>【理事長】</th><td>洪世文</td></tr>
-                        <tr><th>【常務理事】</th><td>王宗倫、馬漢平、鄭銘泰、符凌斌</td></tr>
-                        <tr><th>【理事】</th><td>李宜恭、張志華、蔡易廷、林志豪、陳國智、侯鐘閎、陳厚全、黃錦源、侯勝文、翁健瑞</td></tr>
-                        <tr><th>【常務監事】</th><td>林秋梅</td></tr>
-                        <tr><th>【監事】</th><td>李芳年、連楚明、蔡光超、白永嘉</td></tr>
-                        <tr><th>【秘書處】</th><td>陳玉龍秘書長、陳暉翰副秘書長</td></tr>
-                    </table>
-                </div>
+            <div class="bg-white p-10 rounded-3xl rounded-tl-none shadow-2xl border border-gray-200 min-h-[500px]">
+                <div id="roster-view">載入名冊內容...</div>
+            </div>
+        </section>
 
-                <div id="term8" class="roster-content">
-                    <h4 class="text-2xl font-bold text-blue-800 mb-6">第八屆理監事名冊</h4>
-                    <p class="mb-4 text-gray-600">任職期間：民國110年12月至113年12月</p>
-                    <table class="w-full roster-table">
-                        <tr><th>【理事長】</th><td>王宗倫</td></tr>
-                        <tr><th>【常務理事】</th><td>李宜恭、洪世文、馬漢平、張志華</td></tr>
-                        <tr><th>【理事】</th><td>張志華、鄭銘泰、蔡易廷、洪世文、林志豪、陳國智、侯鐘閎、符凌斌、陳厚全、黃錦源</td></tr>
-                        <tr><th>【常務監事】</th><td>林秋梅</td></tr>
-                        <tr><th>【監事】</th><td>李芳年、連楚明、蔡光超、白永嘉</td></tr>
-                        <tr><th>【秘書處】</th><td>侯勝文秘書長、陳玉龍副秘書長、鄭伯良副秘書長</td></tr>
-                    </table>
+        <section id="newsletter-area" class="content-section">
+            <div class="section-header">災難醫學通訊</div>
+            <div class="flex flex-wrap mb-[-1px] relative z-10 px-2">
+                <button class="tab-btn active" onclick="switchSubTab(event, 'submission-info')">投稿規則/同意書</button>
+                <button class="tab-btn" onclick="switchSubTab(event, 'vol1-issue1')">第一卷第一期</button>
+            </div>
+            <div class="bg-white p-12 rounded-3xl rounded-tl-none shadow-2xl border border-gray-200">
+                <div id="submission-info" class="sub-content active">
+                    <div class="grid md:grid-cols-2 gap-10 py-8">
+                        <a href="https://drive.google.com/file/d/1ID-AnX2V0rNAbQrTVApb04cHmh-3N21m/view?usp=sharing" target="_blank" class="bg-blue-50 hover:bg-blue-100 text-blue-900 font-black py-12 px-8 rounded-3xl border-2 border-blue-200 transition shadow-lg text-center">
+                            <span class="text-5xl block mb-4">📜</span> 閱讀投稿規則
+                        </a>
+                        <a href="https://drive.google.com/file/d/1om0kLtZvkabFpZADVZRtN39wk3_Chcw6/view?usp=sharing" target="_blank" class="bg-green-50 hover:bg-green-100 text-green-900 font-black py-12 px-8 rounded-3xl border-2 border-green-200 transition shadow-lg text-center">
+                            <span class="text-5xl block mb-4">✍️</span> 下載同意書
+                        </a>
+                    </div>
                 </div>
-
-                <div id="term7" class="roster-content">
-                    <h4 class="text-2xl font-bold text-blue-800 mb-6">第七屆理監事名冊</h4>
-                    <p class="mb-4 text-gray-600">任職期間：民國107年12月至110年12月</p>
-                    <table class="w-full roster-table">
-                        <tr><th>【理事長】</th><td>王宗倫</td></tr>
-                        <tr><th>【常務理事】</th><td>李宜恭、洪世文、馬漢平、張志華</td></tr>
-                        <tr><th>【理事】</th><td>林志豪、侯鐘閎、符凌斌、陳國智、黃炳文、廖耕望、蔡卓城、蔡易廷、蔡維謀、鄭銘泰</td></tr>
-                        <tr><th>【常務監事】</th><td>蔡光超</td></tr>
-                        <tr><th>【監事】</th><td>白永嘉、李芳年、林秋梅、連楚明</td></tr>
-                        <tr><th>【秘書處】</th><td>侯勝文秘長、陳玉龍副秘書長、鄭伯良副秘書長</td></tr>
-                    </table>
-                </div>
-
-                <div id="term6" class="roster-content">
-                    <h4 class="text-2xl font-bold text-blue-800 mb-6">第六屆理監事名冊</h4>
-                    <p class="mb-4 text-gray-600">任職期間：民國104年11月至107年11月</p>
-                    <table class="w-full roster-table">
-                        <tr><th>【理事長】</th><td>張 珩</td></tr>
-                        <tr><th>【常務理事】</th><td>李宜恭、馬漢平、蔡卓城、蔡維謀</td></tr>
-                        <tr><th>【理事】</th><td>王宗倫、白永嘉、李賢發、邱豐祥、洪世文、莊佳璋、陳國智、黃炳文、蔡明哲、蔡易廷</td></tr>
-                        <tr><th>【常務監事】</th><td>林秋梅</td></tr>
-                        <tr><th>【監事】</th><td>李芳年、連楚明、蔡光超、藍章杰</td></tr>
-                        <tr><th>【秘書處】</th><td>李宜恭</td></tr>
-                    </table>
+                <div id="vol1-issue1" class="sub-content">
+                    <iframe src="https://docs.google.com/document/d/e/2PACX-1vTUaigObimdT9FJF4wiRn0bF7SFga4g_mP8YgFKIe8VnMyD3kMhxkcRWrXQeTKyRt8XeLeMVtvfFUyi/pub" width="100%" height="800" frameborder="0" class="rounded-xl border border-gray-200 shadow-inner"></iframe>
                 </div>
             </div>
         </section>
 
         <section id="bylaws-area" class="content-section">
             <div class="section-header">學會章程</div>
-            <div class="bg-white rounded-xl shadow-xl overflow-hidden border border-gray-200">
+            <div class="bg-white rounded-3xl shadow-2xl overflow-hidden border border-gray-200">
                 <iframe src="https://docs.google.com/document/d/e/2PACX-1vRYwgzoCL3fb93pdNrJpECTd_J3V__3Rqerj476DG6pwJLkj1wCvWrClJ8REA5dRhmWCLjGcfiUstMw/pub?embedded=true" width="100%" height="800" frameborder="0"></iframe>
-            </div>
-        </section>
-
-        <section id="membership-area" class="content-section">
-            <div class="section-header">加入會員</div>
-            <div class="bg-white p-10 rounded-xl shadow-lg border border-gray-200">
-                <h4 class="text-2xl font-bold text-blue-900 mb-6 text-center">歡迎加入台灣災難醫學會</h4>
-                <div class="prose prose-blue max-w-none text-gray-700 leading-relaxed space-y-6">
-                    <p class="text-lg font-medium bg-blue-50 p-4 rounded-lg border-l-4 border-blue-500">
-                        歡迎加入 台灣災難醫學會。誠摯邀請對災難醫學有興趣之專業人員申請入會。
-                    </p>
-                    <div class="pt-8 text-center">
-                        <a href="https://docs.google.com/forms/d/e/1FAIpQLSenUsdvhUgWqfw-dbfFOaCsOE6EaBwoUzzLDF7ytmuQ-znRTQ/viewform?usp=header" target="_blank" class="inline-block bg-blue-700 hover:bg-blue-800 text-white font-bold py-4 px-12 rounded-full shadow-lg transition transform hover:-translate-y-1 text-lg">
-                            立即填寫入會申請表單
-                        </a>
-                    </div>
-                </div>
             </div>
         </section>
 
         <section id="donation-area" class="content-section">
             <div class="section-header">支持捐款</div>
-            <div class="bg-white rounded-xl shadow-xl overflow-hidden border border-gray-200">
+            <div class="bg-white rounded-3xl shadow-2xl overflow-hidden border border-gray-200">
                 <iframe src="https://docs.google.com/forms/d/e/1FAIpQLSeM0GhLYrRMvbBH58Wiy2wrt-1QiRzlMVhnK523nE_uXDa_8g/viewform?embedded=true" width="100%" height="1500" frameborder="0"></iframe>
             </div>
         </section>
 
         <section id="coming-soon" class="content-section">
-            <div class="flex flex-col items-center justify-center py-32 bg-white rounded-xl shadow-inner border border-dashed border-gray-300">
-                <span class="text-6xl mb-4 opacity-30">🚧</span>
-                <h3 class="text-3xl font-black text-gray-300 uppercase tracking-widest">Coming Soon</h3>
+            <div class="flex flex-col items-center justify-center py-40 bg-white rounded-3xl shadow-inner border-2 border-dashed border-gray-300">
+                <span class="text-7xl mb-6 opacity-40 grayscale">🚧</span>
+                <h3 class="text-4xl font-black text-gray-300 uppercase tracking-[0.5em]">Coming Soon</h3>
             </div>
         </section>
 
     </main>
 
-    <footer class="bg-blue-950 text-gray-300 py-10 px-4 mt-auto border-t-4 border-orange-500 text-center text-sm leading-loose">
-        <span>📍 台北市士林區文昌路95號 │ 📞 TEL: (02)2833-2211 ext. 2082 │ ✉️ Email: ndmstw@gmail.com</span>
-        <p class="mt-4 opacity-40">© 2026 Taiwan Society for Disaster Medicine. All Rights Reserved.</p>
+    <footer class="bg-blue-950 text-gray-300 py-12 px-6 mt-auto border-t-8 border-orange-500">
+        <div class="container mx-auto text-center leading-loose">
+            <p class="text-xl font-black text-white mb-6">台灣災難醫學會 Taiwan Society for Disaster Medicine</p>
+            <div class="flex flex-col md:flex-row justify-center items-center gap-6 text-base">
+                <span>📍 台北市士林區文昌路95號</span>
+                <span class="hidden md:inline opacity-30">|</span>
+                <span>📞 TEL: (02)2833-2211 ext. 2082</span>
+                <span class="hidden md:inline opacity-30">|</span>
+                <span>✉️ Email: ndmstw@gmail.com</span>
+            </div>
+            <p class="mt-8 text-xs opacity-40">© 2026 Taiwan Society for Disaster Medicine. All Rights Reserved.</p>
+        </div>
     </footer>
 
     <script>
-        // 頁面初始化
-        window.onload = function() { showSection('activity-area', document.querySelector('.nav-btn')); };
+        // 名冊數據庫
+        const rosterData = {
+            term9: {
+                title: "第九屆理監事名冊", period: "民國114年01月至117年01月",
+                list: {
+                    "【理事長】": "洪世文",
+                    "【常務理事】": "王宗倫、馬漢平、鄭銘泰、符凌斌",
+                    "【理事】": "李宜恭、張志華、蔡易廷、林志豪、陳國智、侯鐘閎、陳厚全、黃錦源、侯勝文、翁健瑞",
+                    "【常務監事】": "林秋梅",
+                    "【監事】": "李芳年、連楚明、蔡光超、白永嘉",
+                    "【秘書處】": "陳玉龍秘書長、陳暉翰副秘書長"
+                }
+            },
+            term8: {
+                title: "第八屆理監事名冊", period: "民國110年12月至113年12月",
+                list: {
+                    "【理事長】": "王宗倫",
+                    "【常務理事】": "李宜恭、洪世文、馬漢平、張志華",
+                    "【理事】": "張志華、鄭銘泰、蔡易廷、洪世文、林志豪、陳國智、侯鐘閎、符凌斌、陳厚全、黃錦源",
+                    "【常務監事】": "林秋梅",
+                    "【監事】": "李芳年、連楚明、蔡光超、白永嘉",
+                    "【秘書處】": "侯勝文秘書長、陳玉龍副秘書長、鄭伯良副秘書長"
+                }
+            },
+            term7: {
+                title: "第七屆理監事名冊", period: "民國107年12月至110年12月",
+                list: {
+                    "【理事長】": "王宗倫",
+                    "【常務理事】": "李宜恭、洪世文、馬漢平、張志華",
+                    "【理事】": "林志豪、侯鐘閎、符凌斌、陳國智、黃炳文、廖耕望、蔡卓城、蔡易廷、蔡維謀、鄭銘泰",
+                    "【常務監事】": "蔡光超",
+                    "【監事】": "白永嘉、李芳年、林秋梅、連楚明",
+                    "【秘書處】": "侯勝文秘長、陳玉龍副秘書長、鄭伯良副秘書長"
+                }
+            },
+            term6: {
+                title: "第六屆理監事名冊", period: "民國104年11月至107年11月",
+                list: {
+                    "【理事長】": "張珩",
+                    "【常務理事】": "李宜恭、馬漢平、蔡卓城、蔡維謀",
+                    "【理事】": "王宗倫、白永嘉、李賢發、邱豐祥、洪世文、莊佳璋、陳國智、黃炳文、蔡明哲、蔡易廷",
+                    "【常務監事】": "林秋梅",
+                    "【監事】": "李芳年、連楚明、蔡光超、藍章杰",
+                    "【秘書處】": "李宜恭"
+                }
+            }
+        };
 
-        // 切換主區塊
+        window.onload = function() { 
+            showSection('activity-area', document.querySelector('.nav-btn'));
+            updateRosterView('term9'); 
+        };
+
         function showSection(id, btn) {
             document.querySelectorAll('.content-section').forEach(s => s.classList.remove('active'));
             document.querySelectorAll('.nav-btn').forEach(b => b.classList.remove('active'));
@@ -220,7 +241,18 @@
             window.scrollTo({ top: 0, behavior: 'smooth' });
         }
 
-        // 切換災難醫學通訊子頁籤
+        function updateRosterView(term) {
+            const data = rosterData[term];
+            let html = `<h4 class="text-3xl font-black text-blue-900 mb-6 border-b pb-4">${data.title}</h4>`;
+            html += `<p class="mb-10 text-gray-500 font-bold">任職期間：${data.period}</p>`;
+            html += `<table class="w-full roster-table">`;
+            for (let [key, val] of Object.entries(data.list)) {
+                html += `<tr><th>${key}</th><td>${val}</td></tr>`;
+            }
+            html += `</table>`;
+            document.getElementById('roster-view').innerHTML = html;
+        }
+
         function switchSubTab(evt, id) {
             document.querySelectorAll('#newsletter-area .sub-content').forEach(c => c.classList.remove('active'));
             document.querySelectorAll('#newsletter-area .tab-btn').forEach(b => b.classList.remove('active'));
@@ -228,12 +260,10 @@
             evt.currentTarget.classList.add('active');
         }
 
-        // 切換理監事名冊子頁籤
-        function switchRoster(evt, id) {
-            document.querySelectorAll('#roster-area .roster-content').forEach(c => c.classList.remove('active'));
+        function switchRoster(evt, term) {
             document.querySelectorAll('#roster-area .tab-btn').forEach(b => b.classList.remove('active'));
-            document.getElementById(id).classList.add('active');
             evt.currentTarget.classList.add('active');
+            updateRosterView(term);
         }
     </script>
 </body>
