@@ -6,7 +6,7 @@
     <title>台灣災難醫學會 TSDM</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <style>
-        /* 導覽列按鈕與動態橘色橫條優化 (圖二、圖五需求) */
+        /* 導覽列按鈕與動態橘色橫條優化 */
         .nav-btn { @apply relative px-3 py-1 transition-all hover:text-orange-300; }
         .nav-btn::after {
             content: '';
@@ -15,12 +15,12 @@
         .nav-btn.active::after { @apply w-full; }
         .nav-btn.active { @apply text-orange-400 font-black; }
 
-        /* 區塊標題美化設計 (圖一、標題美化需求) */
+        /* 區塊標題美化設計 */
         .section-header {
             @apply text-3xl font-bold mb-8 py-4 px-8 bg-gradient-to-r from-gray-100 to-transparent border-l-[12px] border-blue-900 text-blue-900 rounded-r-xl shadow-md;
         }
 
-        /* 頁籤按鈕樣式 (修正圖三、圖四擠在一起的問題) */
+        /* 頁籤按鈕樣式 */
         .tab-btn { @apply px-8 py-3 font-bold transition-all border border-gray-300 rounded-t-xl mr-3 bg-gray-100 text-gray-500 hover:bg-white; }
         .tab-btn.active { @apply border-blue-900 border-b-white text-blue-900 bg-white z-10 shadow-sm transform translate-y-[1px]; }
         
@@ -32,6 +32,9 @@
 
         @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
         html { scroll-behavior: smooth; }
+        
+        .roster-table th { @apply bg-blue-50 text-blue-900 px-4 py-3 text-left border w-32 md:w-48 align-top font-bold; }
+        .roster-table td { @apply px-4 py-3 border border-gray-200 leading-relaxed; }
     </style>
 </head>
 <body class="bg-slate-50 text-gray-800 flex flex-col min-h-screen">
@@ -50,7 +53,7 @@
                 <button onclick="showSection('roster-area', this)" class="nav-btn">理監事名冊</button>
                 <button onclick="showSection('newsletter-area', this)" class="nav-btn">災難醫學通訊</button>
                 <button onclick="showSection('coming-soon', this)" class="nav-btn">Annals</button>
-                <button onclick="showSection('donation-area', this)" class="bg-orange-500 hover:bg-orange-600 px-5 py-2 rounded-full font-black transition transform hover:scale-105 shadow-lg text-white">
+                <button onclick="showSection('donation-area', this)" class="bg-orange-500 hover:bg-orange-600 px-5 py-2 rounded-full font-black transition shadow-lg text-white">
                     ❤️ 支持捐款
                 </button>
             </div>
@@ -75,29 +78,63 @@
             <div class="bg-white p-10 md:p-16 rounded-3xl shadow-2xl border border-gray-200">
                 <div class="max-w-4xl mx-auto">
                     <h4 class="text-3xl font-black text-blue-900 mb-8 text-center">各位有志於災難醫學的伙伴們：</h4>
-                    <p class="text-xl text-center text-gray-700 mb-12 leading-relaxed">歡迎加入台灣災難醫學會。本學會致力於推動災難醫學教育與專業發展，誠摯邀請對災難醫學有興趣之醫療、救災與相關專業人員申請入會。</p>
+                    <p class="text-xl text-center text-gray-700 mb-12 leading-relaxed">歡迎加入 台灣災難醫學會。本學會致力於推動災難醫學教育與專業發展，誠摯邀請對災難醫學有興趣之醫療、救災與相關專業人員申請入會。</p>
                     
-                    <div class="grid md:grid-cols-2 gap-8 mb-12">
-                        <div class="bg-blue-50 p-8 rounded-2xl border-l-8 border-blue-900">
-                            <h5 class="text-2xl font-black text-blue-900 mb-6 flex items-center">👥 會員申請資格</h5>
-                            <ul class="space-y-4 text-gray-700">
-                                <li class="flex items-start">🪪 <span class="ml-2"><strong>個人會員：</strong>具醫療或救護資格之專業人員。</span></li>
-                                <li class="flex items-start">🪪 <span class="ml-2"><strong>相關會員：</strong>從事災難救護相關工作者。</span></li>
-                                <li class="flex items-start">🪪 <span class="ml-2"><strong>團體會員：</strong>認同宗旨之機構團體。</span></li>
-                            </ul>
+                    <div class="mb-12">
+                        <h5 class="text-2xl font-black text-blue-900 mb-6 flex items-center border-b pb-2">👥 會員申請資格</h5>
+                        <div class="space-y-6">
+                            <div class="flex items-start">
+                                <span class="text-3xl mr-4">🪪</span>
+                                <div>
+                                    <p class="text-xl font-bold text-gray-800">個人會員：</p>
+                                    <p class="text-gray-600 mt-1">年滿 20 歲，認同本會宗旨，具備 醫師、護理人員、緊急救護技術員等醫療或救護相關資格，並經本會審核通過者。</p>
+                                </div>
+                            </div>
+                            <div class="flex items-start">
+                                <span class="text-3xl mr-4">🪪</span>
+                                <div>
+                                    <p class="text-xl font-bold text-gray-800">相關會員：</p>
+                                    <p class="text-gray-600 mt-1">認同本會宗旨，從事 災難救護相關工作，惟不具個人會員資格，並經本會審核通過者。</p>
+                                </div>
+                            </div>
+                            <div class="flex items-start">
+                                <span class="text-3xl mr-4">🪪</span>
+                                <div>
+                                    <p class="text-xl font-bold text-gray-800">團體會員：</p>
+                                    <p class="text-gray-600 mt-1">認同本會宗旨之 機構或團體，並經本會審核通過者。</p>
+                                </div>
+                            </div>
                         </div>
-                        <div class="bg-amber-50 p-8 rounded-2xl border-l-8 border-amber-600">
-                            <h5 class="text-2xl font-black text-amber-900 mb-6 flex items-center">💰 會費說明</h5>
-                            <ul class="space-y-4 text-gray-700">
-                                <li class="font-bold border-b pb-2">個人會員：入會 1,000 / 常年 1,000 元</li>
-                                <li class="font-bold border-b pb-2">相關會員：入會 500 / 常年 300 元</li>
-                                <li class="font-bold">團體會員：入會 10,000 / 常年 3,000 元</li>
-                            </ul>
+                    </div>
+
+                    <div class="bg-amber-50 p-8 rounded-2xl border-l-8 border-amber-600 mb-12">
+                        <h5 class="text-2xl font-black text-amber-900 mb-6 flex items-center">💰 會費說明</h5>
+                        <div class="grid md:grid-cols-2 gap-8 text-gray-700">
+                            <div>
+                                <p class="font-black text-blue-900 mb-2 underline">入會費（首次繳納）</p>
+                                <ul class="list-disc pl-5 space-y-1">
+                                    <li>個人會員：新台幣 1,000 元</li>
+                                    <li>相關會員：500 元</li>
+                                    <li>團體會員：10,000 元</li>
+                                </ul>
+                            </div>
+                            <div>
+                                <p class="font-black text-blue-900 mb-2 underline">常年會費（每年繳納）</p>
+                                <ul class="list-disc pl-5 space-y-1">
+                                    <li>個人會員：新台幣 1,000 元</li>
+                                    <li>相關會員：300 元</li>
+                                    <li>團體會員：3,000 元</li>
+                                </ul>
+                            </div>
                         </div>
                     </div>
 
                     <div class="text-center bg-gray-50 p-8 rounded-2xl border border-dashed border-gray-400">
-                        <p class="mb-8 font-bold text-lg">📋 請填寫申請表單並上傳證明文件（請先拍照備用）。</p>
+                        <div class="space-y-4 text-lg text-gray-700 mb-8">
+                            <p class="font-bold flex items-center justify-center">📋 個人會員或相關會員 請填寫本表單並上傳相關證明文件，請先拍照</p>
+                            <p class="flex items-center justify-center">📧 審核後將以 Email 通知入會與繳費程序</p>
+                            <p class="text-red-600 font-bold flex items-center justify-center">🔔 團體會員申請請另行聯繫學會</p>
+                        </div>
                         <a href="https://docs.google.com/forms/d/e/1FAIpQLSenUsdvhUgWqfw-dbfFOaCsOE6EaBwoUzzLDF7ytmuQ-znRTQ/viewform?usp=header" target="_blank" class="inline-block bg-blue-900 hover:bg-blue-800 text-white font-black py-5 px-16 rounded-full shadow-xl transition transform hover:scale-105 text-lg">
                             立即申請入會表單
                         </a>
@@ -129,15 +166,15 @@
                 <div id="submission-info" class="sub-content active">
                     <div class="grid md:grid-cols-2 gap-10 py-8">
                         <a href="https://drive.google.com/file/d/1ID-AnX2V0rNAbQrTVApb04cHmh-3N21m/view?usp=sharing" target="_blank" class="bg-blue-50 hover:bg-blue-100 text-blue-900 font-black py-12 px-8 rounded-3xl border-2 border-blue-200 transition shadow-lg text-center">
-                            <span class="text-5xl block mb-4">📜</span> 閱讀投稿規則
+                            <span class="text-5xl block mb-4">📜</span> 投稿規則
                         </a>
                         <a href="https://drive.google.com/file/d/1om0kLtZvkabFpZADVZRtN39wk3_Chcw6/view?usp=sharing" target="_blank" class="bg-green-50 hover:bg-green-100 text-green-900 font-black py-12 px-8 rounded-3xl border-2 border-green-200 transition shadow-lg text-center">
-                            <span class="text-5xl block mb-4">✍️</span> 下載同意書
+                            <span class="text-5xl block mb-4">✍️</span> 同意書
                         </a>
                     </div>
                 </div>
                 <div id="vol1-issue1" class="sub-content">
-                    <iframe src="https://docs.google.com/document/d/e/2PACX-1vTUaigObimdT9FJF4wiRn0bF7SFga4g_mP8YgFKIe8VnMyD3kMhxkcRWrXQeTKyRt8XeLeMVtvfFUyi/pub" width="100%" height="800" frameborder="0" class="rounded-xl border border-gray-200 shadow-inner"></iframe>
+                    <iframe src="https://docs.google.com/document/d/e/2PACX-1vTUaigObimdT9FJF4wiRn0bF7SFga4g_mP8YgFKIe8VnMyD3kMhxkcRWrXQeTKyRt8XeLeMVtvfFUyi/pub" width="100%" height="800" frameborder="0"></iframe>
                 </div>
             </div>
         </section>
@@ -157,9 +194,9 @@
         </section>
 
         <section id="coming-soon" class="content-section">
-            <div class="flex flex-col items-center justify-center py-40 bg-white rounded-3xl shadow-inner border-2 border-dashed border-gray-300">
+            <div class="flex flex-col items-center justify-center py-40 bg-white rounded-xl shadow-inner border border-dashed border-gray-300">
                 <span class="text-7xl mb-6 opacity-40 grayscale">🚧</span>
-                <h3 class="text-4xl font-black text-gray-300 uppercase tracking-[0.5em]">Coming Soon</h3>
+                <h3 class="text-4xl font-black text-gray-300 uppercase tracking-widest">Coming Soon</h3>
             </div>
         </section>
 
@@ -180,52 +217,12 @@
     </footer>
 
     <script>
-        // 名冊數據庫
+        // 名冊數據同上略...
         const rosterData = {
-            term9: {
-                title: "第九屆理監事名冊", period: "民國114年01月至117年01月",
-                list: {
-                    "【理事長】": "洪世文",
-                    "【常務理事】": "王宗倫、馬漢平、鄭銘泰、符凌斌",
-                    "【理事】": "李宜恭、張志華、蔡易廷、林志豪、陳國智、侯鐘閎、陳厚全、黃錦源、侯勝文、翁健瑞",
-                    "【常務監事】": "林秋梅",
-                    "【監事】": "李芳年、連楚明、蔡光超、白永嘉",
-                    "【秘書處】": "陳玉龍秘書長、陳暉翰副秘書長"
-                }
-            },
-            term8: {
-                title: "第八屆理監事名冊", period: "民國110年12月至113年12月",
-                list: {
-                    "【理事長】": "王宗倫",
-                    "【常務理事】": "李宜恭、洪世文、馬漢平、張志華",
-                    "【理事】": "張志華、鄭銘泰、蔡易廷、洪世文、林志豪、陳國智、侯鐘閎、符凌斌、陳厚全、黃錦源",
-                    "【常務監事】": "林秋梅",
-                    "【監事】": "李芳年、連楚明、蔡光超、白永嘉",
-                    "【秘書處】": "侯勝文秘書長、陳玉龍副秘書長、鄭伯良副秘書長"
-                }
-            },
-            term7: {
-                title: "第七屆理監事名冊", period: "民國107年12月至110年12月",
-                list: {
-                    "【理事長】": "王宗倫",
-                    "【常務理事】": "李宜恭、洪世文、馬漢平、張志華",
-                    "【理事】": "林志豪、侯鐘閎、符凌斌、陳國智、黃炳文、廖耕望、蔡卓城、蔡易廷、蔡維謀、鄭銘泰",
-                    "【常務監事】": "蔡光超",
-                    "【監事】": "白永嘉、李芳年、林秋梅、連楚明",
-                    "【秘書處】": "侯勝文秘長、陳玉龍副秘書長、鄭伯良副秘書長"
-                }
-            },
-            term6: {
-                title: "第六屆理監事名冊", period: "民國104年11月至107年11月",
-                list: {
-                    "【理事長】": "張珩",
-                    "【常務理事】": "李宜恭、馬漢平、蔡卓城、蔡維謀",
-                    "【理事】": "王宗倫、白永嘉、李賢發、邱豐祥、洪世文、莊佳璋、陳國智、黃炳文、蔡明哲、蔡易廷",
-                    "【常務監事】": "林秋梅",
-                    "【監事】": "李芳年、連楚明、蔡光超、藍章杰",
-                    "【秘書處】": "李宜恭"
-                }
-            }
+            term9: { title: "第九屆理監事名冊", period: "民國114年01月至117年01月", list: { "【理事長】": "洪世文", "【常務理事】": "王宗倫、馬漢平、鄭銘泰、符凌斌", "【理事】": "李宜恭、張志華、蔡易廷、林志豪、陳國智、侯鐘閎、陳厚全、黃錦源、侯勝文、翁健瑞", "【常務監事】": "林秋梅", "【監事】": "李芳年、連楚明、蔡光超、白永嘉", "【秘書處】": "陳玉龍秘書長、陳暉翰副秘書長" } },
+            term8: { title: "第八屆理監事名冊", period: "民國110年12月至113年12月", list: { "【理事長】": "王宗倫", "【常務理事】": "李宜恭、洪世文、馬漢平、張志華", "【理事】": "張志華、鄭銘泰、蔡易廷、洪世文、林志豪、陳國智、侯鐘閎、符凌斌、陳厚全、黃錦源", "【常務監事】": "林秋梅", "【監事】": "李芳年、連楚明、蔡光超、白永嘉", "【秘書處】": "侯勝文秘書長、陳玉龍副秘書長、鄭伯良副秘書長" } },
+            term7: { title: "第七屆理監事名冊", period: "民國107年12月至110年12月", list: { "【理事長】": "王宗倫", "【常務理事】": "李宜恭、洪世文、馬漢平、張志華", "【理事】": "林志豪、侯鐘閎、符凌斌、陳國智、黃炳文、廖耕望、蔡卓城、蔡易廷、蔡維謀、鄭銘泰", "【常務監事】": "蔡光超", "【監事】": "白永嘉、李芳年、林秋梅、連楚明", "【秘書處】": "侯勝文秘長、陳玉龍副秘書長、鄭伯良副秘書長" } },
+            term6: { title: "第六屆理監事名冊", period: "民國104年11月至107年11月", list: { "【理事長】": "張珩", "【常務理事】": "李宜恭、馬漢平、蔡卓城、蔡維謀", "【理事】": "王宗倫、白永嘉、李賢發、邱豐祥、洪世文、莊佳璋、陳國智、黃炳文、蔡明哲、蔡易廷", "【常務監事】": "林秋梅", "【監事】": "李芳年、連楚明、蔡光超、藍章杰", "【秘書處】": "李宜恭" } }
         };
 
         window.onload = function() { 
