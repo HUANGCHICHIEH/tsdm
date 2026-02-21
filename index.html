@@ -30,7 +30,7 @@
 
     <nav class="bg-blue-900 text-white p-4 shadow-lg sticky top-0 z-50">
         <div class="container mx-auto flex flex-col lg:flex-row justify-between items-center">
-            <div class="flex items-center mb-4 lg:mb-0 cursor-pointer" onclick="showSection('roster-area')">
+            <div class="flex items-center mb-4 lg:mb-0 cursor-pointer" onclick="showSection('activity-area')">
                 <img src="logo.png" alt="台灣災難醫學會 Logo" class="h-20 w-auto mr-3">
                 <h1 class="text-xl font-bold tracking-tight">台灣災難醫學會</h1>
             </div>
@@ -51,14 +51,23 @@
 
     <main class="container mx-auto py-10 px-4 max-w-5xl flex-grow">
         
+        <section id="activity-area" class="content-section active">
+            <h3 class="text-3xl font-bold mb-6 border-b-2 border-blue-900 pb-2 text-blue-900">活動訊息</h3>
+            <div class="bg-white p-8 md:p-12 rounded-xl shadow-lg border border-gray-200 text-center">
+                <h4 class="text-2xl font-bold text-gray-800 mb-6">本會最新學術活動或教育訓練</h4>
+                <p class="text-gray-600 mb-8 text-lg">最新的活動公告與報名資訊，請點擊下方連結前往我們的官方粉絲專頁。</p>
+                <a href="https://www.facebook.com/TSDM2000" target="_blank" class="inline-flex items-center bg-[#1877F2] hover:bg-blue-700 text-white font-bold py-4 px-10 rounded-full shadow-lg transition transform hover:-translate-y-1">
+                    <span class="mr-2">🌐</span> 前往 FB 官方粉絲專頁
+                </a>
+            </div>
+        </section>
+
         <section id="newsletter-area" class="content-section">
             <h3 class="text-3xl font-bold mb-6 border-b-2 border-blue-900 pb-2 text-blue-900">災難醫學通訊</h3>
-            
             <div class="flex flex-wrap border-b border-gray-300 bg-gray-100 rounded-t-lg overflow-hidden">
                 <button class="tab-btn active" onclick="switchSubTab(event, 'submission-info', 'newsletter-area')">投稿規則/同意書</button>
                 <button class="tab-btn" onclick="switchSubTab(event, 'vol1-issue1', 'newsletter-area')">第一卷第一期</button>
             </div>
-
             <div class="bg-white p-6 md:p-10 rounded-b-lg shadow-lg border border-gray-200">
                 <div id="submission-info" class="sub-content active text-center py-10">
                     <h4 class="text-2xl font-bold text-blue-800 mb-8">災難醫學通訊 投稿與授權</h4>
@@ -71,24 +80,12 @@
                         </a>
                     </div>
                 </div>
-
                 <div id="vol1-issue1" class="sub-content">
                     <h4 class="text-2xl font-bold text-blue-800 mb-6">第一卷第一期</h4>
                     <div class="rounded-lg overflow-hidden border border-gray-200 shadow-inner bg-gray-50">
                         <iframe src="https://docs.google.com/document/d/e/2PACX-1vTUaigObimdT9FJF4wiRn0bF7SFga4g_mP8YgFKIe8VnMyD3kMhxkcRWrXQeTKyRt8XeLeMVtvfFUyi/pub" width="100%" height="800" frameborder="0">載入中…</iframe>
                     </div>
                 </div>
-            </div>
-        </section>
-
-        <section id="activity-area" class="content-section">
-            <h3 class="text-3xl font-bold mb-6 border-b-2 border-blue-900 pb-2 text-blue-900">活動訊息</h3>
-            <div class="bg-white p-8 md:p-12 rounded-xl shadow-lg border border-gray-200 text-center">
-                <h4 class="text-2xl font-bold text-gray-800 mb-6">本會最新學術活動或教育訓練</h4>
-                <p class="text-gray-600 mb-8 text-lg">最新的活動公告與報名資訊，請點擊下方連結前往我們的官方粉絲專頁。</p>
-                <a href="https://www.facebook.com/TSDM2000" target="_blank" class="inline-flex items-center bg-[#1877F2] hover:bg-blue-700 text-white font-bold py-4 px-10 rounded-full shadow-lg transition transform hover:-translate-y-1">
-                    <span class="mr-2">🌐</span> 前往 FB 官方粉絲專頁
-                </a>
             </div>
         </section>
 
@@ -118,7 +115,7 @@
             </div>
         </section>
 
-        <section id="roster-area" class="content-section active">
+        <section id="roster-area" class="content-section">
             <h3 class="text-3xl font-bold mb-6 border-b-2 border-blue-900 pb-2 text-blue-900">理監事名冊</h3>
             <div class="flex flex-wrap border-b border-gray-300 bg-gray-100 rounded-t-lg overflow-hidden">
                 <button class="tab-btn active" onclick="switchTerm(event, 'term9')">第九屆</button>
@@ -138,7 +135,14 @@
                         <tr><th>【秘書處】</th><td>陳玉龍秘書長、陳暉翰副秘書長</td></tr>
                     </table>
                 </div>
+                <div id="term8" class="term-content">
+                    <h4 class="text-2xl font-bold text-blue-800 mb-4">第八屆理監事名冊 (110.12-113.12)</h4>
+                    <table class="w-full roster-table">
+                        <tr><th>【理事長】</th><td>王宗倫</td></tr>
+                        <tr><th>【秘書處】</th><td>侯勝文秘書長、陳玉龍副秘書長、鄭伯良副秘書長</td></tr>
+                    </table>
                 </div>
+            </div>
         </section>
 
         <section id="donation-area" class="content-section">
@@ -165,6 +169,11 @@
     </footer>
 
     <script>
+        // 頁面初始化
+        window.onload = function() {
+            showSection('activity-area');
+        };
+
         function showSection(id) {
             document.querySelectorAll('.content-section').forEach(s => s.classList.remove('active'));
             document.getElementById(id).classList.add('active');
@@ -176,7 +185,6 @@
             document.getElementById(id).classList.add('active');
             evt.currentTarget.classList.add('active');
         }
-        // 區塊內部次頁籤切換
         function switchSubTab(evt, contentId, parentId) {
             const parent = document.getElementById(parentId);
             parent.querySelectorAll('.sub-content').forEach(c => c.classList.remove('active'));
