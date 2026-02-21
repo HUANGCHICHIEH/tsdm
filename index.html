@@ -147,4 +147,63 @@
                         <div class="bg-amber-50 p-6 rounded-lg border border-amber-200 text-amber-900">
                             <h5 class="text-xl font-bold mb-3 flex items-center"><span class="mr-2">💰</span> 會費說明</h5>
                             <ol class="list-decimal pl-5 space-y-2">
-                                <li><strong>入會費（首次繳納）：</strong> 個人會員 1,000 元、相關會員 500 元、團體會員 1
+                                <li><strong>入會費（首次繳納）：</strong> 個人會員 1,000 元、相關會員 500 元、團體會員 10,000 元。</li>
+                                <li><strong>常年會費（每年繳納）：</strong> 個人會員 1,000 元、相關會員 300 元、團體會員 3,000 元。</li>
+                            </ol>
+                        </div>
+                        <div class="pt-8 text-center">
+                            <a href="https://docs.google.com/forms/d/e/1FAIpQLSenUsdvhUgWqfw-dbfFOaCsOE6EaBwoUzzLDF7ytmuQ-znRTQ/viewform?usp=header" target="_blank" class="inline-block bg-blue-700 hover:bg-blue-800 text-white font-bold py-4 px-10 rounded-full shadow-xl transition transform hover:-translate-y-1 text-lg">
+                                立即填寫入會申請表單
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="donation-area" class="content-section">
+            <h3 class="text-3xl font-bold mb-6 border-b-2 border-orange-500 pb-2 text-blue-900">支持捐款</h3>
+            <div class="bg-white rounded-xl shadow-lg overflow-hidden border border-gray-200">
+                <iframe src="https://docs.google.com/forms/d/e/1FAIpQLSeM0GhLYrRMvbBH58Wiy2wrt-1QiRzlMVhnK523nE_uXDa_8g/viewform?embedded=true" width="100%" height="1500" frameborder="0">載入中…</iframe>
+            </div>
+        </section>
+
+        <section id="coming-soon" class="content-section">
+            <div class="flex flex-col items-center justify-center py-32 bg-white rounded-xl shadow border border-dashed border-gray-300">
+                <span class="text-6xl mb-4">🚧</span>
+                <h3 class="text-4xl font-black text-gray-300 tracking-widest uppercase">Coming Soon!</h3>
+                <p class="mt-4 text-gray-400">該頁面功能正在更新中，敬請期待。</p>
+            </div>
+        </section>
+
+    </main>
+
+    <footer class="bg-blue-950 text-gray-300 py-8 px-4 mt-auto border-t-4 border-orange-500">
+        <div class="container mx-auto text-center">
+            <h4 class="text-white font-bold mb-4 text-lg">台灣災難醫學會 Taiwan Society for Disaster Medicine</h4>
+            <div class="flex flex-col md:flex-row justify-center items-center gap-2 md:gap-6 text-sm">
+                <span>📍 台北市士林區文昌路95號</span>
+                <span class="hidden md:inline">│</span>
+                <span>📞 TEL: (02)2833-2211 ext. 2082</span>
+                <span class="hidden md:inline">│</span>
+                <span>✉️ Email: <a href="mailto:ndmstw@gmail.com" class="hover:text-white underline">ndmstw@gmail.com</a></span>
+            </div>
+            <p class="mt-6 text-xs opacity-50">© 2026 Taiwan Society for Disaster Medicine. All Rights Reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        function showSection(id) {
+            document.querySelectorAll('.content-section').forEach(s => s.classList.remove('active'));
+            document.getElementById(id).classList.add('active');
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+        function switchTerm(evt, id) {
+            document.querySelectorAll('.term-content').forEach(c => c.classList.remove('active'));
+            document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+            document.getElementById(id).classList.add('active');
+            evt.currentTarget.classList.add('active');
+        }
+    </script>
+</body>
+</html>
