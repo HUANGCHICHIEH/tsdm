@@ -46,13 +46,18 @@
             </div>
             
             <div class="flex flex-wrap justify-center items-center gap-3 text-sm md:text-base">
-                <button onclick="showSection('activity-area', this)" class="nav-btn active">📢 最新活動消息</button>
+                <button onclick="showSection('activity-area', this)" class="nav-btn active">📢 最新消息與活動公告</button>
                 <button onclick="showSection('bylaws-area', this)" class="nav-btn">📜 學會章程</button>
                 <button onclick="showSection('membership-area', this)" class="nav-btn">🤝 加入會員</button>
                 <button onclick="showSection('roster-area', this)" class="nav-btn">🏛️ 理監事名冊</button>
                 <button onclick="showSection('specialist-area', this)" class="nav-btn">🎓 災難專科</button>
                 <button onclick="showSection('newsletter-area', this)" class="nav-btn">📰 災難醫學通訊</button>
                 <button onclick="showSection('annals-area', this)" class="nav-btn">🔬 Annals of Disaster Medicine</button>
+                
+                <a href="https://www.facebook.com/TSDM2000" target="_blank" class="nav-btn">
+                    🌐 FB粉絲專頁
+                </a>
+
                 <button onclick="showSection('donation-area', this)" class="bg-red-600 hover:bg-red-700 px-5 py-2 rounded-full font-black transition shadow-lg text-white flex items-center gap-2">
                     ❤️ 支持捐款
                 </button>
@@ -63,10 +68,10 @@
     <main class="container mx-auto py-10 px-4 max-w-6xl flex-grow">
         
         <section id="activity-area" class="content-section active">
-            <div class="section-header">📢 最新活動消息</div>
+            <div class="section-header">📢 最新消息與活動公告</div>
             <div class="bg-white p-10 rounded-3xl shadow-2xl border border-gray-100 text-center">
-                <h4 class="text-2xl font-black text-blue-900 mb-6">本會最新學術活動或教育訓練</h4>
-                <p class="text-gray-600 mb-8 text-lg">最新的活動公告與報名資訊，請前往我們的官方粉絲專頁查詢。</p>
+                <h4 class="text-2xl font-black text-blue-900 mb-6">本會最新消息、學術活動或教育訓練</h4>
+                <p class="text-gray-600 mb-8 text-lg">最新的消息、活動公告與報名資訊，請前往我們的官方粉絲專頁查詢。</p>
                 <a href="https://www.facebook.com/TSDM2000" target="_blank" class="inline-flex items-center bg-[#1877F2] hover:bg-blue-700 text-white font-black py-4 px-12 rounded-full shadow-lg transition transform hover:-translate-y-1 gap-3">
                     🌐 連結本會 FB 官方粉絲專頁
                 </a>
@@ -187,10 +192,10 @@
             <div class="bg-white p-8 md:p-12 rounded-3xl rounded-tl-none shadow-2xl border border-gray-200">
                 <div id="submission-info" class="sub-content active">
                     <div class="grid md:grid-cols-2 gap-6 py-4 text-center">
-                        <a href="https://drive.google.com/file/d/1ID-AnX2V0rNAbQrTVApb04cHmh-3N21m/view" target="_blank" class="bg-blue-50 hover:bg-blue-100 text-blue-900 font-black py-8 px-6 rounded-2xl border-2 border-blue-200 transition shadow-lg text-lg flex flex-col items-center gap-2">
+                        <a href="https://drive.google.com/file/d/1ID-AnX2V0rNAbQrTVApb04cHmh-3N21m/view" target="_blank" class="bg-blue-50 hover:bg-blue-100 text-blue-900 font-black py-8 px-6 rounded-2xl border-2 border-blue-200 transition shadow-lg text-lg flex items-center gap-2 justify-center">
                             <span>📜</span> 投稿規則
                         </a>
-                        <a href="https://drive.google.com/file/d/1om0kLtZvkabFpZADVZRtN39wk3_Chcw6/view" target="_blank" class="bg-green-50 hover:bg-green-100 text-green-900 font-black py-8 px-6 rounded-2xl border-2 border-green-200 transition shadow-lg text-lg flex flex-col items-center gap-2">
+                        <a href="https://drive.google.com/file/d/1om0kLtZvkabFpZADVZRtN39wk3_Chcw6/view" target="_blank" class="bg-green-50 hover:bg-green-100 text-green-900 font-black py-8 px-6 rounded-2xl border-2 border-green-200 transition shadow-lg text-lg flex items-center gap-2 justify-center">
                             <span>✍️</span> 同意書
                         </a>
                     </div>
@@ -258,6 +263,9 @@
         };
 
         function showSection(id, btn) {
+            // 如果點擊的是 a 標籤連結（FB粉絲專頁），則不執行內部區塊切換邏輯
+            if (id === 'external') return;
+
             document.querySelectorAll('.content-section').forEach(s => s.classList.remove('active'));
             document.querySelectorAll('.nav-btn').forEach(b => b.classList.remove('active'));
             document.getElementById(id).classList.add('active');
