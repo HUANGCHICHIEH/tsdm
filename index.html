@@ -52,7 +52,7 @@
                 <button onclick="showSection('roster-area', this)" class="nav-btn">🏛️ 理監事名冊</button>
                 <button onclick="showSection('specialist-area', this)" class="nav-btn">🎓 災難專科</button>
                 <button onclick="showSection('newsletter-area', this)" class="nav-btn">📰 災難醫學通訊</button>
-                <button onclick="showSection('coming-soon', this)" class="nav-btn">🔬 Annals</button>
+                <button onclick="showSection('annals-area', this)" class="nav-btn">🔬 Annals of Disaster Medicine</button>
                 <button onclick="showSection('donation-area', this)" class="bg-red-600 hover:bg-red-700 px-5 py-2 rounded-full font-black transition shadow-lg text-white flex items-center gap-2">
                     ❤️ 支持捐款
                 </button>
@@ -63,7 +63,7 @@
     <main class="container mx-auto py-10 px-4 max-w-6xl flex-grow">
         
         <section id="activity-area" class="content-section active">
-            <div class="section-header">🔥 最新動態</div>
+            <div class="section-header">📢 活動訊息</div>
             <div class="bg-white p-10 rounded-3xl shadow-2xl border border-gray-100 text-center">
                 <h4 class="text-2xl font-black text-blue-900 mb-6">本會最新學術活動或教育訓練</h4>
                 <p class="text-gray-600 mb-8 text-lg">最新的活動公告與報名資訊，請前往我們的官方粉絲專頁查詢。</p>
@@ -73,69 +73,15 @@
             </div>
         </section>
 
-        <section id="specialist-area" class="content-section">
-            <div class="section-header">🎓 災難專科</div>
-            <div class="bg-white p-8 md:p-12 rounded-3xl shadow-2xl border border-gray-200">
-                <div class="max-w-4xl mx-auto">
-                    <h3 class="text-2xl font-black text-blue-900 mb-6 flex items-center gap-2">
-                        災難醫學專科醫師甄審
-                    </h3>
-                    
-                    <div class="bg-blue-50 border-l-4 border-blue-900 p-6 mb-8 rounded-r-xl">
-                        <p class="text-lg font-bold text-blue-900 mb-2">本會辦理災難醫學專科醫師甄審相關事宜。</p>
-                        <p class="flex items-center gap-2">
-                            <span class="font-bold">依據：</span>
-                            <a href="https://drive.google.com/file/d/1jg_csfv2mdUllqJx2EEkWvPDWHy_LO27/view?usp=sharing" target="_blank" class="text-blue-700 underline hover:text-orange-600 font-bold transition">
-                                本學會災難醫學專科甄審辦法 🔗
-                            </a>
-                        </p>
-                    </div>
-
-                    <div class="space-y-6">
-                        <h4 class="text-xl font-black text-gray-800 border-b pb-2">說 明：</h4>
-                        
-                        <div class="grid md:grid-cols-2 gap-4">
-                            <div class="p-5 border border-gray-100 rounded-2xl shadow-sm hover:shadow-md transition bg-white">
-                                <p class="text-blue-900 font-black mb-2 flex items-center gap-2">
-                                    <span class="bg-blue-100 p-1 rounded">一</span> 報名日期
-                                </p>
-                                <p class="text-gray-600">每年預定於 10 月至 11 月間受理報名，實際期間依當年度公告之報名簡章辦理。</p>
-                            </div>
-
-                            <div class="p-5 border border-gray-100 rounded-2xl shadow-sm hover:shadow-md transition bg-white">
-                                <p class="text-blue-900 font-black mb-2 flex items-center gap-2">
-                                    <span class="bg-blue-100 p-1 rounded">二</span> 筆試日期
-                                </p>
-                                <p class="text-gray-600">每年預定於 12 月上旬舉行，時間及地點依當年度公告之報名簡章辦理。</p>
-                            </div>
-
-                            <div class="p-5 border border-gray-100 rounded-2xl shadow-sm hover:shadow-md transition bg-white">
-                                <p class="text-blue-900 font-black mb-2 flex items-center gap-2">
-                                    <span class="bg-blue-100 p-1 rounded">三</span> 口試日期
-                                </p>
-                                <p class="text-gray-600">每年預定於 12 月下旬舉行，時間及地點依當年度公告之報名簡章辦理。</p>
-                            </div>
-
-                            <div class="p-5 border border-gray-100 rounded-2xl shadow-sm hover:shadow-md transition bg-white">
-                                <p class="text-blue-900 font-black mb-2 flex items-center gap-2">
-                                    <span class="bg-blue-100 p-1 rounded">四</span> 報名甄審費
-                                </p>
-                                <p class="text-gray-600">依當年度公告之收費標準辦理（補行口試者亦同）。</p>
-                            </div>
-                        </div>
-
-                        <div class="mt-6 p-6 bg-orange-50 border border-orange-100 rounded-2xl">
-                            <p class="text-orange-900 font-bold flex items-center gap-2">
-                                📢 五、甄審資格、甄審方式及應備文件等相關事項，詳見當年度報名簡章。
-                            </p>
-                        </div>
-                    </div>
-                </div>
+        <section id="bylaws-area" class="content-section">
+            <div class="section-header">📜 學會章程</div>
+            <div class="bg-white rounded-3xl shadow-2xl overflow-hidden border border-gray-200">
+                <iframe src="https://docs.google.com/document/d/e/2PACX-1vRYwgzoCL3fb93pdNrJpECTd_J3V__3Rqerj476DG6pwJLkj1wCvWrClJ8REA5dRhmWCLjGcfiUstMw/pub?embedded=true" width="100%" height="800" frameborder="0"></iframe>
             </div>
         </section>
 
         <section id="membership-area" class="content-section">
-            <div class="section-header">👤 加入會員</div>
+            <div class="section-header">🤝 加入會員</div>
             <div class="bg-white p-6 md:p-10 rounded-3xl shadow-2xl border border-gray-200">
                 <div class="max-w-5xl mx-auto">
                     <div class="text-center mb-6">
@@ -148,38 +94,28 @@
                         <div class="border border-blue-100 rounded-2xl p-5 bg-blue-50/50">
                             <h5 class="text-lg font-black text-blue-900 mb-4 border-b border-blue-200 pb-2">👥 會員申請資格</h5>
                             <ul class="text-sm space-y-3">
-                                <li class="flex items-start">
-                                    <span class="mr-2">🪪</span>
-                                    <span><strong>個人會員：</strong>年滿 20 歲，認同本會宗旨，具備 醫師、護理人員、緊急救護技術員等醫療或救護相關資格，並經本會審核通過者。</span>
-                                </li>
-                                <li class="flex items-start">
-                                    <span class="mr-2">🪪</span>
-                                    <span><strong>相關會員：</strong>認同本會宗旨，從事 災難救護相關工作，惟不具個人會員資格，並經本會審核通過者。</span>
-                                </li>
-                                <li class="flex items-start">
-                                    <span class="mr-2">🪪</span>
-                                    <span><strong>團體會員：</strong>認同本會宗旨之 機構或團體，並經本會審核通過者。</span>
-                                </li>
+                                <li class="flex items-start"><span class="mr-2">🪪</span><span><strong>個人會員：</strong>年滿 20 歲，認同本會宗旨，具備 醫師、護理人員、緊急救護技術員等醫療或救護相關資格，並經本會審核通過者。</span></li>
+                                <li class="flex items-start"><span class="mr-2">🪪</span><span><strong>相關會員：</strong>認同本會宗旨，從事 災難救護相關工作，惟不具個人會員資格，並經本會審核通過者。</span></li>
+                                <li class="flex items-start"><span class="mr-2">🪪</span><span><strong>團體會員：</strong>認同本會宗旨之 機構或團體，並經本會審核通過者。</span></li>
                             </ul>
                         </div>
-
                         <div class="border border-amber-100 rounded-2xl p-5 bg-amber-50/50">
                             <h5 class="text-lg font-black text-amber-900 mb-4 border-b border-amber-200 pb-2">💰 會費說明</h5>
                             <ul class="text-sm space-y-3 text-gray-700 font-medium">
-                                <li><strong>(1)入會費（首次繳納）：</strong> 個人會員新台幣 1,000 元、相關會員 500 元、團體會員 10,000 元。</li>
-                                <li><strong>(2)常年會費（每年繳納）：</strong> 個人會員新台幣 1,000 元、相關會員 300 元、團體會員 3,000 元。</li>
+                                <li><strong>(1)入會費（首次繳納）：</strong> 個人 1,000 元、相關 500 元、團體 10,000 元。</li>
+                                <li><strong>(2)常年會費（每年繳納）：</strong> 個人 1,000 元、相關 300 元、團體 3,000 元。</li>
                             </ul>
                         </div>
                     </div>
 
                     <div class="bg-gray-100 rounded-2xl p-6 text-center border-2 border-blue-900/10">
                         <div class="space-y-2 text-sm text-gray-700 font-bold mb-6">
-                            <p class="flex items-center justify-center gap-2">📋 個人會員或相關會員 請填寫本表單並上傳相關證明文件，請先拍照</p>
-                            <p class="flex items-center justify-center gap-2">📧 審核後將以 Email 通知入會與繳費程序</p>
-                            <p class="flex items-center justify-center gap-2 text-red-600">🔔 團體會員申請表格，請聯繫秘書處提供</p>
+                            <p>📋 個人會員或相關會員 請填寫本表單並上傳證明文件</p>
+                            <p>📧 審核後將以 Email 通知入會與繳費程序</p>
+                            <p class="text-red-600">🔔 團體會員申請表格，請聯繫秘書處提供</p>
                         </div>
-                        <a href="https://docs.google.com/forms/d/e/1FAIpQLSenUsdvhUgWqfw-dbfFOaCsOE6EaBwoUzzLDF7ytmuQ-znRTQ/viewform?usp=header" target="_blank" class="inline-flex items-center gap-3 bg-blue-900 hover:bg-blue-800 text-white font-black py-4 px-10 rounded-xl shadow-xl transition transform hover:scale-105">
-                            <span class="text-xl">會員入會線上表單填寫</span>
+                        <a href="https://docs.google.com/forms/d/e/1FAIpQLSenUsdvhUgWqfw-dbfFOaCsOE6EaBwoUzzLDF7ytmuQ-znRTQ/viewform" target="_blank" class="inline-flex items-center gap-3 bg-blue-900 hover:bg-blue-800 text-white font-black py-4 px-10 rounded-xl shadow-xl transition transform hover:scale-105">
+                            <span class="text-xl">🤝 會員入會線上表單填寫</span>
                         </a>
                     </div>
                 </div>
@@ -199,6 +135,48 @@
             </div>
         </section>
 
+        <section id="specialist-area" class="content-section">
+            <div class="section-header">🎓 災難專科</div>
+            <div class="bg-white p-8 md:p-12 rounded-3xl shadow-2xl border border-gray-200">
+                <div class="max-w-4xl mx-auto">
+                    <h3 class="text-2xl font-black text-blue-900 mb-6">災難醫學專科醫師甄審</h3>
+                    <div class="bg-blue-50 border-l-4 border-blue-900 p-6 mb-8 rounded-r-xl">
+                        <p class="text-lg font-bold text-blue-900 mb-2">本會辦理災難醫學專科醫師甄審相關事宜。</p>
+                        <p class="flex items-center gap-2">
+                            <span class="font-bold">依據：</span>
+                            <a href="https://drive.google.com/file/d/1jg_csfv2mdUllqJx2EEkWvPDWHy_LO27/view?usp=sharing" target="_blank" class="text-blue-700 underline hover:text-orange-600 font-bold transition">
+                                本學會災難醫學專科甄審辦法 🔗
+                            </a>
+                        </p>
+                    </div>
+                    <div class="space-y-6">
+                        <h4 class="text-xl font-black text-gray-800 border-b pb-2">說 明：</h4>
+                        <div class="grid md:grid-cols-2 gap-4">
+                            <div class="p-5 border border-gray-100 rounded-2xl shadow-sm bg-white">
+                                <p class="text-blue-900 font-black mb-2">一、報名日期</p>
+                                <p class="text-gray-600">每年預定於 10 月至 11 月間受理報名，實際期間依當年度公告之報名簡章辦理。</p>
+                            </div>
+                            <div class="p-5 border border-gray-100 rounded-2xl shadow-sm bg-white">
+                                <p class="text-blue-900 font-black mb-2">二、筆試日期</p>
+                                <p class="text-gray-600">每年預定於 12 月上旬舉行，時間及地點依當年度公告之報名簡章辦理。</p>
+                            </div>
+                            <div class="p-5 border border-gray-100 rounded-2xl shadow-sm bg-white">
+                                <p class="text-blue-900 font-black mb-2">三、口試日期</p>
+                                <p class="text-gray-600">每年預定於 12 月下旬舉行，時間及地點依當年度公告之報名簡章辦理。</p>
+                            </div>
+                            <div class="p-5 border border-gray-100 rounded-2xl shadow-sm bg-white">
+                                <p class="text-blue-900 font-black mb-2">四、報名甄審費</p>
+                                <p class="text-gray-600">依當年度公告之收費標準辦理（補行口試者亦同）。</p>
+                            </div>
+                        </div>
+                        <div class="mt-6 p-6 bg-orange-50 border border-orange-100 rounded-2xl">
+                            <p class="text-orange-900 font-bold">📢 五、甄審資格、甄審方式及應備文件等相關事項，詳見當年度報名簡章。</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
         <section id="newsletter-area" class="content-section">
             <div class="section-header">📰 災難醫學通訊</div>
             <div class="flex flex-wrap mb-[-1px] relative z-10 px-2">
@@ -208,10 +186,10 @@
             <div class="bg-white p-8 md:p-12 rounded-3xl rounded-tl-none shadow-2xl border border-gray-200">
                 <div id="submission-info" class="sub-content active">
                     <div class="grid md:grid-cols-2 gap-6 py-4 text-center">
-                        <a href="https://drive.google.com/file/d/1ID-AnX2V0rNAbQrTVApb04cHmh-3N21m/view?usp=sharing" target="_blank" class="bg-blue-50 hover:bg-blue-100 text-blue-900 font-black py-8 px-6 rounded-2xl border-2 border-blue-200 transition shadow-lg text-lg flex flex-col items-center gap-2">
+                        <a href="https://drive.google.com/file/d/1ID-AnX2V0rNAbQrTVApb04cHmh-3N21m/view" target="_blank" class="bg-blue-50 hover:bg-blue-100 text-blue-900 font-black py-8 px-6 rounded-2xl border-2 border-blue-200 transition shadow-lg text-lg flex flex-col items-center gap-2">
                             <span>📜</span> 投稿規則
                         </a>
-                        <a href="https://drive.google.com/file/d/1om0kLtZvkabFpZADVZRtN39wk3_Chcw6/view?usp=sharing" target="_blank" class="bg-green-50 hover:bg-green-100 text-green-900 font-black py-8 px-6 rounded-2xl border-2 border-green-200 transition shadow-lg text-lg flex flex-col items-center gap-2">
+                        <a href="https://drive.google.com/file/d/1om0kLtZvkabFpZADVZRtN39wk3_Chcw6/view" target="_blank" class="bg-green-50 hover:bg-green-100 text-green-900 font-black py-8 px-6 rounded-2xl border-2 border-green-200 transition shadow-lg text-lg flex flex-col items-center gap-2">
                             <span>✍️</span> 同意書
                         </a>
                     </div>
@@ -222,24 +200,37 @@
             </div>
         </section>
 
-        <section id="bylaws-area" class="content-section">
-            <div class="section-header">⚖️ 學會章程</div>
-            <div class="bg-white rounded-3xl shadow-2xl overflow-hidden border border-gray-200">
-                <iframe src="https://docs.google.com/document/d/e/2PACX-1vRYwgzoCL3fb93pdNrJpECTd_J3V__3Rqerj476DG6pwJLkj1wCvWrClJ8REA5dRhmWCLjGcfiUstMw/pub?embedded=true" width="100%" height="800" frameborder="0"></iframe>
+        <section id="annals-area" class="content-section">
+            <div class="section-header">🔬 Annals of Disaster Medicine</div>
+            <div class="bg-white p-8 md:p-12 rounded-3xl shadow-2xl border border-gray-200">
+                <div class="max-w-4xl mx-auto text-center">
+                    <h2 class="text-3xl font-black text-blue-900 mb-2">Annals of Disaster Medicine</h2>
+                    <p class="text-gray-500 font-bold mb-10 italic">ISSN: 1684-0291</p>
+                    
+                    <div class="grid md:grid-cols-2 gap-8">
+                        <div class="bg-slate-50 p-8 rounded-3xl border border-slate-100 shadow-sm flex flex-col items-center justify-center">
+                            <div class="w-16 h-16 bg-blue-100 text-blue-900 rounded-full flex items-center justify-center text-3xl mb-4">🔬</div>
+                            <h3 class="text-xl font-black text-blue-900 mb-4">Instructions for Authors</h3>
+                            <a href="https://drive.google.com/file/d/1pS2XRLNYTQTHHgnM0mZq4lu4Wd4jzQeY/view" target="_blank" class="bg-blue-900 hover:bg-blue-800 text-white px-8 py-3 rounded-full font-bold transition shadow-lg">
+                                下載投稿須知
+                            </a>
+                        </div>
+                        <div class="bg-slate-50 p-8 rounded-3xl border border-slate-100 shadow-sm flex flex-col items-center justify-center">
+                            <div class="w-16 h-16 bg-orange-100 text-orange-900 rounded-full flex items-center justify-center text-3xl mb-4">🔬</div>
+                            <h3 class="text-xl font-black text-blue-900 mb-4">Copyright Agreement</h3>
+                            <a href="https://drive.google.com/file/d/1pS2XRLNYTQTHHgnM0mZq4lu4Wd4jzQeY/view" target="_blank" class="bg-orange-600 hover:bg-orange-700 text-white px-8 py-3 rounded-full font-bold transition shadow-lg">
+                                下載同意書
+                            </a>
+                        </div>
+                    </div>
+                </div>
             </div>
         </section>
 
         <section id="donation-area" class="content-section">
-            <div class="section-header">🎁 支持捐款</div>
+            <div class="section-header">❤️ 支持捐款</div>
             <div class="bg-white rounded-3xl shadow-2xl overflow-hidden border border-gray-200">
                 <iframe src="https://docs.google.com/forms/d/e/1FAIpQLSeM0GhLYrRMvbBH58Wiy2wrt-1QiRzlMVhnK523nE_uXDa_8g/viewform?embedded=true" width="100%" height="1500" frameborder="0"></iframe>
-            </div>
-        </section>
-
-        <section id="coming-soon" class="content-section">
-            <div class="flex flex-col items-center justify-center py-40 bg-white rounded-xl shadow-inner border border-dashed border-gray-300">
-                <span class="text-7xl mb-6 opacity-40">🚧</span>
-                <h3 class="text-4xl font-black text-gray-300 uppercase tracking-widest">Coming Soon</h3>
             </div>
         </section>
 
@@ -280,7 +271,7 @@
 
         function updateRosterView(term) {
             const data = rosterData[term];
-            let html = `<h4 class="text-2xl font-black text-blue-900 mb-4 border-b pb-2 flex items-center gap-2">📋 ${data.title}</h4>`;
+            let html = `<h4 class="text-2xl font-black text-blue-900 mb-4 border-b pb-2 flex items-center gap-2">🏛️ ${data.title}</h4>`;
             html += `<p class="mb-6 text-gray-500 font-bold text-sm">🗓️ 任職期間：${data.period}</p>`;
             html += `<table class="w-full roster-table text-sm">`;
             for (let [key, val] of Object.entries(data.list)) {
