@@ -6,9 +6,9 @@
     <title>台灣災難醫學會 TSDM</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <style>
-        /* 導覽列按鈕優化：更緊密的間距 */
+        /* 導覽列按鈕與動態提示：橘底白字樣式 */
         .nav-btn { 
-            @apply px-3 py-1.5 transition-all duration-300 rounded-lg text-white hover:bg-blue-800 flex items-center gap-1.5 text-sm; 
+            @apply px-4 py-2 transition-all duration-300 rounded-lg text-white hover:bg-blue-800 flex items-center gap-2; 
         }
         .nav-btn.active { 
             @apply bg-orange-500 text-white font-black shadow-inner scale-105; 
@@ -38,16 +38,15 @@
 </head>
 <body class="bg-slate-50 text-gray-800 flex flex-col min-h-screen">
 
-    <nav class="bg-blue-900 text-white py-3 px-5 shadow-2xl sticky top-0 z-50">
-        <div class="container mx-auto flex flex-col lg:flex-row justify-between items-center gap-3">
-            
-            <div class="flex items-center cursor-pointer group shrink-0" onclick="showSection('activity-area', document.querySelector('.nav-btn'))">
-                <img src="logo.png" alt="Logo" class="h-12 w-auto mr-3 transition-transform group-hover:scale-110 shrink-0">
-                <h1 class="text-xl md:text-2xl font-black tracking-widest whitespace-nowrap">台灣災難醫學會</h1>
+    <nav class="bg-blue-900 text-white p-5 shadow-2xl sticky top-0 z-50">
+        <div class="container mx-auto flex flex-col lg:flex-row justify-between items-center">
+            <div class="flex items-center mb-4 lg:mb-0 cursor-pointer group" onclick="showSection('activity-area', document.querySelector('.nav-btn'))">
+                <img src="logo.png" alt="Logo" class="h-16 w-auto mr-4 transition-transform group-hover:scale-110 shrink-0">
+                <h1 class="text-2xl font-black tracking-widest whitespace-nowrap">台灣災難醫學會</h1>
             </div>
             
-            <div class="flex flex-wrap justify-center items-center gap-2">
-                <button onclick="showSection('activity-area', this)" class="nav-btn active">📢 最新消息與活動公告</button>
+            <div class="flex flex-wrap justify-center items-center gap-3 text-sm md:text-base">
+                <button onclick="showSection('activity-area', this)" class="nav-btn active">📢消息與活動</button>
                 <button onclick="showSection('bylaws-area', this)" class="nav-btn">📜 學會章程</button>
                 <button onclick="showSection('membership-area', this)" class="nav-btn">🤝 加入會員</button>
                 <button onclick="showSection('roster-area', this)" class="nav-btn">🏛️ 理監事名冊</button>
@@ -59,7 +58,7 @@
                     🌐 FB粉絲專頁
                 </a>
 
-                <button onclick="showSection('donation-area', this)" class="bg-red-600 hover:bg-red-700 px-4 py-1.5 rounded-full font-black transition shadow-lg text-white flex items-center gap-2 text-sm">
+                <button onclick="showSection('donation-area', this)" class="bg-red-600 hover:bg-red-700 px-5 py-2 rounded-full font-black transition shadow-lg text-white flex items-center gap-2">
                     ❤️ 支持捐款
                 </button>
             </div>
@@ -69,9 +68,9 @@
     <main class="container mx-auto py-10 px-4 max-w-6xl flex-grow">
         
         <section id="activity-area" class="content-section active">
-            <div class="section-header">📢 最新消息與活動公告</div>
+            <div class="section-header">📢 消息與活動</div>
             
-            <div class="mb-6 px-2">
+<div class="mb-6 px-2">
                 <div class="flex flex-col md:flex-row md:items-center gap-2 md:gap-4 text-gray-800">
                     <span class="bg-orange-500 text-white px-2 py-0.5 rounded text-[10px] font-black uppercase inline-block self-start mt-1 md:mt-0">研討會</span>
                     <h2 class="text-xl md:text-2xl font-black text-blue-900 leading-tight">從世界看台灣的韌性醫療</h2>
@@ -85,24 +84,26 @@
                     </div>
                 </div>
             </div>
-
-            <div class="bg-white rounded-2xl shadow-sm border border-gray-200 p-4 md:p-6 mb-6">
-                <h4 class="text-lg font-black text-blue-900 mb-4 text-center flex items-center justify-center gap-2">
-                    <span>📝</span> 活動線上報名系統
-                </h4>
-                <div class="rounded-lg overflow-hidden border border-gray-200 bg-gray-50 flex justify-center">
-                    <iframe src="https://docs.google.com/forms/d/e/1FAIpQLSfFWl898apz0HGgtsEhinyvFz3hooM_G1yz4PWsrZaFFvPmJw/viewform?embedded=true" width="100%" height="800" frameborder="0" marginheight="0" marginwidth="0">載入中…</iframe>
+                    <div class="border-t-2 border-dashed border-gray-200 pt-8 mt-8">
+                        <h4 class="text-xl font-black text-blue-900 mb-6 flex items-center gap-2 justify-center">
+                            📝 活動線上報名系統
+                        </h4>
+                        <div class="rounded-xl overflow-hidden border border-gray-200 shadow-inner bg-gray-50 flex justify-center">
+                            <iframe src="https://docs.google.com/forms/d/e/1FAIpQLSfFWl898apz0HGgtsEhinyvFz3hooM_G1yz4PWsrZaFFvPmJw/viewform?embedded=true" width="100%" height="1200" frameborder="0" marginheight="0" marginwidth="0">載入中…</iframe>
+                        </div>
+                    </div>
                 </div>
             </div>
 
-            <div class="bg-gray-100 p-6 rounded-2xl border border-gray-200 text-center">
-                <h4 class="text-lg font-black text-blue-900 mb-2">更多學術活動或教育訓練</h4>
-                <p class="text-gray-600 mb-4 text-sm">最新的消息、活動公告與報名資訊，亦可前往我們的官方粉絲專頁查詢。</p>
-                <a href="https://www.facebook.com/TSDM2000" target="_blank" class="inline-flex items-center bg-[#1877F2] hover:bg-blue-700 text-white font-black py-2.5 px-6 rounded-full shadow-md transition transform hover:-translate-y-1 gap-2 text-sm">
+            <div class="bg-gray-100 p-8 rounded-3xl border border-gray-200 text-center">
+                <h4 class="text-xl font-black text-blue-900 mb-4">更多學術活動或教育訓練</h4>
+                <p class="text-gray-600 mb-6">最新的消息、活動公告與報名資訊，亦可前往我們的官方粉絲專頁查詢。</p>
+                <a href="https://www.facebook.com/TSDM2000" target="_blank" class="inline-flex items-center bg-[#1877F2] hover:bg-blue-700 text-white font-black py-3 px-8 rounded-full shadow-lg transition transform hover:-translate-y-1 gap-3">
                     🌐 連結本會 FB 官方粉絲專頁
                 </a>
             </div>
         </section>
+
         <section id="bylaws-area" class="content-section">
             <div class="section-header">📜 學會章程</div>
             <div class="bg-white rounded-3xl shadow-2xl overflow-hidden border border-gray-200">
@@ -113,11 +114,41 @@
         <section id="membership-area" class="content-section">
             <div class="section-header">🤝 加入會員</div>
             <div class="bg-white p-6 md:p-10 rounded-3xl shadow-2xl border border-gray-200">
-                <div class="max-w-5xl mx-auto text-center">
-                    <h4 class="text-xl font-black text-blue-900 mb-2">個人/相關/團體入會申請</h4>
-                    <a href="https://docs.google.com/forms/d/e/1FAIpQLSenUsdvhUgWqfw-dbfFOaCsOE6EaBwoUzzLDF7ytmuQ-znRTQ/viewform" target="_blank" class="inline-flex items-center gap-3 bg-blue-900 hover:bg-blue-800 text-white font-black py-4 px-10 rounded-xl shadow-xl transition transform hover:scale-105 text-xl">
-                        🤝 會員入會線上表單填寫
-                    </a>
+                <div class="max-w-5xl mx-auto">
+                    <div class="text-center mb-6">
+                        <h4 class="text-xl font-black text-blue-900 mb-2">各位有志於災難醫學的伙伴們：</h4>
+                        <p class="text-lg font-bold text-gray-800 mb-4">個人/相關/團體入會申請 -台灣災難醫學會</p>
+                        <p class="text-gray-700 leading-relaxed text-sm">歡迎加入 台灣災難醫學會。本學會致力於推動災難醫學教育與專業發展，誠摯邀請對災難醫學有興趣之醫療、救災與相關專業人員申請入會。</p>
+                    </div>
+                    
+                    <div class="grid md:grid-cols-2 gap-6 mb-6">
+                        <div class="border border-blue-100 rounded-2xl p-5 bg-blue-50/50">
+                            <h5 class="text-lg font-black text-blue-900 mb-4 border-b border-blue-200 pb-2">👥 會員申請資格</h5>
+                            <ul class="text-sm space-y-3">
+                                <li class="flex items-start"><span class="mr-2">🪪</span><span><strong>個人會員：</strong>年滿 20 歲，認同本會宗旨，具備 醫師、護理人員、緊急救護技術員等醫療或救護相關資格，並經本會審核通過者。</span></li>
+                                <li class="flex items-start"><span class="mr-2">🪪</span><span><strong>相關會員：</strong>認同本會宗旨，從事 災難救護相關工作，惟不具個人會員資格，並經本會審核通過者。</span></li>
+                                <li class="flex items-start"><span class="mr-2">🪪</span><span><strong>團體會員：</strong>認同本會宗旨之 機構或團體，並經本會審核通過者。</span></li>
+                            </ul>
+                        </div>
+                        <div class="border border-amber-100 rounded-2xl p-5 bg-amber-50/50">
+                            <h5 class="text-lg font-black text-amber-900 mb-4 border-b border-amber-200 pb-2">💰 會費說明</h5>
+                            <ul class="text-sm space-y-3 text-gray-700 font-medium">
+                                <li><strong>(1)入會費（首次繳納）：</strong> 個人 1,000 元、相關 500 元、團體 10,000 元。</li>
+                                <li><strong>(2)常年會費（每年繳納）：</strong> 個人 1,000 元、相關 300 元、團體 3,000 元。</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="bg-gray-100 rounded-2xl p-6 text-center border-2 border-blue-900/10">
+                        <div class="space-y-2 text-sm text-gray-700 font-bold mb-6">
+                            <p>📋 個人會員或相關會員 請填寫本表單並上傳證明文件</p>
+                            <p>📧 審核後將以 Email 通知入會與繳費程序</p>
+                            <p class="text-red-600">🔔 團體會員申請表格，請聯繫秘書處提供</p>
+                        </div>
+                        <a href="https://docs.google.com/forms/d/e/1FAIpQLSenUsdvhUgWqfw-dbfFOaCsOE6EaBwoUzzLDF7ytmuQ-znRTQ/viewform" target="_blank" class="inline-flex items-center gap-3 bg-blue-900 hover:bg-blue-800 text-white font-black py-4 px-10 rounded-xl shadow-xl transition transform hover:scale-105">
+                            <span class="text-xl">🤝 會員入會線上表單填寫</span>
+                        </a>
+                    </div>
                 </div>
             </div>
         </section>
@@ -139,11 +170,16 @@
             <div class="section-header">🎓 災難專科</div>
             <div class="bg-white p-8 md:p-12 rounded-3xl shadow-2xl border border-gray-200">
                 <div class="max-w-4xl mx-auto">
-                    <h3 class="text-2xl font-black text-blue-900 mb-6 font-bold">災難醫學專科醫師甄審</h3>
+                    <h3 class="text-2xl font-black text-blue-900 mb-6">災難醫學專科醫師甄審</h3>
                     <div class="bg-blue-50 border-l-4 border-blue-900 p-6 mb-8 rounded-r-xl">
-                        <p class="text-lg font-bold text-blue-900 mb-2 font-bold text-blue-900">本會辦理災難醫學專科醫師甄審相關事宜。</p>
-                        <p class="text-red-600 font-bold mb-4 font-bold text-red-600">💡 提醒：每年 10 月至 11 月間，請務必前往本會 FB 官方粉絲專頁查看當年度甄審報名簡章公告。</p>
-                        <p class="flex items-center gap-2 font-bold">依據：<a href="https://drive.google.com/file/d/1jg_csfv2mdUllqJx2EEkWvPDWHy_LO27/view" target="_blank" class="text-blue-700 underline font-bold text-blue-700">本學會災難醫學專科甄審辦法 🔗</a></p>
+                        <p class="text-lg font-bold text-blue-900 mb-2">本會辦理災難醫學專科醫師甄審相關事宜。</p>
+                        <p class="text-red-600 font-bold mb-4">💡 提醒：每年 10 月至 11 月間，請務必前往本會 FB 官方粉絲專頁查看當年度甄審報名簡章公告。</p>
+                        <p class="flex items-center gap-2">
+                            <span class="font-bold">依據：</span>
+                            <a href="https://drive.google.com/file/d/1jg_csfv2mdUllqJx2EEkWvPDWHy_LO27/view?usp=sharing" target="_blank" class="text-blue-700 underline hover:text-orange-600 font-bold transition">
+                                本學會災難醫學專科甄審辦法 🔗
+                            </a>
+                        </p>
                     </div>
                 </div>
             </div>
@@ -158,10 +194,10 @@
             <div class="bg-white p-8 md:p-12 rounded-3xl rounded-tl-none shadow-2xl border border-gray-200">
                 <div id="submission-info" class="sub-content active">
                     <div class="grid md:grid-cols-2 gap-6 py-4 text-center">
-                        <a href="https://drive.google.com/file/d/1ID-AnX2V0rNAbQrTVApb04cHmh-3N21m/view" target="_blank" class="bg-blue-50 hover:bg-blue-100 text-blue-900 font-black py-8 px-6 rounded-2xl border-2 border-blue-200 transition shadow-lg text-lg flex items-center gap-2 justify-center font-black">
+                        <a href="https://drive.google.com/file/d/1ID-AnX2V0rNAbQrTVApb04cHmh-3N21m/view" target="_blank" class="bg-blue-50 hover:bg-blue-100 text-blue-900 font-black py-8 px-6 rounded-2xl border-2 border-blue-200 transition shadow-lg text-lg flex items-center gap-2 justify-center">
                             <span>📜</span> 投稿規則
                         </a>
-                        <a href="https://drive.google.com/file/d/1om0kLtZvkabFpZADVZRtN39wk3_Chcw6/view" target="_blank" class="bg-green-50 hover:bg-green-100 text-green-900 font-black py-8 px-6 rounded-2xl border-2 border-green-200 transition shadow-lg text-lg flex items-center gap-2 justify-center font-black">
+                        <a href="https://drive.google.com/file/d/1om0kLtZvkabFpZADVZRtN39wk3_Chcw6/view" target="_blank" class="bg-green-50 hover:bg-green-100 text-green-900 font-black py-8 px-6 rounded-2xl border-2 border-green-200 transition shadow-lg text-lg flex items-center gap-2 justify-center">
                             <span>✍️</span> 同意書
                         </a>
                     </div>
@@ -176,18 +212,18 @@
             <div class="section-header">🔬 Annals of Disaster Medicine</div>
             <div class="bg-white p-8 md:p-12 rounded-3xl shadow-2xl border border-gray-200">
                 <div class="max-w-4xl mx-auto text-center">
-                    <h2 class="text-3xl font-black text-blue-900 mb-2 font-black">Annals of Disaster Medicine</h2>
-                    <p class="text-gray-500 font-bold mb-10 italic font-bold">ISSN: 1684-0291</p>
+                    <h2 class="text-3xl font-black text-blue-900 mb-2">Annals of Disaster Medicine</h2>
+                    <p class="text-gray-500 font-bold mb-10 italic">ISSN: 1684-0291</p>
                     <div class="grid md:grid-cols-2 gap-8">
                         <div class="bg-slate-50 p-8 rounded-3xl border border-slate-100 shadow-sm flex flex-col items-center justify-center">
                             <div class="w-16 h-16 bg-blue-100 text-blue-900 rounded-full flex items-center justify-center text-3xl mb-4">🔬</div>
-                            <h3 class="text-xl font-black text-blue-900 mb-4 font-black">Instructions for Authors</h3>
-                            <a href="https://drive.google.com/file/d/1pS2XRLNYTQTHHgnM0mZq4lu4Wd4jzQeY/view" target="_blank" class="bg-blue-900 hover:bg-blue-800 text-white px-8 py-3 rounded-full font-bold transition shadow-lg font-bold">下載投稿須知</a>
+                            <h3 class="text-xl font-black text-blue-900 mb-4">Instructions for Authors</h3>
+                            <a href="https://drive.google.com/file/d/1pS2XRLNYTQTHHgnM0mZq4lu4Wd4jzQeY/view" target="_blank" class="bg-blue-900 hover:bg-blue-800 text-white px-8 py-3 rounded-full font-bold transition shadow-lg">下載投稿須知</a>
                         </div>
                         <div class="bg-slate-50 p-8 rounded-3xl border border-slate-100 shadow-sm flex flex-col items-center justify-center">
                             <div class="w-16 h-16 bg-orange-100 text-orange-900 rounded-full flex items-center justify-center text-3xl mb-4">🔬</div>
-                            <h3 class="text-xl font-black text-blue-900 mb-4 font-black">Copyright Agreement</h3>
-                            <a href="https://drive.google.com/file/d/1pS2XRLNYTQTHHgnM0mZq4lu4Wd4jzQeY/view" target="_blank" class="bg-orange-600 hover:bg-orange-700 text-white px-8 py-3 rounded-full font-bold transition shadow-lg font-bold">下載同意書</a>
+                            <h3 class="text-xl font-black text-blue-900 mb-4">Copyright Agreement</h3>
+                            <a href="https://drive.google.com/file/d/1pS2XRLNYTQTHHgnM0mZq4lu4Wd4jzQeY/view" target="_blank" class="bg-orange-600 hover:bg-orange-700 text-white px-8 py-3 rounded-full font-bold transition shadow-lg">下載同意書</a>
                         </div>
                     </div>
                 </div>
@@ -205,7 +241,7 @@
 
     <footer class="bg-blue-950 text-gray-300 py-10 px-6 mt-auto border-t-4 border-orange-500 text-center">
         <p class="text-lg font-black text-white mb-4">台灣災難醫學會 Taiwan Society for Disaster Medicine</p>
-        <div class="flex flex-col md:flex-row justify-center items-center gap-4 text-sm font-medium font-medium">
+        <div class="flex flex-col md:flex-row justify-center items-center gap-4 text-sm font-medium">
             <span>📍 台北市士林區文昌路95號</span>
             <span class="hidden md:inline opacity-30">|</span>
             <span>📞 TEL: (02)2833-2211 ext. 2082</span>
@@ -220,7 +256,7 @@
             term9: { title: "第九屆理監事名冊", period: "民國114年01月至117年01月", list: { "【理事長】": "洪世文", "【常務理事】": "王宗倫、馬漢平、鄭銘泰、符凌斌", "【理事】": "李宜恭、張志華、蔡易廷、林志豪、陳國智、侯鐘閎、陳厚全、黃錦源、侯勝文、翁健瑞", "【常務監事】": "林秋梅", "【監事】": "李芳年、連楚明、蔡光超、白永嘉", "【秘書處】": "陳玉龍秘書長、陳暉翰副秘書長" } },
             term8: { title: "第八屆理監事名冊", period: "民國110年12月至113年12月", list: { "【理事長】": "王宗倫", "【常務理事】": "李宜恭、洪世文、馬漢平、張志華", "【理事】": "張志華、鄭銘泰、蔡易廷、洪世文、林志豪、陳國智、侯鐘閎、符凌斌、陳厚全、黃錦源", "【常務監事】": "林秋梅", "【監事】": "李芳年、連楚明、蔡光超、白永嘉", "【秘書處】": "侯勝文秘書長、陳玉龍副秘書長、鄭伯良副秘書長" } },
             term7: { title: "第七屆理監事名冊", period: "民國107年12月至110年12月", list: { "【理事長】": "王宗倫", "【常務理事】": "李宜恭、洪世文、馬漢平、張志華", "【理事】": "林志豪、侯鐘閎、符凌斌、陳國智、黃炳文、廖耕望、蔡卓城、蔡易廷、蔡維謀、鄭銘泰", "【常務監事】": "蔡光超", "【監事】": "白永嘉、李芳年、林秋梅、連楚明", "【秘書處】": "侯勝文秘長、陳玉龍副秘書長、鄭伯良副秘書長" } },
-            term6: { title: "第六屆理監事名冊", period: "民國104年11月至107年11月", list: { "【理事長】": "張珩", "【常務理事】": "李宜恭、馬漢平、蔡卓城、蔡維謀", "【理事】": "王宗倫、白永嘉、李賢發、邱豐祥、洪世文、莊佳璋", "【常務監事】": "林秋梅", "【監事】": "李芳年、連楚明、蔡光超、藍章杰", "【秘書處】": "李宜恭" } }
+            term6: { title: "第六屆理監事名冊", period: "民國104年11月至107年11月", list: { "【理事長】": "張珩", "【常務理事】": "李宜恭、馬漢平、蔡卓城、蔡維謀", "【理事】": "王宗倫、白永嘉、李賢發、邱豐祥、洪世文、莊佳璋、陳國智、黃炳文、蔡明哲、蔡易廷", "【常務監事】": "林秋梅", "【監事】": "李芳年、連楚明、蔡光超、藍章杰", "【秘書處】": "李宜恭" } }
         };
 
         window.onload = function() { 
