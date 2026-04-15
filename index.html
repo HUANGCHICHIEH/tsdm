@@ -71,34 +71,23 @@
         <section id="activity-area" class="content-section active">
             <div class="section-header">📢 最新消息與活動公告</div>
             
-            <div class="bg-teal-800 rounded-2xl shadow-md overflow-hidden mb-6 text-white">
-                <div class="p-5 md:p-6">
-                    <div class="mb-4">
-                        <span class="bg-teal-900/50 text-teal-100 border border-teal-600 px-2 py-0.5 rounded text-[11px] font-bold tracking-wider inline-block mb-2">研討會公告</span>
-                        <h2 class="text-2xl md:text-3xl font-black leading-tight">從世界看台灣的韌性醫療</h2>
-                    </div>
+            <div class="mb-6 px-2">
+                <div class="flex flex-col md:flex-row md:items-center gap-2 md:gap-4 text-gray-800">
+                    <span class="bg-orange-500 text-white px-2 py-0.5 rounded text-[10px] font-black uppercase inline-block self-start mt-1 md:mt-0">研討會</span>
+                    <h2 class="text-xl md:text-2xl font-black text-blue-900 leading-tight">從世界看台灣的韌性醫療</h2>
                     
-                    <div class="grid md:grid-cols-2 gap-4 pt-4 border-t border-gray-300/30">
-                        <div class="flex items-center gap-3">
-                            <span class="text-2xl opacity-90">📅</span>
-                            <div class="leading-tight">
-                                <p class="font-bold text-lg mb-0.5">2026/6/7 星期日</p>
-                                <p class="text-teal-100 text-sm">08:00 - 12:10</p>
-                            </div>
-                        </div>
-                        <div class="flex items-center gap-3">
-                            <span class="text-2xl opacity-90">📍</span>
-                            <div class="leading-tight">
-                                <p class="font-bold text-lg mb-0.5">新光醫院 B1 大會議室</p>
-                                <p class="text-teal-100 text-sm">台北市士林區文昌路 95 號</p>
-                            </div>
-                        </div>
+                    <span class="hidden md:inline text-gray-300">|</span>
+                    
+                    <div class="flex flex-wrap items-center gap-x-4 gap-y-1 text-sm font-bold text-gray-600">
+                        <span class="flex items-center gap-1">📅 2026/6/7 (日) 08:00-12:10</span>
+                        <span class="hidden md:inline text-gray-300">|</span>
+                        <span class="flex items-center gap-1">📍 新光醫院 B1 大會議室 <span class="text-xs text-gray-400 font-normal hidden lg:inline">(台北市士林區文昌路95號)</span></span>
                     </div>
                 </div>
             </div>
 
-            <div class="bg-white rounded-2xl shadow-sm border border-gray-200 p-6 mb-6">
-                <h4 class="text-lg font-black text-teal-900 mb-4 text-center flex items-center justify-center gap-2">
+            <div class="bg-white rounded-2xl shadow-sm border border-gray-200 p-4 md:p-6 mb-6">
+                <h4 class="text-lg font-black text-blue-900 mb-4 text-center flex items-center justify-center gap-2">
                     <span>📝</span> 活動線上報名系統
                 </h4>
                 <div class="rounded-lg overflow-hidden border border-gray-200 bg-gray-50 flex justify-center">
@@ -198,4 +187,80 @@
                         <div class="bg-slate-50 p-8 rounded-3xl border border-slate-100 shadow-sm flex flex-col items-center justify-center">
                             <div class="w-16 h-16 bg-orange-100 text-orange-900 rounded-full flex items-center justify-center text-3xl mb-4">🔬</div>
                             <h3 class="text-xl font-black text-blue-900 mb-4 font-black">Copyright Agreement</h3>
-                            <a href="https://drive.google.com/file/d/1pS2XRLNYTQTHHgnM0mZq4lu4Wd4jzQeY/view" target="_blank" class="bg-orange-600 hover:bg-orange-700 text-white px-8 py-3 rounded-full font-bold transition
+                            <a href="https://drive.google.com/file/d/1pS2XRLNYTQTHHgnM0mZq4lu4Wd4jzQeY/view" target="_blank" class="bg-orange-600 hover:bg-orange-700 text-white px-8 py-3 rounded-full font-bold transition shadow-lg font-bold">下載同意書</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="donation-area" class="content-section">
+            <div class="section-header">❤️ 支持捐款</div>
+            <div class="bg-white rounded-3xl shadow-2xl overflow-hidden border border-gray-200">
+                <iframe src="https://docs.google.com/forms/d/e/1FAIpQLSeM0GhLYrRMvbBH58Wiy2wrt-1QiRzlMVhnK523nE_uXDa_8g/viewform?embedded=true" width="100%" height="1500" frameborder="0"></iframe>
+            </div>
+        </section>
+
+    </main>
+
+    <footer class="bg-blue-950 text-gray-300 py-10 px-6 mt-auto border-t-4 border-orange-500 text-center">
+        <p class="text-lg font-black text-white mb-4">台灣災難醫學會 Taiwan Society for Disaster Medicine</p>
+        <div class="flex flex-col md:flex-row justify-center items-center gap-4 text-sm font-medium font-medium">
+            <span>📍 台北市士林區文昌路95號</span>
+            <span class="hidden md:inline opacity-30">|</span>
+            <span>📞 TEL: (02)2833-2211 ext. 2082</span>
+            <span class="hidden md:inline opacity-30">|</span>
+            <span>✉️ Email: ndmstw@gmail.com</span>
+        </div>
+        <p class="mt-6 text-xs opacity-40">© 2026 Taiwan Society for Disaster Medicine. All Rights Reserved.</p>
+    </footer>
+
+    <script>
+        const rosterData = {
+            term9: { title: "第九屆理監事名冊", period: "民國114年01月至117年01月", list: { "【理事長】": "洪世文", "【常務理事】": "王宗倫、馬漢平、鄭銘泰、符凌斌", "【理事】": "李宜恭、張志華、蔡易廷、林志豪、陳國智、侯鐘閎、陳厚全、黃錦源、侯勝文、翁健瑞", "【常務監事】": "林秋梅", "【監事】": "李芳年、連楚明、蔡光超、白永嘉", "【秘書處】": "陳玉龍秘書長、陳暉翰副秘書長" } },
+            term8: { title: "第八屆理監事名冊", period: "民國110年12月至113年12月", list: { "【理事長】": "王宗倫", "【常務理事】": "李宜恭、洪世文、馬漢平、張志華", "【理事】": "張志華、鄭銘泰、蔡易廷、洪世文、林志豪、陳國智、侯鐘閎、符凌斌、陳厚全、黃錦源", "【常務監事】": "林秋梅", "【監事】": "李芳年、連楚明、蔡光超、白永嘉", "【秘書處】": "侯勝文秘書長、陳玉龍副秘書長、鄭伯良副秘書長" } },
+            term7: { title: "第七屆理監事名冊", period: "民國107年12月至110年12月", list: { "【理事長】": "王宗倫", "【常務理事】": "李宜恭、洪世文、馬漢平、張志華", "【理事】": "林志豪、侯鐘閎、符凌斌、陳國智、黃炳文、廖耕望、蔡卓城、蔡易廷、蔡維謀、鄭銘泰", "【常務監事】": "蔡光超", "【監事】": "白永嘉、李芳年、林秋梅、連楚明", "【秘書處】": "侯勝文秘長、陳玉龍副秘書長、鄭伯良副秘書長" } },
+            term6: { title: "第六屆理監事名冊", period: "民國104年11月至107年11月", list: { "【理事長】": "張珩", "【常務理事】": "李宜恭、馬漢平、蔡卓城、蔡維謀", "【理事】": "王宗倫、白永嘉、李賢發、邱豐祥、洪世文、莊佳璋", "【常務監事】": "林秋梅", "【監事】": "李芳年、連楚明、蔡光超、藍章杰", "【秘書處】": "李宜恭" } }
+        };
+
+        window.onload = function() { 
+            showSection('activity-area', document.querySelector('.nav-btn'));
+            updateRosterView('term9'); 
+        };
+
+        function showSection(id, btn) {
+            if (id === 'external') return;
+            document.querySelectorAll('.content-section').forEach(s => s.classList.remove('active'));
+            document.querySelectorAll('.nav-btn').forEach(b => b.classList.remove('active'));
+            document.getElementById(id).classList.add('active');
+            if(btn) btn.classList.add('active');
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+
+        function updateRosterView(term) {
+            const data = rosterData[term];
+            let html = `<h4 class="text-2xl font-black text-blue-900 mb-4 border-b pb-2 flex items-center gap-2">🏛️ ${data.title}</h4>`;
+            html += `<p class="mb-6 text-gray-500 font-bold text-sm">🗓️ 任職期間：${data.period}</p>`;
+            html += `<table class="w-full roster-table text-sm">`;
+            for (let [key, val] of Object.entries(data.list)) {
+                html += `<tr><th>${key}</th><td>${val}</td></tr>`;
+            }
+            html += `</table>`;
+            document.getElementById('roster-view').innerHTML = html;
+        }
+
+        function switchSubTab(evt, id) {
+            document.querySelectorAll('#newsletter-area .sub-content').forEach(c => c.classList.remove('active'));
+            document.querySelectorAll('#newsletter-area .tab-btn').forEach(b => b.classList.remove('active'));
+            document.getElementById(id).classList.add('active');
+            evt.currentTarget.classList.add('active');
+        }
+
+        function switchRoster(evt, term) {
+            document.querySelectorAll('#roster-area .tab-btn').forEach(b => b.classList.remove('active'));
+            evt.currentTarget.classList.add('active');
+            updateRosterView(term);
+        }
+    </script>
+</body>
+</html>
