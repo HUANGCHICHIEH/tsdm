@@ -6,160 +6,140 @@
     <title>台灣災難醫學會 TSDM</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <style>
-        /* 導覽列按鈕優化：更緊密的間距 */
+        /* 緊湊型導覽按鈕 */
         .nav-btn { 
-            @apply px-3 py-1.5 transition-all duration-300 rounded-lg text-white hover:bg-blue-800 flex items-center gap-1.5 text-sm; 
+            @apply px-2 py-1 transition-all duration-300 rounded text-white hover:bg-blue-800 flex items-center gap-1 text-xs md:text-sm whitespace-nowrap; 
         }
         .nav-btn.active { 
-            @apply bg-orange-500 text-white font-black shadow-inner scale-105; 
+            @apply bg-orange-500 text-white font-bold shadow-sm; 
         }
 
-        /* 區塊標題美化設計 */
+        /* 區塊標題設計 */
         .section-header {
-            @apply text-2xl font-bold mb-6 py-3 px-6 bg-gradient-to-r from-gray-100 to-transparent border-l-[10px] border-blue-900 text-blue-900 rounded-r-xl shadow-md flex items-center gap-3;
+            @apply text-xl font-bold mb-4 py-2 px-4 bg-gradient-to-r from-gray-100 to-transparent border-l-[6px] border-blue-900 text-blue-900 rounded-r-lg shadow-sm flex items-center gap-2;
         }
 
-        /* 頁籤按鈕樣式 */
-        .tab-btn { @apply px-6 py-2 font-bold transition-all border border-gray-300 rounded-t-xl mr-2 bg-gray-100 text-gray-500 hover:bg-white flex items-center gap-2; }
-        .tab-btn.active { @apply border-blue-900 border-b-white text-blue-900 bg-white z-10 shadow-sm transform translate-y-[1px]; }
+        /* 頁籤樣式 */
+        .tab-btn { @apply px-4 py-1.5 font-bold transition-all border border-gray-300 rounded-t-lg mr-1 bg-gray-100 text-gray-500 hover:bg-white flex items-center gap-1 text-sm; }
+        .tab-btn.active { @apply border-blue-900 border-b-white text-blue-900 bg-white z-10 transform translate-y-[1px]; }
         
-        /* 內容區塊顯示控制 */
         .content-section { display: none; }
-        .content-section.active { display: block; animation: fadeIn 0.4s ease-out; }
+        .content-section.active { display: block; animation: fadeIn 0.3s ease-out; }
         .sub-content { display: none; }
         .sub-content.active { display: block; }
 
-        @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
+        @keyframes fadeIn { from { opacity: 0; transform: translateY(5px); } to { opacity: 1; transform: translateY(0); } }
         html { scroll-behavior: smooth; }
         
-        .roster-table th { @apply bg-blue-50 text-blue-900 px-4 py-3 text-left border w-32 md:w-48 align-top font-bold; }
-        .roster-table td { @apply px-4 py-3 border border-gray-200 leading-relaxed; }
+        .roster-table th { @apply bg-blue-50 text-blue-900 px-3 py-2 text-left border w-32 align-top font-bold text-sm; }
+        .roster-table td { @apply px-3 py-2 border border-gray-200 leading-relaxed text-sm; }
     </style>
 </head>
 <body class="bg-slate-50 text-gray-800 flex flex-col min-h-screen">
 
-    <nav class="bg-blue-900 text-white py-3 px-5 shadow-2xl sticky top-0 z-50">
-        <div class="container mx-auto flex flex-col lg:flex-row justify-between items-center gap-3">
+    <nav class="bg-blue-900 text-white py-2 px-4 shadow-xl sticky top-0 z-50">
+        <div class="container mx-auto flex flex-col lg:flex-row justify-between items-center gap-2">
             
             <div class="flex items-center cursor-pointer group shrink-0" onclick="showSection('activity-area', document.querySelector('.nav-btn'))">
-                <img src="logo.png" alt="Logo" class="h-12 w-auto mr-3 transition-transform group-hover:scale-110 shrink-0">
-                <h1 class="text-xl md:text-2xl font-black tracking-widest whitespace-nowrap">台灣災難醫學會</h1>
+                <img src="logo.png" alt="Logo" class="h-10 w-auto mr-2 transition-transform group-hover:scale-105 shrink-0">
+                <h1 class="text-lg md:text-xl font-black tracking-tighter whitespace-nowrap">台灣災難醫學會</h1>
             </div>
             
-            <div class="flex flex-wrap justify-center items-center gap-2">
-                <button onclick="showSection('activity-area', this)" class="nav-btn active">📢 最新消息與活動公告</button>
+            <div class="flex flex-wrap justify-center items-center gap-1.5">
+                <button onclick="showSection('activity-area', this)" class="nav-btn active">📢 最新活動消息</button>
                 <button onclick="showSection('bylaws-area', this)" class="nav-btn">📜 學會章程</button>
                 <button onclick="showSection('membership-area', this)" class="nav-btn">🤝 加入會員</button>
                 <button onclick="showSection('roster-area', this)" class="nav-btn">🏛️ 理監事名冊</button>
                 <button onclick="showSection('specialist-area', this)" class="nav-btn">🎓 災難專科</button>
-                <button onclick="showSection('newsletter-area', this)" class="nav-btn">📰 災難醫學通訊</button>
-                <button onclick="showSection('annals-area', this)" class="nav-btn">🔬 Annals of Disaster Medicine</button>
+                <button onclick="showSection('newsletter-area', this)" class="nav-btn">📰 通訊</button>
+                <button onclick="showSection('annals-area', this)" class="nav-btn">🔬 Annals</button>
                 
-                <a href="https://www.facebook.com/TSDM2000" target="_blank" class="nav-btn">
-                    🌐 FB粉絲專頁
-                </a>
+                <a href="https://www.facebook.com/TSDM2000" target="_blank" class="nav-btn">🌐 FB粉專</a>
 
-                <button onclick="showSection('donation-area', this)" class="bg-red-600 hover:bg-red-700 px-4 py-1.5 rounded-full font-black transition shadow-lg text-white flex items-center gap-2 text-sm">
-                    ❤️ 支持捐款
+                <button onclick="showSection('donation-area', this)" class="bg-red-600 hover:bg-red-700 px-3 py-1 rounded-full font-bold transition shadow-md text-white flex items-center gap-1 text-xs">
+                    ❤️ 捐款
                 </button>
             </div>
         </div>
     </nav>
 
-    <main class="container mx-auto py-10 px-4 max-w-6xl flex-grow">
+    <main class="container mx-auto py-6 px-4 max-w-6xl flex-grow">
         
         <section id="activity-area" class="content-section active">
             <div class="section-header">📢 最新消息與活動公告</div>
             
-            <div class="bg-white rounded-3xl shadow-2xl border border-gray-100 overflow-hidden mb-10">
-                <div class="bg-blue-900 p-6 text-white">
-                    <div class="flex items-center gap-3 mb-2">
-                        <span class="bg-orange-500 text-white px-3 py-1 rounded-full text-xs font-black">研討會公告</span>
-                    </div>
-                    <h2 class="text-3xl font-black mb-0">從世界看台灣的韌性醫療</h2>
+            <div class="bg-white rounded-2xl shadow-lg border border-gray-100 overflow-hidden mb-6">
+                <div class="bg-blue-900 p-4 text-white">
+                    <span class="bg-orange-500 text-white px-2 py-0.5 rounded text-[10px] font-black uppercase">研討會</span>
+                    <h2 class="text-2xl font-black mt-1">從世界看台灣的韌性醫療</h2>
                 </div>
                 
-                <div class="p-8">
-                    <div class="grid md:grid-cols-2 gap-6 mb-8 text-lg">
-                        <div class="flex items-center gap-4 p-4 bg-blue-50 rounded-2xl border border-blue-100">
-                            <span class="text-3xl">📅</span>
-                            <div>
-                                <p class="text-sm text-blue-700 font-bold">活動日期</p>
+                <div class="p-6">
+                    <div class="grid md:grid-cols-2 gap-4 mb-6">
+                        <div class="flex items-center gap-3 p-3 bg-blue-50 rounded-xl border border-blue-100">
+                            <span class="text-2xl">📅</span>
+                            <div class="text-sm">
                                 <p class="font-black text-blue-900">2026/6/7 星期日</p>
-                                <p class="text-sm font-bold text-gray-600">08:00 - 12:10</p>
+                                <p class="text-gray-600">08:00 - 12:10</p>
                             </div>
                         </div>
-                        <div class="flex items-center gap-4 p-4 bg-orange-50 rounded-2xl border border-orange-100">
-                            <span class="text-3xl">📍</span>
-                            <div>
-                                <p class="text-sm text-orange-700 font-bold">活動地點</p>
+                        <div class="flex items-center gap-3 p-3 bg-orange-50 rounded-xl border border-orange-100">
+                            <span class="text-2xl">📍</span>
+                            <div class="text-sm">
                                 <p class="font-black text-orange-900">新光醫院 B1 大會議室</p>
-                                <p class="text-sm font-bold text-gray-600">台北市士林區文昌路 95 號</p>
+                                <p class="text-gray-600">台北市士林區文昌路 95 號</p>
                             </div>
                         </div>
                     </div>
 
-                    <div class="border-t-2 border-dashed border-gray-200 pt-8 mt-8 text-center">
-                        <h4 class="text-xl font-black text-blue-900 mb-6 flex items-center gap-2 justify-center">
-                            📝 活動線上報名系統
-                        </h4>
-                        <div class="rounded-xl overflow-hidden border border-gray-200 shadow-inner bg-gray-50 flex justify-center">
-                            <iframe src="https://docs.google.com/forms/d/e/1FAIpQLSfFWl898apz0HGgtsEhinyvFz3hooM_G1yz4PWsrZaFFvPmJw/viewform?embedded=true" width="100%" height="800" frameborder="0" marginheight="0" marginwidth="0">載入中…</iframe>
+                    <div class="border-t border-dashed border-gray-200 pt-6">
+                        <h4 class="text-lg font-black text-blue-900 mb-4 text-center">📝 活動線上報名系統</h4>
+                        <div class="rounded-lg overflow-hidden border border-gray-200 bg-gray-50 flex justify-center">
+                            <iframe src="https://docs.google.com/forms/d/e/1FAIpQLSfFWl898apz0HGgtsEhinyvFz3hooM_G1yz4PWsrZaFFvPmJw/viewform?embedded=true" width="100%" height="800" frameborder="0">載入中…</iframe>
                         </div>
                     </div>
                 </div>
-            </div>
-
-            <div class="bg-gray-100 p-8 rounded-3xl border border-gray-200 text-center">
-                <h4 class="text-xl font-black text-blue-900 mb-4">更多學術活動或教育訓練</h4>
-                <p class="text-gray-600 mb-6">最新的消息、活動公告與報名資訊，亦可前往我們的官方粉絲專頁查詢。</p>
-                <a href="https://www.facebook.com/TSDM2000" target="_blank" class="inline-flex items-center bg-[#1877F2] hover:bg-blue-700 text-white font-black py-3 px-8 rounded-full shadow-lg transition transform hover:-translate-y-1 gap-3">
-                    🌐 連結本會 FB 官方粉絲專頁
-                </a>
             </div>
         </section>
 
         <section id="bylaws-area" class="content-section">
             <div class="section-header">📜 學會章程</div>
-            <div class="bg-white rounded-3xl shadow-2xl overflow-hidden border border-gray-200">
+            <div class="bg-white rounded-2xl shadow-lg overflow-hidden border border-gray-200">
                 <iframe src="https://docs.google.com/document/d/e/2PACX-1vRYwgzoCL3fb93pdNrJpECTd_J3V__3Rqerj476DG6pwJLkj1wCvWrClJ8REA5dRhmWCLjGcfiUstMw/pub?embedded=true" width="100%" height="800" frameborder="0"></iframe>
             </div>
         </section>
 
         <section id="membership-area" class="content-section">
             <div class="section-header">🤝 加入會員</div>
-            <div class="bg-white p-6 md:p-10 rounded-3xl shadow-2xl border border-gray-200">
-                <div class="max-w-5xl mx-auto text-center">
-                    <h4 class="text-xl font-black text-blue-900 mb-2">個人/相關/團體入會申請</h4>
-                    <a href="https://docs.google.com/forms/d/e/1FAIpQLSenUsdvhUgWqfw-dbfFOaCsOE6EaBwoUzzLDF7ytmuQ-znRTQ/viewform" target="_blank" class="inline-flex items-center gap-3 bg-blue-900 hover:bg-blue-800 text-white font-black py-4 px-10 rounded-xl shadow-xl transition transform hover:scale-105 text-xl">
-                        🤝 會員入會線上表單填寫
-                    </a>
-                </div>
+            <div class="bg-white p-8 rounded-2xl shadow-lg border border-gray-200 text-center">
+                <h4 class="text-xl font-black text-blue-900 mb-6">個人/相關/團體入會申請</h4>
+                <a href="https://docs.google.com/forms/d/e/1FAIpQLSenUsdvhUgWqfw-dbfFOaCsOE6EaBwoUzzLDF7ytmuQ-znRTQ/viewform" target="_blank" class="inline-flex items-center gap-3 bg-blue-900 hover:bg-blue-800 text-white font-black py-4 px-10 rounded-xl shadow-xl transition transform hover:scale-105 text-lg">
+                    🤝 線上表單填寫
+                </a>
             </div>
         </section>
 
         <section id="roster-area" class="content-section">
             <div class="section-header">🏛️ 理監事名冊</div>
-            <div class="flex flex-wrap mb-[-1px] relative z-10 px-2">
-                <button class="tab-btn active" onclick="switchRoster(event, 'term9')">🥇 第九屆</button>
-                <button class="tab-btn" onclick="switchRoster(event, 'term8')">🥈 第八屆</button>
-                <button class="tab-btn" onclick="switchRoster(event, 'term7')">🥉 第七屆</button>
-                <button class="tab-btn" onclick="switchRoster(event, 'term6')">🎖️ 第六屆</button>
+            <div class="flex flex-wrap mb-[-1px] relative z-10 px-2 text-xs">
+                <button class="tab-btn active" onclick="switchRoster(event, 'term9')">🥇 九屆</button>
+                <button class="tab-btn" onclick="switchRoster(event, 'term8')">🥈 八屆</button>
+                <button class="tab-btn" onclick="switchRoster(event, 'term7')">🥉 七屆</button>
+                <button class="tab-btn" onclick="switchRoster(event, 'term6')">🎖️ 六屆</button>
             </div>
-            <div class="bg-white p-6 md:p-10 rounded-3xl rounded-tl-none shadow-2xl border border-gray-200 min-h-[500px]">
+            <div class="bg-white p-4 md:p-6 rounded-2xl rounded-tl-none shadow-lg border border-gray-200 min-h-[400px]">
                 <div id="roster-view">載入中...</div>
             </div>
         </section>
 
         <section id="specialist-area" class="content-section">
             <div class="section-header">🎓 災難專科</div>
-            <div class="bg-white p-8 md:p-12 rounded-3xl shadow-2xl border border-gray-200">
+            <div class="bg-white p-6 rounded-2xl shadow-lg border border-gray-200">
                 <div class="max-w-4xl mx-auto">
-                    <h3 class="text-2xl font-black text-blue-900 mb-6 font-bold">災難醫學專科醫師甄審</h3>
-                    <div class="bg-blue-50 border-l-4 border-blue-900 p-6 mb-8 rounded-r-xl">
-                        <p class="text-lg font-bold text-blue-900 mb-2 font-bold text-blue-900">本會辦理災難醫學專科醫師甄審相關事宜。</p>
-                        <p class="text-red-600 font-bold mb-4 font-bold text-red-600">💡 提醒：每年 10 月至 11 月間，請務必前往本會 FB 官方粉絲專頁查看當年度甄審報名簡章公告。</p>
-                        <p class="flex items-center gap-2 font-bold">依據：<a href="https://drive.google.com/file/d/1jg_csfv2mdUllqJx2EEkWvPDWHy_LO27/view" target="_blank" class="text-blue-700 underline font-bold text-blue-700">本學會災難醫學專科甄審辦法 🔗</a></p>
+                    <h3 class="text-xl font-black text-blue-900 mb-4">災難醫學專科醫師甄審</h3>
+                    <div class="bg-blue-50 border-l-4 border-blue-900 p-4 mb-4 rounded-r-lg">
+                        <p class="text-red-600 font-bold mb-2">💡 提醒：每年 10-11 月間，請至 FB 粉專查看公告。</p>
+                        <p class="text-sm font-bold text-blue-800">依據：<a href="https://drive.google.com/file/d/1jg_csfv2mdUllqJx2EEkWvPDWHy_LO27/view" target="_blank" class="underline">甄審辦法 🔗</a></p>
                     </div>
                 </div>
             </div>
@@ -167,68 +147,47 @@
 
         <section id="newsletter-area" class="content-section">
             <div class="section-header">📰 災難醫學通訊</div>
-            <div class="flex flex-wrap mb-[-1px] relative z-10 px-2">
-                <button class="tab-btn active" onclick="switchSubTab(event, 'submission-info')">✍️ 投稿規則/同意書</button>
+            <div class="flex flex-wrap mb-[-1px] relative z-10 px-2 text-xs">
+                <button class="tab-btn active" onclick="switchSubTab(event, 'submission-info')">✍️ 投稿規則</button>
                 <button class="tab-btn" onclick="switchSubTab(event, 'vol1-issue1')">📖 第一卷第一期</button>
             </div>
-            <div class="bg-white p-8 md:p-12 rounded-3xl rounded-tl-none shadow-2xl border border-gray-200">
+            <div class="bg-white p-6 rounded-2xl rounded-tl-none shadow-lg border border-gray-200">
                 <div id="submission-info" class="sub-content active">
-                    <div class="grid md:grid-cols-2 gap-6 py-4 text-center">
-                        <a href="https://drive.google.com/file/d/1ID-AnX2V0rNAbQrTVApb04cHmh-3N21m/view" target="_blank" class="bg-blue-50 hover:bg-blue-100 text-blue-900 font-black py-8 px-6 rounded-2xl border-2 border-blue-200 transition shadow-lg text-lg flex items-center gap-2 justify-center font-black">
-                            <span>📜</span> 投稿規則
-                        </a>
-                        <a href="https://drive.google.com/file/d/1om0kLtZvkabFpZADVZRtN39wk3_Chcw6/view" target="_blank" class="bg-green-50 hover:bg-green-100 text-green-900 font-black py-8 px-6 rounded-2xl border-2 border-green-200 transition shadow-lg text-lg flex items-center gap-2 justify-center font-black">
-                            <span>✍️</span> 同意書
-                        </a>
+                    <div class="grid grid-cols-2 gap-4">
+                        <a href="https://drive.google.com/file/d/1ID-AnX2V0rNAbQrTVApb04cHmh-3N21m/view" target="_blank" class="bg-blue-50 p-4 rounded-xl border border-blue-100 font-black text-center text-sm">📜 投稿規則</a>
+                        <a href="https://drive.google.com/file/d/1om0kLtZvkabFpZADVZRtN39wk3_Chcw6/view" target="_blank" class="bg-green-50 p-4 rounded-xl border border-green-100 font-black text-center text-sm">✍️ 同意書</a>
                     </div>
                 </div>
                 <div id="vol1-issue1" class="sub-content">
-                    <iframe src="https://docs.google.com/document/d/e/2PACX-1vTUaigObimdT9FJF4wiRn0bF7SFga4g_mP8YgFKIe8VnMyD3kMhxkcRWrXQeTKyRt8XeLeMVtvfFUyi/pub?embedded=true" width="100%" height="800" frameborder="0"></iframe>
+                    <iframe src="https://docs.google.com/document/d/e/2PACX-1vTUaigObimdT9FJF4wiRn0bF7SFga4g_mP8YgFKIe8VnMyD3kMhxkcRWrXQeTKyRt8XeLeMVtvfFUyi/pub?embedded=true" width="100%" height="600" frameborder="0"></iframe>
                 </div>
             </div>
         </section>
 
         <section id="annals-area" class="content-section">
             <div class="section-header">🔬 Annals of Disaster Medicine</div>
-            <div class="bg-white p-8 md:p-12 rounded-3xl shadow-2xl border border-gray-200">
-                <div class="max-w-4xl mx-auto text-center">
-                    <h2 class="text-3xl font-black text-blue-900 mb-2 font-black">Annals of Disaster Medicine</h2>
-                    <p class="text-gray-500 font-bold mb-10 italic font-bold">ISSN: 1684-0291</p>
-                    <div class="grid md:grid-cols-2 gap-8">
-                        <div class="bg-slate-50 p-8 rounded-3xl border border-slate-100 shadow-sm flex flex-col items-center justify-center">
-                            <div class="w-16 h-16 bg-blue-100 text-blue-900 rounded-full flex items-center justify-center text-3xl mb-4">🔬</div>
-                            <h3 class="text-xl font-black text-blue-900 mb-4 font-black">Instructions for Authors</h3>
-                            <a href="https://drive.google.com/file/d/1pS2XRLNYTQTHHgnM0mZq4lu4Wd4jzQeY/view" target="_blank" class="bg-blue-900 hover:bg-blue-800 text-white px-8 py-3 rounded-full font-bold transition shadow-lg font-bold">下載投稿須知</a>
-                        </div>
-                        <div class="bg-slate-50 p-8 rounded-3xl border border-slate-100 shadow-sm flex flex-col items-center justify-center">
-                            <div class="w-16 h-16 bg-orange-100 text-orange-900 rounded-full flex items-center justify-center text-3xl mb-4">🔬</div>
-                            <h3 class="text-xl font-black text-blue-900 mb-4 font-black">Copyright Agreement</h3>
-                            <a href="https://drive.google.com/file/d/1pS2XRLNYTQTHHgnM0mZq4lu4Wd4jzQeY/view" target="_blank" class="bg-orange-600 hover:bg-orange-700 text-white px-8 py-3 rounded-full font-bold transition shadow-lg font-bold">下載同意書</a>
-                        </div>
-                    </div>
+            <div class="bg-white p-8 rounded-2xl shadow-lg border border-gray-200 text-center">
+                <h2 class="text-2xl font-black text-blue-900 mb-1">Annals of Disaster Medicine</h2>
+                <p class="text-gray-500 font-bold mb-6 italic text-sm">ISSN: 1684-0291</p>
+                <div class="grid grid-cols-2 gap-4 max-w-md mx-auto">
+                    <a href="https://drive.google.com/file/d/1pS2XRLNYTQTHHgnM0mZq4lu4Wd4jzQeY/view" target="_blank" class="bg-blue-900 text-white py-2 rounded-lg font-bold text-xs">下載投稿須知</a>
+                    <a href="https://drive.google.com/file/d/1pS2XRLNYTQTHHgnM0mZq4lu4Wd4jzQeY/view" target="_blank" class="bg-orange-600 text-white py-2 rounded-lg font-bold text-xs">下載同意書</a>
                 </div>
             </div>
         </section>
 
         <section id="donation-area" class="content-section">
             <div class="section-header">❤️ 支持捐款</div>
-            <div class="bg-white rounded-3xl shadow-2xl overflow-hidden border border-gray-200">
-                <iframe src="https://docs.google.com/forms/d/e/1FAIpQLSeM0GhLYrRMvbBH58Wiy2wrt-1QiRzlMVhnK523nE_uXDa_8g/viewform?embedded=true" width="100%" height="1500" frameborder="0"></iframe>
+            <div class="bg-white rounded-2xl shadow-lg overflow-hidden border border-gray-200">
+                <iframe src="https://docs.google.com/forms/d/e/1FAIpQLSeM0GhLYrRMvbBH58Wiy2wrt-1QiRzlMVhnK523nE_uXDa_8g/viewform?embedded=true" width="100%" height="1200" frameborder="0"></iframe>
             </div>
         </section>
 
     </main>
 
-    <footer class="bg-blue-950 text-gray-300 py-10 px-6 mt-auto border-t-4 border-orange-500 text-center">
-        <p class="text-lg font-black text-white mb-4">台灣災難醫學會 Taiwan Society for Disaster Medicine</p>
-        <div class="flex flex-col md:flex-row justify-center items-center gap-4 text-sm font-medium font-medium">
-            <span>📍 台北市士林區文昌路95號</span>
-            <span class="hidden md:inline opacity-30">|</span>
-            <span>📞 TEL: (02)2833-2211 ext. 2082</span>
-            <span class="hidden md:inline opacity-30">|</span>
-            <span>✉️ Email: ndmstw@gmail.com</span>
-        </div>
-        <p class="mt-6 text-xs opacity-40">© 2026 Taiwan Society for Disaster Medicine. All Rights Reserved.</p>
+    <footer class="bg-blue-950 text-gray-400 py-6 px-4 mt-auto text-center border-t-4 border-orange-500">
+        <p class="text-sm font-black text-white mb-2">台灣災難醫學會 Taiwan Society for Disaster Medicine</p>
+        <p class="text-[10px] opacity-50">© 2026 Taiwan Society for Disaster Medicine. All Rights Reserved.</p>
     </footer>
 
     <script>
@@ -236,7 +195,7 @@
             term9: { title: "第九屆理監事名冊", period: "民國114年01月至117年01月", list: { "【理事長】": "洪世文", "【常務理事】": "王宗倫、馬漢平、鄭銘泰、符凌斌", "【理事】": "李宜恭、張志華、蔡易廷、林志豪、陳國智、侯鐘閎、陳厚全、黃錦源、侯勝文、翁健瑞", "【常務監事】": "林秋梅", "【監事】": "李芳年、連楚明、蔡光超、白永嘉", "【秘書處】": "陳玉龍秘書長、陳暉翰副秘書長" } },
             term8: { title: "第八屆理監事名冊", period: "民國110年12月至113年12月", list: { "【理事長】": "王宗倫", "【常務理事】": "李宜恭、洪世文、馬漢平、張志華", "【理事】": "張志華、鄭銘泰、蔡易廷、洪世文、林志豪、陳國智、侯鐘閎、符凌斌、陳厚全、黃錦源", "【常務監事】": "林秋梅", "【監事】": "李芳年、連楚明、蔡光超、白永嘉", "【秘書處】": "侯勝文秘書長、陳玉龍副秘書長、鄭伯良副秘書長" } },
             term7: { title: "第七屆理監事名冊", period: "民國107年12月至110年12月", list: { "【理事長】": "王宗倫", "【常務理事】": "李宜恭、洪世文、馬漢平、張志華", "【理事】": "林志豪、侯鐘閎、符凌斌、陳國智、黃炳文、廖耕望、蔡卓城、蔡易廷、蔡維謀、鄭銘泰", "【常務監事】": "蔡光超", "【監事】": "白永嘉、李芳年、林秋梅、連楚明", "【秘書處】": "侯勝文秘長、陳玉龍副秘書長、鄭伯良副秘書長" } },
-            term6: { title: "第六屆理監事名冊", period: "民國104年11月至107年11月", list: { "【理事長】": "張珩", "【常務理事】": "李宜恭、馬漢平、蔡卓城、蔡維謀", "【理事】": "王宗倫、白永嘉、李賢發、邱豐祥、洪世文、莊佳璋", "【常務監事】": "林秋梅", "【監事】": "李芳年、連楚明、蔡光超、藍章杰", "【秘書處】": "李宜恭" } }
+            term6: { title: "第六屆理監事名冊", period: "民國104年11月至107年11月", list: { "【理事長】": "張珩", "【常務理事】": "李宜恭、馬漢平", "【理事】": "王宗倫、白永嘉", "【常務監事】": "林秋梅", "【監事】": "李芳年", "【秘書處】": "李宜恭" } }
         };
 
         window.onload = function() { 
@@ -255,9 +214,9 @@
 
         function updateRosterView(term) {
             const data = rosterData[term];
-            let html = `<h4 class="text-2xl font-black text-blue-900 mb-4 border-b pb-2 flex items-center gap-2">🏛️ ${data.title}</h4>`;
-            html += `<p class="mb-6 text-gray-500 font-bold text-sm">🗓️ 任職期間：${data.period}</p>`;
-            html += `<table class="w-full roster-table text-sm">`;
+            let html = `<h4 class="text-lg font-black text-blue-900 mb-2 border-b pb-1 flex items-center gap-2">🏛️ ${data.title}</h4>`;
+            html += `<p class="mb-4 text-gray-500 font-bold text-[10px]">🗓️ 任職期間：${data.period}</p>`;
+            html += `<table class="w-full roster-table">`;
             for (let [key, val] of Object.entries(data.list)) {
                 html += `<tr><th>${key}</th><td>${val}</td></tr>`;
             }
