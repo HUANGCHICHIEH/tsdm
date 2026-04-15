@@ -46,16 +46,14 @@
             </div>
             
             <div class="flex flex-wrap justify-center items-center gap-1.5">
-                <button onclick="showSection('activity-area', this)" class="nav-btn active">📢 最新消息與活動公告</button>
-                <button onclick="showSection('bylaws-area', this)" class="nav-btn">📜 學會章程</button>
+                <button onclick="showSection('activity-area', this)" class="nav-btn active">📢 最新活動消息</button>
+                <button onclick="showSection('bylaws-area', this)" class="nav-btn">📜 章程</button>
                 <button onclick="showSection('membership-area', this)" class="nav-btn">🤝 加入會員</button>
-                <button onclick="showSection('roster-area', this)" class="nav-btn">🏛️ 理監事名冊</button>
-                <button onclick="showSection('specialist-area', this)" class="nav-btn">🎓 災難專科</button>
+                <button onclick="showSection('roster-area', this)" class="nav-btn">🏛️ 名冊</button>
+                <button onclick="showSection('specialist-area', this)" class="nav-btn">🎓 專科</button>
                 <button onclick="showSection('newsletter-area', this)" class="nav-btn">📰 通訊</button>
                 <button onclick="showSection('annals-area', this)" class="nav-btn">🔬 Annals</button>
-                
                 <a href="https://www.facebook.com/TSDM2000" target="_blank" class="nav-btn">🌐 FB粉專</a>
-
                 <button onclick="showSection('donation-area', this)" class="bg-red-600 hover:bg-red-700 px-3 py-1 rounded-full font-bold transition shadow-md text-white flex items-center gap-1 text-xs">
                     ❤️ 捐款
                 </button>
@@ -68,35 +66,36 @@
         <section id="activity-area" class="content-section active">
             <div class="section-header">📢 最新消息與活動公告</div>
             
-            <div class="bg-white rounded-2xl shadow-lg border border-gray-100 overflow-hidden mb-6">
-                <div class="bg-orange-600 p-4 text-white"> <span class="bg-white text-orange-600 px-2 py-0.5 rounded text-[10px] font-black uppercase">研討會</span>
-                    <h2 class="text-2xl font-black mt-1">從世界看台灣的韌性醫療</h2>
-                </div>
-                
+            <div class="bg-orange-600 rounded-2xl shadow-lg overflow-hidden mb-6 text-white">
                 <div class="p-6">
-                    <div class="grid md:grid-cols-2 gap-4 mb-6">
-                        <div class="flex items-center gap-3 p-3 bg-blue-50 rounded-xl border border-blue-100">
-                            <span class="text-2xl">📅</span>
+                    <div class="mb-4">
+                        <span class="bg-white text-orange-600 px-2 py-0.5 rounded text-[10px] font-black uppercase inline-block mb-2">研討會公告</span>
+                        <h2 class="text-2xl md:text-3xl font-black leading-tight">從世界看台灣的韌性醫療</h2>
+                    </div>
+                    
+                    <div class="grid md:grid-cols-2 gap-4 pt-4 border-t border-white/20">
+                        <div class="flex items-center gap-3">
+                            <span class="text-xl opacity-80">📅</span>
                             <div class="text-sm">
-                                <p class="font-black text-blue-900 text-blue-800">2026/6/7 星期日</p>
-                                <p class="text-gray-600">08:00 - 12:10</p>
+                                <p class="font-black">2026/6/7 星期日</p>
+                                <p class="text-white/80">08:00 - 12:10</p>
                             </div>
                         </div>
-                        <div class="flex items-center gap-3 p-3 bg-orange-50 rounded-xl border border-orange-100">
-                            <span class="text-2xl">📍</span>
+                        <div class="flex items-center gap-3">
+                            <span class="text-xl opacity-80">📍</span>
                             <div class="text-sm">
-                                <p class="font-black text-orange-900 text-orange-800">新光醫院 B1 大會議室</p>
-                                <p class="text-gray-600">台北市士林區文昌路 95 號</p>
+                                <p class="font-black">新光醫院 B1 大會議室</p>
+                                <p class="text-white/80 text-xs">台北市士林區文昌路 95 號</p>
                             </div>
                         </div>
                     </div>
+                </div>
+            </div>
 
-                    <div class="border-t border-dashed border-gray-200 pt-6">
-                        <h4 class="text-lg font-black text-blue-900 mb-4 text-center">📝 活動線上報名系統</h4>
-                        <div class="rounded-lg overflow-hidden border border-gray-200 bg-gray-50 flex justify-center">
-                            <iframe src="https://docs.google.com/forms/d/e/1FAIpQLSfFWl898apz0HGgtsEhinyvFz3hooM_G1yz4PWsrZaFFvPmJw/viewform?embedded=true" width="100%" height="800" frameborder="0">載入中…</iframe>
-                        </div>
-                    </div>
+            <div class="bg-white rounded-2xl shadow-md border border-gray-100 p-6">
+                <h4 class="text-lg font-black text-blue-900 mb-4 text-center">📝 活動線上報名系統</h4>
+                <div class="rounded-lg overflow-hidden border border-gray-200 bg-gray-50 flex justify-center">
+                    <iframe src="https://docs.google.com/forms/d/e/1FAIpQLSfFWl898apz0HGgtsEhinyvFz3hooM_G1yz4PWsrZaFFvPmJw/viewform?embedded=true" width="100%" height="800" frameborder="0">載入中…</iframe>
                 </div>
             </div>
         </section>
@@ -145,32 +144,20 @@
         </section>
 
         <section id="newsletter-area" class="content-section">
-            <div class="section-header">📰 災難醫學通訊</div>
-            <div class="flex flex-wrap mb-[-1px] relative z-10 px-2 text-xs">
-                <button class="tab-btn active" onclick="switchSubTab(event, 'submission-info')">✍️ 投稿規則</button>
-                <button class="tab-btn" onclick="switchSubTab(event, 'vol1-issue1')">📖 第一卷第一期</button>
-            </div>
-            <div class="bg-white p-6 rounded-2xl rounded-tl-none shadow-lg border border-gray-200">
-                <div id="submission-info" class="sub-content active">
-                    <div class="grid grid-cols-2 gap-4">
-                        <a href="https://drive.google.com/file/d/1ID-AnX2V0rNAbQrTVApb04cHmh-3N21m/view" target="_blank" class="bg-blue-50 p-4 rounded-xl border border-blue-100 font-black text-center text-sm">📜 投稿規則</a>
-                        <a href="https://drive.google.com/file/d/1om0kLtZvkabFpZADVZRtN39wk3_Chcw6/view" target="_blank" class="bg-green-50 p-4 rounded-xl border border-green-100 font-black text-center text-sm">✍️ 同意書</a>
-                    </div>
-                </div>
-                <div id="vol1-issue1" class="sub-content">
-                    <iframe src="https://docs.google.com/document/d/e/2PACX-1vTUaigObimdT9FJF4wiRn0bF7SFga4g_mP8YgFKIe8VnMyD3kMhxkcRWrXQeTKyRt8XeLeMVtvfFUyi/pub?embedded=true" width="100%" height="600" frameborder="0"></iframe>
-                </div>
+            <div class="section-header">📰 通訊</div>
+            <div class="bg-white p-6 rounded-2xl shadow-lg border border-gray-200 text-center">
+                <p>資料整理中...</p>
             </div>
         </section>
 
         <section id="annals-area" class="content-section">
-            <div class="section-header">🔬 Annals of Disaster Medicine</div>
+            <div class="section-header">🔬 Annals</div>
             <div class="bg-white p-8 rounded-2xl shadow-lg border border-gray-200 text-center">
                 <h2 class="text-2xl font-black text-blue-900 mb-1">Annals of Disaster Medicine</h2>
                 <p class="text-gray-500 font-bold mb-6 italic text-sm">ISSN: 1684-0291</p>
                 <div class="grid grid-cols-2 gap-4 max-w-md mx-auto">
-                    <a href="https://drive.google.com/file/d/1pS2XRLNYTQTHHgnM0mZq4lu4Wd4jzQeY/view" target="_blank" class="bg-blue-900 text-white py-2 rounded-lg font-bold text-xs">下載投稿須知</a>
-                    <a href="https://drive.google.com/file/d/1pS2XRLNYTQTHHgnM0mZq4lu4Wd4jzQeY/view" target="_blank" class="bg-orange-600 text-white py-2 rounded-lg font-bold text-xs">下載同意書</a>
+                    <a href="https://drive.google.com/file/d/1pS2XRLNYTQTHHgnM0mZq4lu4Wd4jzQeY/view" target="_blank" class="bg-blue-900 text-white py-2 rounded-lg font-bold text-xs">投稿須知</a>
+                    <a href="https://drive.google.com/file/d/1pS2XRLNYTQTHHgnM0mZq4lu4Wd4jzQeY/view" target="_blank" class="bg-orange-600 text-white py-2 rounded-lg font-bold text-xs">同意書</a>
                 </div>
             </div>
         </section>
@@ -185,14 +172,16 @@
     </main>
 
     <footer class="bg-blue-950 text-gray-400 py-6 px-4 mt-auto text-center border-t-4 border-orange-500">
-        <p class="text-sm font-black text-white mb-2 font-black">台灣災難醫學會 Taiwan Society for Disaster Medicine</p>
-        <p class="text-[10px] opacity-50 font-medium">© 2026 Taiwan Society for Disaster Medicine. All Rights Reserved.</p>
+        <p class="text-sm font-black text-white mb-2">台灣災難醫學會 Taiwan Society for Disaster Medicine</p>
+        <p class="text-[10px] opacity-50">© 2026 Taiwan Society for Disaster Medicine. All Rights Reserved.</p>
     </footer>
 
     <script>
         const rosterData = {
             term9: { title: "第九屆理監事名冊", period: "民國114年01月至117年01月", list: { "【理事長】": "洪世文", "【常務理事】": "王宗倫、馬漢平、鄭銘泰、符凌斌", "【理事】": "李宜恭、張志華、蔡易廷、林志豪、陳國智、侯鐘閎、陳厚全、黃錦源、侯勝文、翁健瑞", "【常務監事】": "林秋梅", "【監事】": "李芳年、連楚明、蔡光超、白永嘉", "【秘書處】": "陳玉龍秘書長、陳暉翰副秘書長" } },
-            term8: { title: "第八屆理監事名冊", period: "民國110年12月至113年12月", list: { "【理事長】": "王宗倫", "【常務理事】": "李宜恭、洪世文、馬漢平、張志華", "【理事】": "張志華、鄭銘泰、蔡易廷、洪世文、林志豪、陳國智、侯鐘閎、符凌斌", "【常務監事】": "林秋梅", "【監事】": "李芳年、連楚明、蔡光超、白永嘉" } }
+            term8: { title: "第八屆理監事名冊", period: "民國110年12月至113年12月", list: { "【理事長】": "王宗倫", "【常務理事】": "李宜恭、洪世文、馬漢平、張志華", "【理事】": "張志華、鄭銘泰、蔡易廷、洪世文、林志豪、陳國智、侯鐘閎、符凌斌", "【常務監事】": "林秋梅", "【監事】": "李芳年、連楚明、蔡光超、白永嘉" } },
+            term7: { title: "第七屆理監事名冊", period: "民國107年12月至110年12月", list: { "【理事長】": "王宗倫", "【常務理事】": "李宜恭、洪世文、馬漢平、張志華", "【理事】": "林志豪、侯鐘閎、符凌斌、陳國智、黃炳文、廖耕望、蔡卓城、蔡易廷、蔡維謀、鄭銘泰", "【常務監事】": "蔡光超", "【監事】": "白永嘉、李芳年、林秋梅、連楚明", "【秘書處】": "侯勝文秘長、陳玉龍副秘書長、鄭伯良副秘書長" } },
+            term6: { title: "第六屆理監事名冊", period: "民國104年11月至107年11月", list: { "【理事長】": "張珩", "【常務理事】": "李宜恭、馬漢平", "【理事】": "王宗倫、白永嘉", "【常務監事】": "林秋梅", "【監事】": "李芳年", "【秘書處】": "李宜恭" } }
         };
 
         window.onload = function() { 
