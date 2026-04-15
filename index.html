@@ -6,9 +6,9 @@
     <title>台灣災難醫學會 TSDM</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <style>
-        /* 導覽列按鈕與動態提示：橘底白字樣式 */
+        /* 導覽列按鈕與動態提示：縮減內距與間距，變得更緊密 */
         .nav-btn { 
-            @apply px-4 py-2 transition-all duration-300 rounded-lg text-white hover:bg-blue-800 flex items-center gap-2; 
+            @apply px-2.5 py-1.5 transition-all duration-300 rounded-lg text-white hover:bg-blue-800 flex items-center gap-1 text-sm; 
         }
         .nav-btn.active { 
             @apply bg-orange-500 text-white font-black shadow-inner scale-105; 
@@ -38,14 +38,14 @@
 </head>
 <body class="bg-slate-50 text-gray-800 flex flex-col min-h-screen">
 
-    <nav class="bg-blue-900 text-white p-5 shadow-2xl sticky top-0 z-50">
-        <div class="container mx-auto flex flex-col lg:flex-row justify-between items-center">
-            <div class="flex items-center mb-4 lg:mb-0 cursor-pointer group" onclick="showSection('activity-area', document.querySelector('.nav-btn'))">
-                <img src="logo.png" alt="Logo" class="h-16 w-auto mr-4 transition-transform group-hover:scale-110 shrink-0">
-                <h1 class="text-2xl font-black tracking-widest whitespace-nowrap">台灣災難醫學會</h1>
+    <nav class="bg-blue-900 text-white py-2 px-4 shadow-2xl sticky top-0 z-50">
+        <div class="container mx-auto flex flex-col lg:flex-row justify-between items-center gap-2">
+            <div class="flex items-center mb-2 lg:mb-0 cursor-pointer group" onclick="showSection('activity-area', document.querySelector('.nav-btn'))">
+                <img src="logo.png" alt="Logo" class="h-10 w-auto mr-3 transition-transform group-hover:scale-110 shrink-0">
+                <h1 class="text-xl md:text-2xl font-black tracking-widest whitespace-nowrap">台灣災難醫學會</h1>
             </div>
             
-            <div class="flex flex-wrap justify-center items-center gap-3 text-sm md:text-base">
+            <div class="flex flex-wrap justify-center items-center gap-1.5">
                 <button onclick="showSection('activity-area', this)" class="nav-btn active">📢消息與活動</button>
                 <button onclick="showSection('bylaws-area', this)" class="nav-btn">📜 學會章程</button>
                 <button onclick="showSection('membership-area', this)" class="nav-btn">🤝 加入會員</button>
@@ -58,7 +58,7 @@
                     🌐 FB粉絲專頁
                 </a>
 
-                <button onclick="showSection('donation-area', this)" class="bg-red-600 hover:bg-red-700 px-5 py-2 rounded-full font-black transition shadow-lg text-white flex items-center gap-2">
+                <button onclick="showSection('donation-area', this)" class="bg-red-600 hover:bg-red-700 px-3 py-1.5 rounded-full font-black transition shadow-lg text-white flex items-center gap-1 text-sm">
                     ❤️ 支持捐款
                 </button>
             </div>
@@ -84,10 +84,7 @@
                     </div>
                 </div>
             </div>
-                    <div class="border-t-2 border-dashed border-gray-200 pt-8 mt-8">
-                        <h4 class="text-xl font-black text-blue-900 mb-6 flex items-center gap-2 justify-center">
-                            📝 活動線上報名系統
-                        </h4>
+                    <div class="border-t-2 border-dashed border-gray-200 pt-4 mt-4">
                         <div class="rounded-xl overflow-hidden border border-gray-200 shadow-inner bg-gray-50 flex justify-center">
                             <iframe src="https://docs.google.com/forms/d/e/1FAIpQLSfFWl898apz0HGgtsEhinyvFz3hooM_G1yz4PWsrZaFFvPmJw/viewform?embedded=true" width="100%" height="1200" frameborder="0" marginheight="0" marginwidth="0">載入中…</iframe>
                         </div>
