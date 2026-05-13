@@ -6,9 +6,8 @@
     <title>台灣災難醫學會 TSDM</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <style>
-        /* 導覽列按鈕與動態提示：縮減內距與間距，變得更緊密 */
         .nav-btn { 
-            @apply px-2.5 py-1.5 transition-all duration-300 rounded-lg text-white hover:bg-blue-800 flex items-center gap-1 text-sm; 
+            @apply px-4 py-2 transition-all duration-300 rounded-lg text-white hover:bg-blue-800 flex items-center gap-2; 
         }
         .nav-btn.active { 
             @apply bg-orange-500 text-white font-black shadow-inner scale-105; 
@@ -38,27 +37,27 @@
 </head>
 <body class="bg-slate-50 text-gray-800 flex flex-col min-h-screen">
 
-    <nav class="bg-blue-900 text-white py-2 px-4 shadow-2xl sticky top-0 z-50">
-        <div class="container mx-auto flex flex-col lg:flex-row justify-between items-center gap-2">
-            <div class="flex items-center mb-2 lg:mb-0 cursor-pointer group" onclick="showSection('activity-area', document.querySelector('.nav-btn'))">
-                <img src="logo.png" alt="Logo" class="h-10 w-auto mr-3 transition-transform group-hover:scale-110 shrink-0">
-                <h1 class="text-xl md:text-2xl font-black tracking-widest whitespace-nowrap">台灣災難醫學會</h1>
+    <nav class="bg-blue-900 text-white p-5 shadow-2xl sticky top-0 z-50">
+        <div class="container mx-auto flex flex-col lg:flex-row justify-between items-center">
+            <div class="flex items-center mb-4 lg:mb-0 cursor-pointer group" onclick="showSection('activity-area', document.querySelector('.nav-btn'))">
+                <img src="logo.png" alt="Logo" class="h-16 w-auto mr-4 transition-transform group-hover:scale-110 shrink-0">
+                <h1 class="text-2xl font-black tracking-widest whitespace-nowrap">台灣災難醫學會</h1>
             </div>
             
-            <div class="flex flex-wrap justify-center items-center gap-1.5">
+            <div class="flex flex-wrap justify-center items-center gap-3 text-sm md:text-base">
                 <button onclick="showSection('activity-area', this)" class="nav-btn active">📢消息與活動</button>
-                <button onclick="showSection('bylaws-area', this)" class="nav-btn">📜學會章程</button>
-                <button onclick="showSection('membership-area', this)" class="nav-btn">🤝加入會員</button>
-                <button onclick="showSection('roster-area', this)" class="nav-btn">🏛️理監事名冊</button>
-                <button onclick="showSection('specialist-area', this)" class="nav-btn">🎓災難專科</button>
-                <button onclick="showSection('newsletter-area', this)" class="nav-btn">📰災難醫學通訊</button>
-                <button onclick="showSection('annals-area', this)" class="nav-btn">🔬Annals</button>
+                <button onclick="showSection('bylaws-area', this)" class="nav-btn">📜 學會章程</button>
+                <button onclick="showSection('membership-area', this)" class="nav-btn">🤝 加入會員</button>
+                <button onclick="showSection('roster-area', this)" class="nav-btn">🏛️ 理監事名冊</button>
+                <button onclick="showSection('specialist-area', this)" class="nav-btn">🎓 災難專科</button>
+                <button onclick="showSection('newsletter-area', this)" class="nav-btn">📰 災難醫學通訊</button>
+                <button onclick="showSection('annals-area', this)" class="nav-btn">🔬 Annals of Disaster Medicine</button>
                 
                 <a href="https://www.facebook.com/TSDM2000" target="_blank" class="nav-btn">
-                    🌐FB專頁
+                    🌐 FB粉絲專頁
                 </a>
 
-                <button onclick="showSection('donation-area', this)" class="bg-red-600 hover:bg-red-700 px-3 py-1.5 rounded-full font-black transition shadow-lg text-white flex items-center gap-1 text-sm">
+                <button onclick="showSection('donation-area', this)" class="bg-red-600 hover:bg-red-700 px-5 py-2 rounded-full font-black transition shadow-lg text-white flex items-center gap-2">
                     ❤️ 支持捐款
                 </button>
             </div>
@@ -70,40 +69,29 @@
         <section id="activity-area" class="content-section active">
             <div class="section-header">📢 消息與活動</div>
             
-            <div class="mb-6 px-2">
+<div class="mb-6 px-2">
                 <div class="flex flex-col md:flex-row md:items-center gap-2 md:gap-4 text-gray-800">
                     <span class="bg-orange-500 text-white px-2 py-0.5 rounded text-[10px] font-black uppercase inline-block self-start mt-1 md:mt-0">研討會</span>
-                    <h2 class="text-xl md:text-2xl font-black text-blue-900 leading-tight">從世界看台灣：韌性醫療的實踐、挑戰與下一步</h2>
+                    <h2 class="text-xl md:text-2xl font-black text-blue-900 leading-tight">從世界看台灣的韌性醫療</h2>
                     
                     <span class="hidden md:inline text-gray-300">|</span>
                     
                     <div class="flex flex-wrap items-center gap-x-4 gap-y-1 text-sm font-bold text-gray-600">
                         <span class="flex items-center gap-1">📅 2026/6/7 (日) 08:00-12:10</span>
                         <span class="hidden md:inline text-gray-300">|</span>
-                        <span class="flex items-center gap-1">📍 新光醫院 B1 大會議室(台北市士林區文昌路95號) </span>
+                        <span class="flex items-center gap-1">📍 新光醫院 B1 大會議室 <span class="text-xs text-gray-400 font-normal hidden lg:inline">(台北市士林區文昌路95號)</span></span>
+                    </div>
+                </div>
+            </div>
+                    <div class="border-t-2 border-dashed border-gray-200 pt-8 mt-8">
+                        <div class="rounded-xl overflow-hidden border border-gray-200 shadow-inner bg-gray-50 flex justify-center">
+                            <iframe src="https://docs.google.com/forms/d/e/1FAIpQLSfFWl898apz0HGgtsEhinyvFz3hooM_G1yz4PWsrZaFFvPmJw/viewform?embedded=true" width="100%" height="1200" frameborder="0" marginheight="0" marginwidth="0">載入中…</iframe>
+                        </div>
                     </div>
                 </div>
             </div>
 
-            <div class="border-t-2 border-dashed border-gray-200 pt-6 mt-4 pb-8">
-<div class="border-t-2 border-dashed border-gray-200 pt-6 mt-4 pb-8">
-    
-    <div class="flex justify-center mb-8">
-        <a href="https://reurl.cc/9W34XY" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-3 bg-orange-600 hover:bg-orange-700 text-white font-black py-4 px-10 rounded-xl shadow-xl transition transform hover:-translate-y-1 hover:scale-105">
-            <span class="text-xl">📝 前往填寫報名表單</span>
-        </a>
-    </div>
-
-    <div class="flex justify-center mb-8">
-        <img src="20260607course.png" alt="20260607課程表" class="w-[85%] h-auto rounded-xl shadow-md border border-gray-200">
-    </div>
-    
-</div>
-                
-               
-            </div>
-
-            <div class="bg-gray-100 p-8 rounded-3xl border border-gray-200 text-center mt-4">
+            <div class="bg-gray-100 p-8 rounded-3xl border border-gray-200 text-center">
                 <h4 class="text-xl font-black text-blue-900 mb-4">更多學術活動或教育訓練</h4>
                 <p class="text-gray-600 mb-6">最新的消息、活動公告與報名資訊，亦可前往我們的官方粉絲專頁查詢。</p>
                 <a href="https://www.facebook.com/TSDM2000" target="_blank" class="inline-flex items-center bg-[#1877F2] hover:bg-blue-700 text-white font-black py-3 px-8 rounded-full shadow-lg transition transform hover:-translate-y-1 gap-3">
@@ -193,14 +181,37 @@
             </div>
         </section>
 
+        <!-- ======= 災難醫學通訊區塊 (已依需求調整) ======= -->
         <section id="newsletter-area" class="content-section">
             <div class="section-header">📰 災難醫學通訊</div>
-            <div class="flex flex-wrap mb-[-1px] relative z-10 px-2">
-                <button class="tab-btn active" onclick="switchSubTab(event, 'submission-info')">✍️ 投稿規則/同意書</button>
-                <button class="tab-btn" onclick="switchSubTab(event, 'vol1-issue1')">📖 第一卷第一期</button>
+            
+            <!-- 依序排列的頁籤按鈕 -->
+            <div class="flex flex-wrap mb-[-1px] relative z-10 px-2 gap-y-2">
+                <button class="tab-btn active" onclick="switchSubTab(event, 'editorial-board')">📖 編輯群</button>
+                <button class="tab-btn" onclick="switchSubTab(event, 'preface')">📖 序</button>
+                <button class="tab-btn" onclick="switchSubTab(event, 'vol1-issue1')">📖 創刊號第一卷第一期</button>
+                <button class="tab-btn" onclick="switchSubTab(event, 'submission-info')">✍️ 投稿規則/同意書</button>
             </div>
+            
             <div class="bg-white p-8 md:p-12 rounded-3xl rounded-tl-none shadow-2xl border border-gray-200">
-                <div id="submission-info" class="sub-content active">
+                
+                <!-- 1. 編輯群 -->
+                <div id="editorial-board" class="sub-content active">
+                    <iframe src="https://docs.google.com/document/d/e/2PACX-1vQKiu2Xucv0LhVn6RD9-bSAJBLMehHbPihDGKeKD0NBLkC5vNwEWUvU8MHZ4Q0H1XMauSeAdEcpYdOJ/pub?embedded=true" width="100%" height="800" frameborder="0"></iframe>
+                </div>
+
+                <!-- 2. 序 -->
+                <div id="preface" class="sub-content">
+                    <iframe src="https://docs.google.com/document/d/e/2PACX-1vQoWQeOoS2vRPUWj7lbBuKEdHS81AebdX_WFFTfyeAcl0PfydNc4MvyTMY4c0j1_MewfdqmHA7CKnHK/pub?embedded=true" width="100%" height="800" frameborder="0"></iframe>
+                </div>
+
+                <!-- 3. 創刊號第一卷第一期 -->
+                <div id="vol1-issue1" class="sub-content">
+                    <iframe src="https://docs.google.com/document/d/e/2PACX-1vTUaigObimdT9FJF4wiRn0bF7SFga4g_mP8YgFKIe8VnMyD3kMhxkcRWrXQeTKyRt8XeLeMVtvfFUyi/pub?embedded=true" width="100%" height="800" frameborder="0"></iframe>
+                </div>
+
+                <!-- 4. 投稿規則/同意書 -->
+                <div id="submission-info" class="sub-content">
                     <div class="grid md:grid-cols-2 gap-6 py-4 text-center">
                         <a href="https://drive.google.com/file/d/1ID-AnX2V0rNAbQrTVApb04cHmh-3N21m/view" target="_blank" class="bg-blue-50 hover:bg-blue-100 text-blue-900 font-black py-8 px-6 rounded-2xl border-2 border-blue-200 transition shadow-lg text-lg flex items-center gap-2 justify-center">
                             <span>📜</span> 投稿規則
@@ -210,11 +221,10 @@
                         </a>
                     </div>
                 </div>
-                <div id="vol1-issue1" class="sub-content">
-                    <iframe src="https://docs.google.com/document/d/e/2PACX-1vTUaigObimdT9FJF4wiRn0bF7SFga4g_mP8YgFKIe8VnMyD3kMhxkcRWrXQeTKyRt8XeLeMVtvfFUyi/pub?embedded=true" width="100%" height="800" frameborder="0"></iframe>
-                </div>
+
             </div>
         </section>
+        <!-- ============================================= -->
 
         <section id="annals-area" class="content-section">
             <div class="section-header">🔬 Annals of Disaster Medicine</div>
