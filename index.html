@@ -86,16 +86,14 @@
             </div>
 
             <div class="border-t-2 border-dashed border-gray-200 pt-6 mt-4 pb-8">
-                <div class="border-t-2 border-dashed border-gray-200 pt-6 mt-4 pb-8">
-                    <div class="flex justify-center mb-8">
-                        <a href="https://reurl.cc/9W34XY" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-3 bg-orange-600 hover:bg-orange-700 text-white font-black py-4 px-10 rounded-xl shadow-xl transition transform hover:-translate-y-1 hover:scale-105">
-                            <span class="text-xl">📝 前往填寫報名表單</span>
-                        </a>
-                    </div>
+                <div class="flex justify-center mb-8">
+                    <a href="https://reurl.cc/9W34XY" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-3 bg-orange-600 hover:bg-orange-700 text-white font-black py-4 px-10 rounded-xl shadow-xl transition transform hover:-translate-y-1 hover:scale-105">
+                        <span class="text-xl">📝 前往填寫報名表單</span>
+                    </a>
+                </div>
 
-                    <div class="flex justify-center mb-8">
-                        <img src="20260607course.png" alt="20260607課程表" class="w-[85%] h-auto rounded-xl shadow-md border border-gray-200">
-                    </div>
+                <div class="flex justify-center mb-8">
+                    <img src="20260607course.png" alt="20260607課程表" class="w-[85%] h-auto rounded-xl shadow-md border border-gray-200">
                 </div>
             </div>
 
@@ -137,8 +135,8 @@
                         <div class="border border-amber-100 rounded-2xl p-5 bg-amber-50/50">
                             <h5 class="text-lg font-black text-amber-900 mb-4 border-b border-amber-200 pb-2">💰 會費說明</h5>
                             <ul class="text-sm space-y-3 text-gray-700 font-medium">
-                                <li><strong>(1)入會費（首次繳納）：</strong> 個人 1,000 元、相關 500 元、團體 10,000 元。</li>
-                                <li><strong>(2)常年會費（每年繳納）：</strong> 個人 1,000 元、相關 300 元、團體 3,000 元。</li>
+                                <li><strong>(1)入會費（首次繳納）：</strong> 個人 1,000 元、相關 500 元、團體 10,000 元.</li>
+                                <li><strong>(2)常年會費（每年繳納）：</strong> 個人 1,000 元、相關 300 元、團體 3,000 元.</li>
                             </ul>
                         </div>
                     </div>
@@ -159,17 +157,17 @@
 
         <section id="roster-area" class="content-section">
             <div class="section-header">🏛️ 理監事名冊</div>
-            <div class="flex flex-wrap mb-[-1px] relative z-10 px-2">
+            <div class="flex flex-wrap mb-[-1px] relative z-10 px-2 gap-y-2">
                 <button class="tab-btn active" onclick="switchRoster(event, 'term9')">🥇 第九屆</button>
                 <button class="tab-btn" onclick="switchRoster(event, 'term8')">🥈 第八屆</button>
                 <button class="tab-btn" onclick="switchRoster(event, 'term7')">🥉 第七屆</button>
                 <button class="tab-btn" onclick="switchRoster(event, 'term6')">🎖️ 第六屆</button>
+                <button class="tab-btn" onclick="switchRoster(event, 'term1_5')">📜 第一屆至第五屆</button>
             </div>
             <div class="bg-white p-6 md:p-10 rounded-3xl rounded-tl-none shadow-2xl border border-gray-200 min-h-[500px]">
                 <div id="roster-view">載入中...</div>
             </div>
         </section>
-
         <section id="specialist-area" class="content-section">
             <div class="section-header">🎓 災難專科</div>
             <div class="bg-white p-8 md:p-12 rounded-3xl shadow-2xl border border-gray-200">
@@ -189,11 +187,9 @@
             </div>
         </section>
 
-        <!-- 修改此區域：災難醫學通訊 -->
         <section id="newsletter-area" class="content-section">
             <div class="section-header">📰 災難醫學通訊</div>
             <div class="flex flex-wrap mb-[-1px] relative z-10 px-2 gap-y-2">
-                <!-- 重新排序並加入新頁籤 -->
                 <button class="tab-btn active" onclick="switchSubTab(event, 'editorial-board')">📖 編輯群</button>
                 <button class="tab-btn" onclick="switchSubTab(event, 'preface')">📖 序</button>
                 <button class="tab-btn" onclick="switchSubTab(event, 'vol1-issue1')">📖 創刊號第一卷第一期</button>
@@ -201,22 +197,18 @@
             </div>
             <div class="bg-white p-8 md:p-12 rounded-3xl rounded-tl-none shadow-2xl border border-gray-200">
                 
-                <!-- 新增：編輯群 -->
                 <div id="editorial-board" class="sub-content active">
                     <iframe src="https://docs.google.com/document/d/e/2PACX-1vQKiu2Xucv0LhVn6RD9-bSAJBLMehHbPihDGKeKD0NBLkC5vNwEWUvU8MHZ4Q0H1XMauSeAdEcpYdOJ/pub?embedded=true" width="100%" height="800" frameborder="0"></iframe>
                 </div>
 
-                <!-- 新增：序 -->
                 <div id="preface" class="sub-content">
                     <iframe src="https://docs.google.com/document/d/e/2PACX-1vQoWQeOoS2vRPUWj7lbBuKEdHS81AebdX_WFFTfyeAcl0PfydNc4MvyTMY4c0j1_MewfdqmHA7CKnHK/pub?embedded=true" width="100%" height="800" frameborder="0"></iframe>
                 </div>
 
-                <!-- 創刊號第一卷第一期 -->
                 <div id="vol1-issue1" class="sub-content">
                     <iframe src="https://docs.google.com/document/d/e/2PACX-1vTUaigObimdT9FJF4wiRn0bF7SFga4g_mP8YgFKIe8VnMyD3kMhxkcRWrXQeTKyRt8XeLeMVtvfFUyi/pub?embedded=true" width="100%" height="800" frameborder="0"></iframe>
                 </div>
 
-                <!-- 投稿規則/同意書 -->
                 <div id="submission-info" class="sub-content">
                     <div class="grid md:grid-cols-2 gap-6 py-4 text-center">
                         <a href="https://drive.google.com/file/d/1ID-AnX2V0rNAbQrTVApb04cHmh-3N21m/view" target="_blank" class="bg-blue-50 hover:bg-blue-100 text-blue-900 font-black py-8 px-6 rounded-2xl border-2 border-blue-200 transition shadow-lg text-lg flex items-center gap-2 justify-center">
@@ -279,7 +271,7 @@
             term9: { title: "第九屆理監事名冊", period: "民國114年01月至117年01月", list: { "【理事長】": "洪世文", "【常務理事】": "王宗倫、馬漢平、鄭銘泰、符凌斌", "【理事】": "李宜恭、張志華、蔡易廷、林志豪、陳國智、侯鐘閎、陳厚全、黃錦源、侯勝文、翁健瑞", "【常務監事】": "林秋梅", "【監事】": "李芳年、連楚明、蔡光超、白永嘉", "【秘書處】": "陳玉龍秘書長、陳暉翰副秘書長" } },
             term8: { title: "第八屆理監事名冊", period: "民國110年12月至113年12月", list: { "【理事長】": "王宗倫", "【常務理事】": "李宜恭、洪世文、馬漢平、張志華", "【理事】": "張志華、鄭銘泰、蔡易廷、洪世文、林志豪、陳國智、侯鐘閎、符凌斌、陳厚全、黃錦源", "【常務監事】": "林秋梅", "【監事】": "李芳年、連楚明、蔡光超、白永嘉", "【秘書處】": "侯勝文秘書長、陳玉龍副秘書長、鄭伯良副秘書長" } },
             term7: { title: "第七屆理監事名冊", period: "民國107年12月至110年12月", list: { "【理事長】": "王宗倫", "【常務理事】": "李宜恭、洪世文、馬漢平、張志華", "【理事】": "林志豪、侯鐘閎、符凌斌、陳國智、黃炳文、廖耕望、蔡卓城、蔡易廷、蔡維謀、鄭銘泰", "【常務監事】": "蔡光超", "【監事】": "白永嘉、李芳年、林秋梅、連楚明", "【秘書處】": "侯勝文秘長、陳玉龍副秘書長、鄭伯良副秘書長" } },
-            term6: { title: "第六屆理監事名冊", period: "民國104年11月至107年11月", list: { "【理事長】": "張珩", "【常務理事】": "李宜恭、馬漢平、蔡卓城、蔡維謀", "【理事】": "王宗倫、白永嘉、李賢發、邱豐祥、洪世文、莊佳璋、陳國智、黃炳文、蔡明哲、蔡易廷", "【常務監事】": "林秋梅", "【監事】": "李芳年、連楚明、蔡光超、藍章杰", "【秘書處】": "李宜恭" } }
+            term6: { title: "第六屆理監事名冊", period: "民國104年11月至107年11月", list: { "【理事長】": "張珩", "【常務理事】": "李宜恭、馬漢平、蔡卓城、蔡維謀", "【理事】": "王宗倫、白永嘉、李賢發、邱豐祥、洪世文、莊佳璋", "【常務監事】": "林秋梅", "【監事】": "李芳年、連楚明、蔡光超、藍章杰", "【秘書處】": "李宜恭" } }
         };
 
         window.onload = function() { 
@@ -296,7 +288,12 @@
             window.scrollTo({ top: 0, behavior: 'smooth' });
         }
 
+        // 修改此處：新增判斷當傳入 'term1_5' 時，直接渲染 Google 文件內嵌框架
         function updateRosterView(term) {
+            if (term === 'term1_5') {
+                document.getElementById('roster-view').innerHTML = `<iframe src="https://docs.google.com/document/d/e/2PACX-1vQYGFkrBGT7NBKwr0dlkuhRPNPRLPCPjJMs9DpcPbHnRz1VgG5j1mWNgaGZZidHB-kvLz885CJcubBq/pub?embedded=true" width="100%" height="800" frameborder="0"></iframe>`;
+                return;
+            }
             const data = rosterData[term];
             let html = `<h4 class="text-2xl font-black text-blue-900 mb-4 border-b pb-2 flex items-center gap-2">🏛️ ${data.title}</h4>`;
             html += `<p class="mb-6 text-gray-500 font-bold text-sm">🗓️ 任職期間：${data.period}</p>`;
